@@ -4,16 +4,18 @@ This is the supplementary material for `SnowWhite`, a type prediction system as 
 
 It contains the source code, input dataset, trained models, and final evaluation results to help others understand, replicate, and extend our work.
 Please open an issue in case you have a question or trouble executing the steps below.
-There currently is no Docker image or one-click script to run all the steps below. 
+There currently is no Docker image or one-click script to run all the steps below.
 
 ## Setup and Requirements
 
 We tested and developed the system on Ubuntu 18.04 LTS with:
 
 - Python 3.8 with `numpy` and `pandas`, and Bash for general scripting.
+<!-- We use Python 3.8.20 installed with pyenv -->
 - 7z/p7zip: for extracting the compressed datasets.
 - [Jupyter Notebook](https://jupyter.org/install): for quick data inspection, extracting common name list.
 - [OpenNMT-py 2.0](https://opennmt.net/OpenNMT-py/main.html): for implementation of the sequence-to-sequence models themselves.
+<!-- We use pip install spacy==3.7.0;pip install OpenNMT-py -->
 - [SentencePiece](https://github.com/google/sentencepiece): for subword models for WebAssembly and type sequences.
 - [Rust](https://www.rust-lang.org/) distribution with compiler and `cargo` package manager: for parsing WebAssembly and DWARF information and training data extraction.
 - [Emscripten](https://emscripten.org/): for compiling C/C++ code to WebAssembly with DWARF info, ideally install into `~/emsdk/`.
@@ -37,7 +39,7 @@ This repository is roughly organized into the following directories and files:
     * `subword/`: SentencePiece subword models for WebAssembly and type tokens.
     * `seq2seq/`: OpenNMT-py 2.0 sequence-to-sequence neural model. Config files used for `onmt_build_vocab` and `onmt_train` and saved model parameters checkpoint of the best model on the dev dataset.
 - `results-testdata/`: Predictions of both the statistical baseline model (see paper) and our best model, for each combination of the five type languages (see paper) and param/return type prediction.
-    * See the test set in `dataset.7z` for the respective WebAssembly input sequences. 
+    * See the test set in `dataset.7z` for the respective WebAssembly input sequences.
     * `predictions.*.txt`: Since we use beam search with n=5 beams, there are n times as many predictions as there are input sequences.
     * `*.eval.log`: Output of our final evaluation script with measures such as top-k exact match accuracy, type prefix score, BLEU etc.
 - **Compressed data**: A lot of the data compresses extraordinarily well, e.g., the raw WebAssembly binaries (90 -> 6GB) and textual training data (20GB -> 2GB). We compressed them with `7z a -t7z -m0=lzma2 -mx=9 <compressed.7z> <input>`. Those files end in `.7z`. Make sure there is enough disk space available before unpacking.
