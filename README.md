@@ -15,7 +15,7 @@ We tested and developed the system on Ubuntu 18.04 LTS with:
 - 7z/p7zip: for extracting the compressed datasets.
 - [Jupyter Notebook](https://jupyter.org/install): for quick data inspection, extracting common name list.
 - [OpenNMT-py 2.0](https://opennmt.net/OpenNMT-py/main.html): for implementation of the sequence-to-sequence models themselves.
-<!-- We use pip install spacy==3.7.0;pip install OpenNMT-py -->
+<!-- We use pip install OpenNMT-py==2.3.0 -->
 - [SentencePiece](https://github.com/google/sentencepiece): for subword models for WebAssembly and type sequences.
 - [Rust](https://www.rust-lang.org/) distribution with compiler and `cargo` package manager: for parsing WebAssembly and DWARF information and training data extraction.
 - [Emscripten](https://emscripten.org/): for compiling C/C++ code to WebAssembly with DWARF info, ideally install into `~/emsdk/`.
