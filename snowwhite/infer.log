@@ -1,0 +1,41 @@
+[2024-11-22 17:34:02,543 INFO] Loading checkpoint from best.pt
+[2024-11-22 17:35:52,610 INFO] Loading checkpoint from best.pt
+[2024-11-22 17:36:10,671 INFO] Loading checkpoint from best.pt
+[2024-11-22 19:06:36,060 INFO] Loading checkpoint from test_model_step_14000.pt
+[2024-11-22 19:06:36,229 INFO] Loading data into the model
+[2024-11-22 19:08:41,602 INFO] Loading checkpoint from test_model_step_14000.pt
+[2024-11-22 19:08:41,770 INFO] Loading data into the model
+[2024-11-22 19:10:21,404 INFO] Loading checkpoint from test_model_step_14000.pt
+[2024-11-22 19:10:21,581 INFO] Loading data into the model
+[2024-11-22 19:11:20,025 INFO] Loading checkpoint from test_model_step_14000.pt
+[2024-11-22 19:11:20,192 INFO] Loading data into the model
+[2024-11-22 19:12:43,740 INFO] Loading checkpoint from test_model_step_14000.pt
+[2024-11-22 19:12:43,904 INFO] Loading data into the model
+[2024-11-22 19:13:33,923 INFO] Loading checkpoint from test_model_step_14000.pt
+[2024-11-22 19:13:34,094 INFO] Loading data into the model
+[2024-11-22 19:14:43,143 INFO] Loading checkpoint from test_model_step_14000.pt
+[2024-11-22 19:14:43,309 INFO] Loading data into the model
+[2024-11-22 19:26:29,468 INFO] Loading checkpoint from test_model_step_14000.pt
+[2024-11-22 19:26:29,633 INFO] Loading data into the model
+[2024-11-22 19:34:28,643 INFO] PRED SCORE: -0.0327, PRED PPL: 1.03 NB SENTENCES: 654937
+[2024-11-22 19:34:28,643 INFO] Total translation time (s): 478.9
+[2024-11-22 19:34:28,643 INFO] Average translation time (ms): 0.7
+[2024-11-22 19:34:28,643 INFO] Tokens per second: 21327.7
+[2024-11-22 19:43:11,615 INFO] Loading checkpoint from test_model_step_14000.pt
+[2024-11-22 19:43:11,782 INFO] Loading data into the model
+[2024-11-22 19:43:33,960 INFO] PRED SCORE: -0.0327, PRED PPL: 1.03 NB SENTENCES: 43173
+[2024-11-22 19:43:33,960 INFO] Total translation time (s): 22.1
+[2024-11-22 19:43:33,960 INFO] Average translation time (ms): 0.5
+[2024-11-22 19:43:33,960 INFO] Tokens per second: 29281.7
+[2024-11-22 19:44:03,631 INFO] Loading checkpoint from test_model_step_14000.pt
+[2024-11-22 19:44:03,795 INFO] Loading data into the model
+[2024-11-22 19:44:25,920 INFO] PRED SCORE: -0.0327, PRED PPL: 1.03 NB SENTENCES: 43173
+[2024-11-22 19:44:25,920 INFO] Total translation time (s): 22.0
+[2024-11-22 19:44:25,920 INFO] Average translation time (ms): 0.5
+[2024-11-22 19:44:25,920 INFO] Tokens per second: 29310.6
+[2024-11-22 19:44:44,452 INFO] Loading checkpoint from test_model_step_14000.pt
+[2024-11-22 19:44:44,618 INFO] Loading data into the model
+[2024-11-22 19:45:06,757 INFO] PRED SCORE: -0.0327, PRED PPL: 1.03 NB SENTENCES: 43173
+[2024-11-22 19:45:06,757 INFO] Total translation time (s): 22.1
+[2024-11-22 19:45:06,757 INFO] Average translation time (ms): 0.5
+[2024-11-22 19:45:06,757 INFO] Tokens per second: 29286.7

@@ -5,7 +5,7 @@ spm_encode \
     > 'test.wasm.spm.txt'
 
 echo 'Translting...'
-CUDA_VISIBLE_DEVICES=1 \
+# CUDA_VISIBLE_DEVICES=1 \
 onmt_translate \
     --src='test.wasm.spm.txt' \
     --model="$1" \
@@ -30,11 +30,11 @@ echo 'Evaluating...'
 #     --ground-truth="/home/project/wasm-type-prediction/data/test/type.txt"
 
 # match format
-/home/project/wasm-type-prediction/snowwhite/translate.py \
-    --input="predictions.model_best.txt" \
-    --output="predictions.model_best_translate.txt"
+# /home/project/wasm-type-prediction/snowwhite/translate.py \
+#     --input="predictions.model_best.txt" \
+#     --output="predictions.model_best_translate.txt"
 
-/home/project/wasm-type-prediction/snowwhite/evaluate-predictions.py \
-    --log="eval.log" \
-    --predictions="predictions.model_best_translate.txt" \
-    --ground-truth="/home/project/wasm-type-prediction/data/test/type.txt"
+# /home/project/wasm-type-prediction/snowwhite/evaluate-predictions.py \
+#     --log="eval.log" \
+#     --predictions="predictions.model_best_translate.txt" \
+#     --ground-truth="/home/project/wasm-type-prediction/data/test/type.txt"
