@@ -4,3 +4,6 @@
 
 # Ignore non-compressed versions of compressed data
 /name-stats.csv
+
+wasm.txt
+info.jsonl

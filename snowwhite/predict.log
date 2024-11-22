@@ -1,0 +1,50 @@
+[2024-11-22 17:10:22,916 INFO] Translating shard 0.
+[2024-11-22 17:10:49,300 INFO] PRED SCORE: -0.5308, PRED PPL: 1.70 NB SENTENCES: 10000
+[2024-11-22 17:10:49,300 INFO] Total translation time (s): 26.3
+[2024-11-22 17:10:49,300 INFO] Average translation time (ms): 2.6
+[2024-11-22 17:10:49,300 INFO] Tokens per second: 5476.1
+[2024-11-22 17:10:49,330 INFO] Translating shard 1.
+[2024-11-22 17:11:15,603 INFO] PRED SCORE: -0.5300, PRED PPL: 1.70 NB SENTENCES: 10000
+[2024-11-22 17:11:15,604 INFO] Total translation time (s): 26.2
+[2024-11-22 17:11:15,604 INFO] Average translation time (ms): 2.6
+[2024-11-22 17:11:15,604 INFO] Tokens per second: 5526.6
+[2024-11-22 17:11:15,635 INFO] Translating shard 2.
+[2024-11-22 17:11:41,896 INFO] PRED SCORE: -0.5243, PRED PPL: 1.69 NB SENTENCES: 10000
+[2024-11-22 17:11:41,896 INFO] Total translation time (s): 26.2
+[2024-11-22 17:11:41,896 INFO] Average translation time (ms): 2.6
+[2024-11-22 17:11:41,896 INFO] Tokens per second: 5505.1
+[2024-11-22 17:11:41,929 INFO] Translating shard 3.
+[2024-11-22 17:12:07,830 INFO] PRED SCORE: -0.5304, PRED PPL: 1.70 NB SENTENCES: 10000
+[2024-11-22 17:12:07,831 INFO] Total translation time (s): 25.8
+[2024-11-22 17:12:07,831 INFO] Average translation time (ms): 2.6
+[2024-11-22 17:12:07,831 INFO] Tokens per second: 5602.5
+[2024-11-22 17:12:07,863 INFO] Translating shard 4.
+[2024-11-22 17:12:16,152 INFO] PRED SCORE: -0.5145, PRED PPL: 1.67 NB SENTENCES: 3173
+[2024-11-22 17:12:16,153 INFO] Total translation time (s): 8.3
+[2024-11-22 17:12:16,153 INFO] Average translation time (ms): 2.6
+[2024-11-22 17:12:16,153 INFO] Tokens per second: 5528.3
+[2024-11-22 17:13:04,087 INFO] Translating shard 0.
+[2024-11-22 17:13:30,051 INFO] PRED SCORE: -0.5308, PRED PPL: 1.70 NB SENTENCES: 10000
+[2024-11-22 17:13:30,051 INFO] Total translation time (s): 25.9
+[2024-11-22 17:13:30,051 INFO] Average translation time (ms): 2.6
+[2024-11-22 17:13:30,051 INFO] Tokens per second: 5565.3
+[2024-11-22 17:13:30,081 INFO] Translating shard 1.
+[2024-11-22 17:13:55,851 INFO] PRED SCORE: -0.5300, PRED PPL: 1.70 NB SENTENCES: 10000
+[2024-11-22 17:13:55,851 INFO] Total translation time (s): 25.7
+[2024-11-22 17:13:55,851 INFO] Average translation time (ms): 2.6
+[2024-11-22 17:13:55,851 INFO] Tokens per second: 5634.7
+[2024-11-22 17:13:55,883 INFO] Translating shard 2.
+[2024-11-22 17:14:21,756 INFO] PRED SCORE: -0.5243, PRED PPL: 1.69 NB SENTENCES: 10000
+[2024-11-22 17:14:21,756 INFO] Total translation time (s): 25.8
+[2024-11-22 17:14:21,756 INFO] Average translation time (ms): 2.6
+[2024-11-22 17:14:21,756 INFO] Tokens per second: 5587.9
+[2024-11-22 17:14:21,790 INFO] Translating shard 3.
+[2024-11-22 17:14:47,417 INFO] PRED SCORE: -0.5304, PRED PPL: 1.70 NB SENTENCES: 10000
+[2024-11-22 17:14:47,417 INFO] Total translation time (s): 25.5
+[2024-11-22 17:14:47,417 INFO] Average translation time (ms): 2.6
+[2024-11-22 17:14:47,417 INFO] Tokens per second: 5662.3
+[2024-11-22 17:14:47,449 INFO] Translating shard 4.
+[2024-11-22 17:14:55,650 INFO] PRED SCORE: -0.5145, PRED PPL: 1.67 NB SENTENCES: 3173
+[2024-11-22 17:14:55,650 INFO] Total translation time (s): 8.2
+[2024-11-22 17:14:55,650 INFO] Average translation time (ms): 2.6
+[2024-11-22 17:14:55,650 INFO] Tokens per second: 5588.8
