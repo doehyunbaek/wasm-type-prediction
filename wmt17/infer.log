@@ -1,0 +1,29 @@
+[2024-12-02 15:31:49,069 INFO] Loading checkpoint from save/model_step_900.pt
+[2024-12-02 15:31:49,792 INFO] Loading data into the model
+[2024-12-02 15:35:10,288 INFO] Loading checkpoint from save/model_step_900.pt
+[2024-12-02 15:35:10,981 INFO] Loading data into the model
+[2024-12-02 15:39:43,541 INFO] Loading checkpoint from save/model_step_900.pt
+[2024-12-02 15:39:44,267 INFO] Loading data into the model
+[2024-12-02 15:40:06,896 INFO] Loading checkpoint from save/model_step_900.pt
+[2024-12-02 15:40:07,589 INFO] Loading data into the model
+[2024-12-02 15:59:01,355 INFO] Loading checkpoint from save/model_step_900.pt
+[2024-12-02 15:59:02,071 INFO] Loading data into the model
+[2024-12-02 16:28:05,153 INFO] PRED SCORE: -0.0949, PRED PPL: 1.10 NB SENTENCES: 43173
+[2024-12-02 16:28:05,153 INFO] Total translation time (s): 1742.9
+[2024-12-02 16:28:05,153 INFO] Average translation time (ms): 40.4
+[2024-12-02 16:28:05,153 INFO] Tokens per second: 347.0
+[2024-12-02 16:34:51,578 INFO] Loading checkpoint from test_model_step_7000.pt
+[2024-12-02 16:35:06,577 INFO] Loading checkpoint from save/model_step_900.pt
+[2024-12-02 16:35:07,272 INFO] Loading data into the model
+[2024-12-02 16:45:22,847 INFO] Loading checkpoint from save/model_step_900.pt
+[2024-12-02 16:45:23,540 INFO] Loading data into the model
+[2024-12-02 17:32:04,667 INFO] Loading checkpoint from save/model_step_1000.pt
+[2024-12-02 17:32:05,382 INFO] Loading data into the model
+[2024-12-02 17:37:20,323 INFO] Loading checkpoint from save/model_step_1000.pt
+[2024-12-02 17:37:21,042 INFO] Loading data into the model
+[2024-12-02 17:53:15,759 INFO] PRED SCORE: -0.0911, PRED PPL: 1.10 NB SENTENCES: 43173
+[2024-12-02 17:53:15,759 INFO] Total translation time (s): 954.6
+[2024-12-02 17:53:15,759 INFO] Average translation time (ms): 22.1
+[2024-12-02 17:53:15,759 INFO] Tokens per second: 633.5
+[2024-12-02 18:19:53,197 INFO] Loading checkpoint from save/model_step_12000.pt
+[2024-12-02 18:19:53,914 INFO] Loading data into the model

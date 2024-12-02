@@ -3,12 +3,24 @@
 #################################################
 
 ## Where the samples will be written
-save_data: save/data
 save_model: save/model
 save_checkpoint_steps: 1000
 ## Where the vocab(s) will be written
 src_vocab: 'vocab/src'
 tgt_vocab: 'vocab/tgt'
+# src_vocab_size: 36000
+# tgt_vocab_size: 36000
+# vocab_size_multiple: 8
+# src_words_min_frequency: 2
+# tgt_words_min_frequency: 2
+# share_vocab: True
+# n_sample: 0
+
+# src_seq_length_trunc: 500 # default None (don't truncate, filter out completely)
+# src_seq_length: 10000 # default 50, set to absurd high values such that no sample is filtered BEFORE truncation
+# tgt_seq_length_trunc: 500 # default None (don't truncate, filter out completely)
+# tgt_seq_length: 1000 # default 50, set to absurd high values such that no sample is filtered BEFORE truncation
+
 # Prevent overwriting existing files in the folder
 overwrite: False
 
@@ -64,15 +76,30 @@ log_file: 'train.log'
 report_every: 50 # default 50
 early_stopping: 10
 
+model_dtype: "fp16"
+#apex_opt_level: "O2"
 optim: "fusedadam"
 learning_rate: 2
-dropout_steps: [0]
-dropout: [0.1]
-attention_dropout: [0.1]
+warmup_steps: 4000
+decay_method: "noam"
+adam_beta2: 0.998
+max_grad_norm: 0
+label_smoothing: 0.1
+param_init: 0
+param_init_glorot: true
+normalization: "tokens"
 
-batch_size: 64
-valid_batch_size: 64
-batch_size_multiple: 8
+bucket_size: 262144
+num_workers: 4
+prefetch_factor: 400
+world_size: 1
+gpu_ranks: [0]
+batch_type: "tokens"
+batch_size: 128
+valid_batch_size: 128
+# batch_size_multiple: 8
+accum_count: [10]
+accum_steps: [0]
 
 encoder_type: transformer
 decoder_type: transformer
@@ -87,9 +114,4 @@ dropout: [0.1]
 attention_dropout: [0.1]
 share_decoder_embeddings: true
 share_embeddings: true
-position_encoding: true
-
-src_seq_length_trunc: 96 # default None (don't truncate, filter out completely)
-src_seq_length: 10000 # default 50, set to absurd high values such that no sample is filtered BEFORE truncation
-tgt_seq_length_trunc: 96 # default None (don't truncate, filter out completely)
-tgt_seq_length: 1000 # default 50, set to absurd high values such that no sample is filtered BEFORE truncation
+position_encoding: false

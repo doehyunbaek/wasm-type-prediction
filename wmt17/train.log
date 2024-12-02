@@ -1,0 +1,2157 @@
+[2024-12-02 14:06:44,845 INFO] Parsed 2 corpora from -data.
+[2024-12-02 14:06:44,845 INFO] Get special vocabs from Transforms: {'src': [], 'tgt': []}.
+[2024-12-02 14:06:44,846 INFO] The first 10 tokens of the vocabs are:['<unk>', '<blank>', '<s>', '</s>', '▁;', '.', '▁local', '▁i', '32.', 'get']
+[2024-12-02 14:06:44,846 INFO] The decoder start token is: <s>
+[2024-12-02 14:06:44,846 INFO] Building model...
+[2024-12-02 14:06:45,382 INFO] Switching model to half() for FusedAdam legacy
+[2024-12-02 14:06:45,382 INFO] Non quantized layer compute is fp16
+[2024-12-02 14:06:45,525 INFO] NMTModel(
+  (encoder): TransformerEncoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(496, 1024, padding_idx=1)
+        )
+        (pe): PositionalEncoding()
+      )
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (transformer): ModuleList(
+      (0-5): 6 x TransformerEncoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_values): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_query): Linear(in_features=1024, out_features=1024, bias=False)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=1024, out_features=1024, bias=False)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=1024, out_features=4096, bias=False)
+          (w_2): Linear(in_features=4096, out_features=1024, bias=False)
+          (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+      )
+    )
+    (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+  )
+  (decoder): TransformerDecoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(496, 1024, padding_idx=1)
+        )
+        (pe): PositionalEncoding()
+      )
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+    (transformer_layers): ModuleList(
+      (0-5): 6 x TransformerDecoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_values): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_query): Linear(in_features=1024, out_features=1024, bias=False)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=1024, out_features=1024, bias=False)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=1024, out_features=4096, bias=False)
+          (w_2): Linear(in_features=4096, out_features=1024, bias=False)
+          (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm_1): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+        (context_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_values): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_query): Linear(in_features=1024, out_features=1024, bias=False)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=1024, out_features=1024, bias=False)
+        )
+        (layer_norm_2): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+      )
+    )
+  )
+  (generator): Linear(in_features=1024, out_features=496, bias=True)
+)
+[2024-12-02 14:06:45,527 INFO] encoder: 76032000
+[2024-12-02 14:06:45,527 INFO] decoder: 100702704
+[2024-12-02 14:06:45,527 INFO] * number of parameters: 176734704
+[2024-12-02 14:06:45,527 INFO] Trainable parameters = {'torch.float32': 0, 'torch.float16': 176734704, 'torch.uint8': 0, 'torch.int8': 0}
+[2024-12-02 14:06:45,527 INFO] Non trainable parameters = {'torch.float32': 0, 'torch.float16': 0, 'torch.uint8': 0, 'torch.int8': 0}
+[2024-12-02 14:06:45,527 INFO]  * src vocab size = 496
+[2024-12-02 14:06:45,527 INFO]  * tgt vocab size = 496
+[2024-12-02 14:06:45,718 INFO] Starting training on GPU: [0]
+[2024-12-02 14:06:45,718 INFO] Start training loop and validate every 1000 steps...
+[2024-12-02 14:06:45,718 INFO] Scoring with: ['onmt_tokenize']
+[2024-12-02 14:07:33,400 INFO] Step 50/50000; acc: 1.0; ppl: 2680.3; xent: 7.9; lr: 0.00001; sents:    3200; bsz: 7080/ 994/64; 7424/1043 tok/s;     48 sec;
+[2024-12-02 14:07:39,091 INFO] Step 100/50000; acc: 12.0; ppl:  35.1; xent: 3.6; lr: 0.00002; sents:    3200; bsz: 7433/1013/64; 65302/8895 tok/s;     53 sec;
+[2024-12-02 14:07:43,780 INFO] Step 143, cuda OOM - batch removed
+[2024-12-02 14:13:32,602 INFO] Parsed 2 corpora from -data.
+[2024-12-02 14:13:32,603 INFO] Get special vocabs from Transforms: {'src': [], 'tgt': []}.
+[2024-12-02 14:13:32,603 INFO] The first 10 tokens of the vocabs are:['<unk>', '<blank>', '<s>', '</s>', '▁;', '.', '▁local', '▁i', '32.', 'get']
+[2024-12-02 14:13:32,603 INFO] The decoder start token is: <s>
+[2024-12-02 14:13:32,603 INFO] Building model...
+[2024-12-02 14:13:33,129 INFO] Switching model to half() for FusedAdam legacy
+[2024-12-02 14:13:33,129 INFO] Non quantized layer compute is fp16
+[2024-12-02 14:13:33,252 INFO] NMTModel(
+  (encoder): TransformerEncoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(496, 1024, padding_idx=1)
+        )
+        (pe): PositionalEncoding()
+      )
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (transformer): ModuleList(
+      (0-5): 6 x TransformerEncoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_values): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_query): Linear(in_features=1024, out_features=1024, bias=False)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=1024, out_features=1024, bias=False)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=1024, out_features=4096, bias=False)
+          (w_2): Linear(in_features=4096, out_features=1024, bias=False)
+          (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+      )
+    )
+    (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+  )
+  (decoder): TransformerDecoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(496, 1024, padding_idx=1)
+        )
+        (pe): PositionalEncoding()
+      )
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+    (transformer_layers): ModuleList(
+      (0-5): 6 x TransformerDecoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_values): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_query): Linear(in_features=1024, out_features=1024, bias=False)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=1024, out_features=1024, bias=False)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=1024, out_features=4096, bias=False)
+          (w_2): Linear(in_features=4096, out_features=1024, bias=False)
+          (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm_1): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+        (context_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_values): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_query): Linear(in_features=1024, out_features=1024, bias=False)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=1024, out_features=1024, bias=False)
+        )
+        (layer_norm_2): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+      )
+    )
+  )
+  (generator): Linear(in_features=1024, out_features=496, bias=True)
+)
+[2024-12-02 14:13:33,253 INFO] encoder: 76032000
+[2024-12-02 14:13:33,253 INFO] decoder: 100702704
+[2024-12-02 14:13:33,253 INFO] * number of parameters: 176734704
+[2024-12-02 14:13:33,254 INFO] Trainable parameters = {'torch.float32': 0, 'torch.float16': 176734704, 'torch.uint8': 0, 'torch.int8': 0}
+[2024-12-02 14:13:33,254 INFO] Non trainable parameters = {'torch.float32': 0, 'torch.float16': 0, 'torch.uint8': 0, 'torch.int8': 0}
+[2024-12-02 14:13:33,254 INFO]  * src vocab size = 496
+[2024-12-02 14:13:33,254 INFO]  * tgt vocab size = 496
+[2024-12-02 14:13:33,445 INFO] Starting training on GPU: [0]
+[2024-12-02 14:13:33,445 INFO] Start training loop and validate every 1000 steps...
+[2024-12-02 14:13:33,445 INFO] Scoring with: ['onmt_tokenize']
+[2024-12-02 14:14:21,249 INFO] Step 50/50000; acc: 0.8; ppl: 2346.2; xent: 7.8; lr: 0.00001; sents:    3200; bsz: 7199/1011/64; 7530/1057 tok/s;     48 sec;
+[2024-12-02 14:14:27,072 INFO] Step 100/50000; acc: 15.7; ppl:  27.4; xent: 3.3; lr: 0.00002; sents:    3200; bsz: 7895/1022/64; 67796/8777 tok/s;     54 sec;
+[2024-12-02 14:14:32,450 INFO] Step 150/50000; acc: 73.2; ppl:   6.6; xent: 1.9; lr: 0.00004; sents:    3200; bsz: 7231/1005/64; 67228/9345 tok/s;     59 sec;
+[2024-12-02 14:14:37,758 INFO] Step 200/50000; acc: 78.6; ppl:   5.4; xent: 1.7; lr: 0.00005; sents:    3200; bsz: 7189/1062/64; 67716/10000 tok/s;     64 sec;
+[2024-12-02 14:14:43,142 INFO] Step 250/50000; acc: 87.1; ppl:   4.1; xent: 1.4; lr: 0.00006; sents:    3200; bsz: 7224/1003/64; 67095/9318 tok/s;     70 sec;
+[2024-12-02 14:14:49,040 INFO] Step 300/50000; acc: 89.5; ppl:   3.8; xent: 1.3; lr: 0.00007; sents:    3200; bsz: 7906/1037/64; 67029/8789 tok/s;     76 sec;
+[2024-12-02 14:14:54,060 INFO] Step 350/50000; acc: 92.8; ppl:   3.3; xent: 1.2; lr: 0.00009; sents:    3200; bsz: 6879/ 983/64; 68515/9794 tok/s;     81 sec;
+[2024-12-02 14:14:55,855 INFO] Step 363, cuda OOM - batch removed
+[2024-12-02 14:19:04,203 INFO] Parsed 2 corpora from -data.
+[2024-12-02 14:19:04,204 INFO] Get special vocabs from Transforms: {'src': [], 'tgt': []}.
+[2024-12-02 14:19:04,204 INFO] The first 10 tokens of the vocabs are:['<unk>', '<blank>', '<s>', '</s>', '▁;', '.', '▁local', '▁i', '32.', 'get']
+[2024-12-02 14:19:04,204 INFO] The decoder start token is: <s>
+[2024-12-02 14:19:04,204 INFO] Building model...
+[2024-12-02 14:19:04,711 INFO] Switching model to half() for FusedAdam legacy
+[2024-12-02 14:19:04,711 INFO] Non quantized layer compute is fp16
+[2024-12-02 14:19:04,861 INFO] NMTModel(
+  (encoder): TransformerEncoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(496, 1024, padding_idx=1)
+        )
+        (pe): PositionalEncoding()
+      )
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (transformer): ModuleList(
+      (0-5): 6 x TransformerEncoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_values): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_query): Linear(in_features=1024, out_features=1024, bias=False)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=1024, out_features=1024, bias=False)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=1024, out_features=4096, bias=False)
+          (w_2): Linear(in_features=4096, out_features=1024, bias=False)
+          (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+      )
+    )
+    (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+  )
+  (decoder): TransformerDecoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(496, 1024, padding_idx=1)
+        )
+        (pe): PositionalEncoding()
+      )
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+    (transformer_layers): ModuleList(
+      (0-5): 6 x TransformerDecoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_values): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_query): Linear(in_features=1024, out_features=1024, bias=False)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=1024, out_features=1024, bias=False)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=1024, out_features=4096, bias=False)
+          (w_2): Linear(in_features=4096, out_features=1024, bias=False)
+          (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm_1): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+        (context_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_values): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_query): Linear(in_features=1024, out_features=1024, bias=False)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=1024, out_features=1024, bias=False)
+        )
+        (layer_norm_2): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+      )
+    )
+  )
+  (generator): Linear(in_features=1024, out_features=496, bias=True)
+)
+[2024-12-02 14:19:04,862 INFO] encoder: 76032000
+[2024-12-02 14:19:04,862 INFO] decoder: 100702704
+[2024-12-02 14:19:04,862 INFO] * number of parameters: 176734704
+[2024-12-02 14:19:04,862 INFO] Trainable parameters = {'torch.float32': 0, 'torch.float16': 176734704, 'torch.uint8': 0, 'torch.int8': 0}
+[2024-12-02 14:19:04,862 INFO] Non trainable parameters = {'torch.float32': 0, 'torch.float16': 0, 'torch.uint8': 0, 'torch.int8': 0}
+[2024-12-02 14:19:04,862 INFO]  * src vocab size = 496
+[2024-12-02 14:19:04,862 INFO]  * tgt vocab size = 496
+[2024-12-02 14:19:05,055 INFO] Starting training on GPU: [0]
+[2024-12-02 14:19:05,055 INFO] Start training loop and validate every 1000 steps...
+[2024-12-02 14:19:05,055 INFO] Scoring with: ['onmt_tokenize']
+[2024-12-02 14:19:53,476 INFO] Step 50/50000; acc: 1.5; ppl: 3078.9; xent: 8.0; lr: 0.00001; sents:    3200; bsz: 7885/1016/64; 8142/1049 tok/s;     48 sec;
+[2024-12-02 14:19:54,801 INFO] Step 61, cuda OOM - batch removed
+[2024-12-02 14:20:22,428 INFO] Parsed 2 corpora from -data.
+[2024-12-02 14:20:22,428 INFO] Get special vocabs from Transforms: {'src': [], 'tgt': []}.
+[2024-12-02 14:20:22,428 INFO] The first 10 tokens of the vocabs are:['<unk>', '<blank>', '<s>', '</s>', '▁;', '.', '▁local', '▁i', '32.', 'get']
+[2024-12-02 14:20:22,428 INFO] The decoder start token is: <s>
+[2024-12-02 14:20:22,428 INFO] Building model...
+[2024-12-02 14:20:22,945 INFO] Switching model to half() for FusedAdam legacy
+[2024-12-02 14:20:22,945 INFO] Non quantized layer compute is fp16
+[2024-12-02 14:20:23,050 INFO] NMTModel(
+  (encoder): TransformerEncoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(496, 1024, padding_idx=1)
+        )
+        (pe): PositionalEncoding()
+      )
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (transformer): ModuleList(
+      (0-5): 6 x TransformerEncoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_values): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_query): Linear(in_features=1024, out_features=1024, bias=False)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=1024, out_features=1024, bias=False)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=1024, out_features=4096, bias=False)
+          (w_2): Linear(in_features=4096, out_features=1024, bias=False)
+          (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+      )
+    )
+    (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+  )
+  (decoder): TransformerDecoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(496, 1024, padding_idx=1)
+        )
+        (pe): PositionalEncoding()
+      )
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+    (transformer_layers): ModuleList(
+      (0-5): 6 x TransformerDecoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_values): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_query): Linear(in_features=1024, out_features=1024, bias=False)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=1024, out_features=1024, bias=False)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=1024, out_features=4096, bias=False)
+          (w_2): Linear(in_features=4096, out_features=1024, bias=False)
+          (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm_1): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+        (context_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_values): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_query): Linear(in_features=1024, out_features=1024, bias=False)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=1024, out_features=1024, bias=False)
+        )
+        (layer_norm_2): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+      )
+    )
+  )
+  (generator): Linear(in_features=1024, out_features=496, bias=True)
+)
+[2024-12-02 14:20:23,051 INFO] encoder: 76032000
+[2024-12-02 14:20:23,051 INFO] decoder: 100702704
+[2024-12-02 14:20:23,051 INFO] * number of parameters: 176734704
+[2024-12-02 14:20:23,051 INFO] Trainable parameters = {'torch.float32': 0, 'torch.float16': 176734704, 'torch.uint8': 0, 'torch.int8': 0}
+[2024-12-02 14:20:23,051 INFO] Non trainable parameters = {'torch.float32': 0, 'torch.float16': 0, 'torch.uint8': 0, 'torch.int8': 0}
+[2024-12-02 14:20:23,052 INFO]  * src vocab size = 496
+[2024-12-02 14:20:23,052 INFO]  * tgt vocab size = 496
+[2024-12-02 14:20:23,242 INFO] Starting training on GPU: [0]
+[2024-12-02 14:20:23,243 INFO] Start training loop and validate every 1000 steps...
+[2024-12-02 14:20:23,243 INFO] Scoring with: ['onmt_tokenize']
+[2024-12-02 14:21:08,900 INFO] Step 2, cuda OOM - batch removed
+[2024-12-02 14:21:42,637 INFO] Step 50/50000; acc: 2.2; ppl: 2133.5; xent: 7.7; lr: 0.00001; sents:   17840; bsz: 4600/ 568/36; 28909/3567 tok/s;     79 sec;
+[2024-12-02 14:22:16,911 INFO] Step 100/50000; acc: 17.9; ppl:  27.2; xent: 3.3; lr: 0.00002; sents:   19136; bsz: 4473/ 614/38; 65259/8959 tok/s;    114 sec;
+[2024-12-02 14:22:52,457 INFO] Step 150/50000; acc: 79.7; ppl:   5.3; xent: 1.7; lr: 0.00004; sents:   18480; bsz: 4520/ 594/37; 63583/8349 tok/s;    149 sec;
+[2024-12-02 14:23:27,341 INFO] Step 200/50000; acc: 90.9; ppl:   3.6; xent: 1.3; lr: 0.00005; sents:   19792; bsz: 4503/ 623/40; 64537/8927 tok/s;    184 sec;
+[2024-12-02 14:24:00,298 INFO] Step 250/50000; acc: 94.7; ppl:   3.2; xent: 1.1; lr: 0.00006; sents:   19304; bsz: 4389/ 604/39; 66584/9160 tok/s;    217 sec;
+[2024-12-02 14:24:34,680 INFO] Step 300/50000; acc: 93.8; ppl:   3.2; xent: 1.2; lr: 0.00007; sents:   18216; bsz: 4499/ 600/36; 65423/8725 tok/s;    251 sec;
+[2024-12-02 14:25:08,560 INFO] Step 350/50000; acc: 95.5; ppl:   3.0; xent: 1.1; lr: 0.00009; sents:   19112; bsz: 4444/ 602/38; 65582/8880 tok/s;    285 sec;
+[2024-12-02 14:25:43,504 INFO] Step 400/50000; acc: 95.1; ppl:   3.1; xent: 1.1; lr: 0.00010; sents:   17160; bsz: 4419/ 554/34; 63229/7928 tok/s;    320 sec;
+[2024-12-02 14:25:45,532 INFO] Step 403, cuda OOM - batch removed
+[2024-12-02 14:25:59,729 INFO] Step 423, cuda OOM - batch removed
+[2024-12-02 14:26:18,080 INFO] Step 450/50000; acc: 94.8; ppl:   3.0; xent: 1.1; lr: 0.00011; sents:   17976; bsz: 4460/ 575/36; 64238/8284 tok/s;    355 sec;
+[2024-12-02 14:26:39,172 INFO] Step 480, cuda OOM - batch removed
+[2024-12-02 14:26:39,536 INFO] Step 481, cuda OOM - batch removed
+[2024-12-02 14:26:40,482 INFO] Step 482, cuda OOM - batch removed
+[2024-12-02 14:26:41,891 INFO] Step 483, cuda OOM - batch removed
+[2024-12-02 14:26:45,494 INFO] Step 488, cuda OOM - batch removed
+[2024-12-02 14:26:53,798 INFO] Step 500/50000; acc: 95.2; ppl:   3.0; xent: 1.1; lr: 0.00012; sents:   18736; bsz: 4726/ 614/38; 65491/8503 tok/s;    391 sec;
+[2024-12-02 14:28:27,576 INFO] Parsed 2 corpora from -data.
+[2024-12-02 14:28:27,576 INFO] Get special vocabs from Transforms: {'src': [], 'tgt': []}.
+[2024-12-02 14:28:27,577 INFO] The first 10 tokens of the vocabs are:['<unk>', '<blank>', '<s>', '</s>', '▁;', '.', '▁local', '▁i', '32.', 'get']
+[2024-12-02 14:28:27,577 INFO] The decoder start token is: <s>
+[2024-12-02 14:28:27,577 INFO] Building model...
+[2024-12-02 14:28:28,091 INFO] Switching model to half() for FusedAdam legacy
+[2024-12-02 14:28:28,091 INFO] Non quantized layer compute is fp16
+[2024-12-02 14:28:28,199 INFO] NMTModel(
+  (encoder): TransformerEncoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(496, 1024, padding_idx=1)
+        )
+        (pe): PositionalEncoding()
+      )
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (transformer): ModuleList(
+      (0-5): 6 x TransformerEncoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_values): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_query): Linear(in_features=1024, out_features=1024, bias=False)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=1024, out_features=1024, bias=False)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=1024, out_features=4096, bias=False)
+          (w_2): Linear(in_features=4096, out_features=1024, bias=False)
+          (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+      )
+    )
+    (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+  )
+  (decoder): TransformerDecoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(496, 1024, padding_idx=1)
+        )
+        (pe): PositionalEncoding()
+      )
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+    (transformer_layers): ModuleList(
+      (0-5): 6 x TransformerDecoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_values): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_query): Linear(in_features=1024, out_features=1024, bias=False)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=1024, out_features=1024, bias=False)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=1024, out_features=4096, bias=False)
+          (w_2): Linear(in_features=4096, out_features=1024, bias=False)
+          (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm_1): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+        (context_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_values): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_query): Linear(in_features=1024, out_features=1024, bias=False)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=1024, out_features=1024, bias=False)
+        )
+        (layer_norm_2): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+      )
+    )
+  )
+  (generator): Linear(in_features=1024, out_features=496, bias=True)
+)
+[2024-12-02 14:28:28,200 INFO] encoder: 76032000
+[2024-12-02 14:28:28,200 INFO] decoder: 100702704
+[2024-12-02 14:28:28,200 INFO] * number of parameters: 176734704
+[2024-12-02 14:28:28,201 INFO] Trainable parameters = {'torch.float32': 0, 'torch.float16': 176734704, 'torch.uint8': 0, 'torch.int8': 0}
+[2024-12-02 14:28:28,201 INFO] Non trainable parameters = {'torch.float32': 0, 'torch.float16': 0, 'torch.uint8': 0, 'torch.int8': 0}
+[2024-12-02 14:28:28,201 INFO]  * src vocab size = 496
+[2024-12-02 14:28:28,201 INFO]  * tgt vocab size = 496
+[2024-12-02 14:28:28,391 INFO] Starting training on GPU: [0]
+[2024-12-02 14:28:28,391 INFO] Start training loop and validate every 1000 steps...
+[2024-12-02 14:28:28,391 INFO] Scoring with: ['onmt_tokenize']
+[2024-12-02 14:29:46,083 INFO] Step 50/50000; acc: 1.8; ppl: 2664.4; xent: 7.9; lr: 0.00001; sents:   19000; bsz: 4436/ 603/38; 28547/3881 tok/s;     78 sec;
+[2024-12-02 14:30:11,468 INFO] Step 86, cuda OOM - batch removed
+[2024-12-02 14:30:11,737 INFO] Step 86, cuda OOM - batch removed
+[2024-12-02 14:30:11,834 INFO] Step 86, cuda OOM - batch removed
+[2024-12-02 14:30:11,884 INFO] Step 86, cuda OOM - batch removed
+[2024-12-02 14:30:22,011 INFO] Step 100/50000; acc: 22.6; ppl:  23.1; xent: 3.1; lr: 0.00002; sents:   18464; bsz: 4628/ 591/37; 63885/8158 tok/s;    114 sec;
+[2024-12-02 14:36:06,323 INFO] Parsed 2 corpora from -data.
+[2024-12-02 14:36:06,323 INFO] Get special vocabs from Transforms: {'src': [], 'tgt': []}.
+[2024-12-02 14:36:06,324 INFO] The first 10 tokens of the vocabs are:['<unk>', '<blank>', '<s>', '</s>', '▁;', '.', '▁local', '▁i', '32.', 'get']
+[2024-12-02 14:36:06,324 INFO] The decoder start token is: <s>
+[2024-12-02 14:36:06,324 INFO] Building model...
+[2024-12-02 14:36:06,851 INFO] Switching model to half() for FusedAdam legacy
+[2024-12-02 14:36:06,851 INFO] Non quantized layer compute is fp16
+[2024-12-02 14:36:06,994 INFO] NMTModel(
+  (encoder): TransformerEncoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(496, 1024, padding_idx=1)
+        )
+        (pe): PositionalEncoding()
+      )
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (transformer): ModuleList(
+      (0-5): 6 x TransformerEncoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_values): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_query): Linear(in_features=1024, out_features=1024, bias=False)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=1024, out_features=1024, bias=False)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=1024, out_features=4096, bias=False)
+          (w_2): Linear(in_features=4096, out_features=1024, bias=False)
+          (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+      )
+    )
+    (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+  )
+  (decoder): TransformerDecoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(496, 1024, padding_idx=1)
+        )
+        (pe): PositionalEncoding()
+      )
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+    (transformer_layers): ModuleList(
+      (0-5): 6 x TransformerDecoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_values): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_query): Linear(in_features=1024, out_features=1024, bias=False)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=1024, out_features=1024, bias=False)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=1024, out_features=4096, bias=False)
+          (w_2): Linear(in_features=4096, out_features=1024, bias=False)
+          (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm_1): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+        (context_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_values): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_query): Linear(in_features=1024, out_features=1024, bias=False)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=1024, out_features=1024, bias=False)
+        )
+        (layer_norm_2): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+      )
+    )
+  )
+  (generator): Linear(in_features=1024, out_features=496, bias=True)
+)
+[2024-12-02 14:36:06,995 INFO] encoder: 76032000
+[2024-12-02 14:36:06,995 INFO] decoder: 100702704
+[2024-12-02 14:36:06,995 INFO] * number of parameters: 176734704
+[2024-12-02 14:36:06,995 INFO] Trainable parameters = {'torch.float32': 0, 'torch.float16': 176734704, 'torch.uint8': 0, 'torch.int8': 0}
+[2024-12-02 14:36:06,995 INFO] Non trainable parameters = {'torch.float32': 0, 'torch.float16': 0, 'torch.uint8': 0, 'torch.int8': 0}
+[2024-12-02 14:36:06,996 INFO]  * src vocab size = 496
+[2024-12-02 14:36:06,996 INFO]  * tgt vocab size = 496
+[2024-12-02 14:36:07,188 INFO] Starting training on GPU: [0]
+[2024-12-02 14:36:07,188 INFO] Start training loop and validate every 1000 steps...
+[2024-12-02 14:36:07,188 INFO] Scoring with: ['onmt_tokenize']
+[2024-12-02 14:37:25,497 INFO] Step 50/50000; acc: 1.2; ppl: 2736.5; xent: 7.9; lr: 0.00001; sents:   19544; bsz: 4496/ 633/39; 28707/4041 tok/s;     78 sec;
+[2024-12-02 14:37:38,351 INFO] Step 69, cuda OOM - batch removed
+[2024-12-02 14:37:38,654 INFO] Step 69, cuda OOM - batch removed
+[2024-12-02 14:37:39,108 INFO] Step 70, cuda OOM - batch removed
+[2024-12-02 14:37:39,406 INFO] Step 70, cuda OOM - batch removed
+[2024-12-02 14:37:59,966 INFO] Step 100/50000; acc: 19.1; ppl:  25.2; xent: 3.2; lr: 0.00002; sents:   19224; bsz: 4461/ 619/39; 64197/8905 tok/s;    113 sec;
+[2024-12-02 14:38:34,637 INFO] Step 150/50000; acc: 77.4; ppl:   5.8; xent: 1.8; lr: 0.00004; sents:   18392; bsz: 4514/ 597/37; 65097/8603 tok/s;    147 sec;
+[2024-12-02 14:43:36,254 INFO] Parsed 2 corpora from -data.
+[2024-12-02 14:43:36,254 INFO] Get special vocabs from Transforms: {'src': [], 'tgt': []}.
+[2024-12-02 14:43:36,254 INFO] The first 10 tokens of the vocabs are:['<unk>', '<blank>', '<s>', '</s>', '▁;', '.', '▁local', '▁i', '32.', 'get']
+[2024-12-02 14:43:36,254 INFO] The decoder start token is: <s>
+[2024-12-02 14:43:36,254 INFO] Building model...
+[2024-12-02 14:43:36,772 INFO] Switching model to half() for FusedAdam legacy
+[2024-12-02 14:43:36,772 INFO] Non quantized layer compute is fp16
+[2024-12-02 14:43:36,881 INFO] NMTModel(
+  (encoder): TransformerEncoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(496, 1024, padding_idx=1)
+        )
+        (pe): PositionalEncoding()
+      )
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (transformer): ModuleList(
+      (0-5): 6 x TransformerEncoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_values): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_query): Linear(in_features=1024, out_features=1024, bias=False)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=1024, out_features=1024, bias=False)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=1024, out_features=4096, bias=False)
+          (w_2): Linear(in_features=4096, out_features=1024, bias=False)
+          (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+      )
+    )
+    (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+  )
+  (decoder): TransformerDecoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(496, 1024, padding_idx=1)
+        )
+        (pe): PositionalEncoding()
+      )
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+    (transformer_layers): ModuleList(
+      (0-5): 6 x TransformerDecoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_values): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_query): Linear(in_features=1024, out_features=1024, bias=False)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=1024, out_features=1024, bias=False)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=1024, out_features=4096, bias=False)
+          (w_2): Linear(in_features=4096, out_features=1024, bias=False)
+          (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm_1): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+        (context_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_values): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_query): Linear(in_features=1024, out_features=1024, bias=False)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=1024, out_features=1024, bias=False)
+        )
+        (layer_norm_2): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+      )
+    )
+  )
+  (generator): Linear(in_features=1024, out_features=496, bias=True)
+)
+[2024-12-02 14:43:36,883 INFO] encoder: 76032000
+[2024-12-02 14:43:36,883 INFO] decoder: 100702704
+[2024-12-02 14:43:36,883 INFO] * number of parameters: 176734704
+[2024-12-02 14:43:36,883 INFO] Trainable parameters = {'torch.float32': 0, 'torch.float16': 176734704, 'torch.uint8': 0, 'torch.int8': 0}
+[2024-12-02 14:43:36,883 INFO] Non trainable parameters = {'torch.float32': 0, 'torch.float16': 0, 'torch.uint8': 0, 'torch.int8': 0}
+[2024-12-02 14:43:36,883 INFO]  * src vocab size = 496
+[2024-12-02 14:43:36,883 INFO]  * tgt vocab size = 496
+[2024-12-02 14:43:37,073 INFO] Starting training on GPU: [0]
+[2024-12-02 14:43:37,073 INFO] Start training loop and validate every 1000 steps...
+[2024-12-02 14:43:37,073 INFO] Scoring with: ['onmt_tokenize']
+[2024-12-02 14:43:56,974 INFO] Parsed 2 corpora from -data.
+[2024-12-02 14:43:56,974 INFO] Get special vocabs from Transforms: {'src': [], 'tgt': []}.
+[2024-12-02 14:43:56,975 INFO] The first 10 tokens of the vocabs are:['<unk>', '<blank>', '<s>', '</s>', '▁;', '.', '▁local', '▁i', '32.', 'get']
+[2024-12-02 14:43:56,975 INFO] The decoder start token is: <s>
+[2024-12-02 14:43:56,975 INFO] Building model...
+[2024-12-02 14:43:57,483 INFO] Switching model to half() for FusedAdam legacy
+[2024-12-02 14:43:57,483 INFO] Non quantized layer compute is fp16
+[2024-12-02 14:43:57,588 INFO] NMTModel(
+  (encoder): TransformerEncoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(496, 1024, padding_idx=1)
+        )
+        (pe): PositionalEncoding()
+      )
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (transformer): ModuleList(
+      (0-5): 6 x TransformerEncoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_values): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_query): Linear(in_features=1024, out_features=1024, bias=False)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=1024, out_features=1024, bias=False)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=1024, out_features=4096, bias=False)
+          (w_2): Linear(in_features=4096, out_features=1024, bias=False)
+          (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+      )
+    )
+    (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+  )
+  (decoder): TransformerDecoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(496, 1024, padding_idx=1)
+        )
+        (pe): PositionalEncoding()
+      )
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+    (transformer_layers): ModuleList(
+      (0-5): 6 x TransformerDecoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_values): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_query): Linear(in_features=1024, out_features=1024, bias=False)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=1024, out_features=1024, bias=False)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=1024, out_features=4096, bias=False)
+          (w_2): Linear(in_features=4096, out_features=1024, bias=False)
+          (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm_1): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+        (context_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_values): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_query): Linear(in_features=1024, out_features=1024, bias=False)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=1024, out_features=1024, bias=False)
+        )
+        (layer_norm_2): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+      )
+    )
+  )
+  (generator): Linear(in_features=1024, out_features=496, bias=True)
+)
+[2024-12-02 14:43:57,589 INFO] encoder: 76032000
+[2024-12-02 14:43:57,589 INFO] decoder: 100702704
+[2024-12-02 14:43:57,589 INFO] * number of parameters: 176734704
+[2024-12-02 14:43:57,589 INFO] Trainable parameters = {'torch.float32': 0, 'torch.float16': 176734704, 'torch.uint8': 0, 'torch.int8': 0}
+[2024-12-02 14:43:57,589 INFO] Non trainable parameters = {'torch.float32': 0, 'torch.float16': 0, 'torch.uint8': 0, 'torch.int8': 0}
+[2024-12-02 14:43:57,589 INFO]  * src vocab size = 496
+[2024-12-02 14:43:57,589 INFO]  * tgt vocab size = 496
+[2024-12-02 14:43:57,778 INFO] Starting training on GPU: [0]
+[2024-12-02 14:43:57,778 INFO] Start training loop and validate every 1000 steps...
+[2024-12-02 14:43:57,778 INFO] Scoring with: ['onmt_tokenize']
+[2024-12-02 14:45:15,822 INFO] Step 50/50000; acc: 0.8; ppl: 2119.0; xent: 7.7; lr: 0.00001; sents:   20664; bsz: 4480/ 668/41; 28703/4281 tok/s;     78 sec;
+[2024-12-02 14:45:49,576 INFO] Step 100/50000; acc: 17.3; ppl:  25.6; xent: 3.2; lr: 0.00002; sents:   18904; bsz: 4410/ 603/38; 65325/8937 tok/s;    112 sec;
+[2024-12-02 14:46:25,434 INFO] Step 150/50000; acc: 76.2; ppl:   5.9; xent: 1.8; lr: 0.00004; sents:   17912; bsz: 4536/ 571/36; 63256/7967 tok/s;    148 sec;
+[2024-12-02 14:50:13,433 INFO] Parsed 2 corpora from -data.
+[2024-12-02 14:50:13,433 INFO] Get special vocabs from Transforms: {'src': [], 'tgt': []}.
+[2024-12-02 14:50:13,434 INFO] The first 10 tokens of the vocabs are:['<unk>', '<blank>', '<s>', '</s>', '▁;', '.', '▁local', '▁i', '32.', 'get']
+[2024-12-02 14:50:13,434 INFO] The decoder start token is: <s>
+[2024-12-02 14:50:13,434 INFO] Building model...
+[2024-12-02 14:50:13,947 INFO] Switching model to half() for FusedAdam legacy
+[2024-12-02 14:50:13,947 INFO] Non quantized layer compute is fp16
+[2024-12-02 14:50:14,070 INFO] NMTModel(
+  (encoder): TransformerEncoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(496, 1024, padding_idx=1)
+        )
+        (pe): PositionalEncoding()
+      )
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (transformer): ModuleList(
+      (0-5): 6 x TransformerEncoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_values): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_query): Linear(in_features=1024, out_features=1024, bias=False)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=1024, out_features=1024, bias=False)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=1024, out_features=4096, bias=False)
+          (w_2): Linear(in_features=4096, out_features=1024, bias=False)
+          (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+      )
+    )
+    (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+  )
+  (decoder): TransformerDecoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(496, 1024, padding_idx=1)
+        )
+        (pe): PositionalEncoding()
+      )
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+    (transformer_layers): ModuleList(
+      (0-5): 6 x TransformerDecoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_values): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_query): Linear(in_features=1024, out_features=1024, bias=False)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=1024, out_features=1024, bias=False)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=1024, out_features=4096, bias=False)
+          (w_2): Linear(in_features=4096, out_features=1024, bias=False)
+          (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm_1): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+        (context_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_values): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_query): Linear(in_features=1024, out_features=1024, bias=False)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=1024, out_features=1024, bias=False)
+        )
+        (layer_norm_2): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+      )
+    )
+  )
+  (generator): Linear(in_features=1024, out_features=496, bias=True)
+)
+[2024-12-02 14:50:14,071 INFO] encoder: 76032000
+[2024-12-02 14:50:14,071 INFO] decoder: 100702704
+[2024-12-02 14:50:14,072 INFO] * number of parameters: 176734704
+[2024-12-02 14:50:14,072 INFO] Trainable parameters = {'torch.float32': 0, 'torch.float16': 176734704, 'torch.uint8': 0, 'torch.int8': 0}
+[2024-12-02 14:50:14,072 INFO] Non trainable parameters = {'torch.float32': 0, 'torch.float16': 0, 'torch.uint8': 0, 'torch.int8': 0}
+[2024-12-02 14:50:14,072 INFO]  * src vocab size = 496
+[2024-12-02 14:50:14,072 INFO]  * tgt vocab size = 496
+[2024-12-02 14:50:14,264 INFO] Starting training on GPU: [0]
+[2024-12-02 14:50:14,264 INFO] Start training loop and validate every 1000 steps...
+[2024-12-02 14:50:14,264 INFO] Scoring with: ['onmt_tokenize']
+[2024-12-02 14:51:31,395 INFO] Step 50/50000; acc: 2.0; ppl: 2412.9; xent: 7.8; lr: 0.00001; sents:   18296; bsz: 4365/ 591/37; 28296/3830 tok/s;     77 sec;
+[2024-12-02 14:51:48,084 INFO] Step 74, cuda OOM - batch removed
+[2024-12-02 14:51:48,484 INFO] Step 74, cuda OOM - batch removed
+[2024-12-02 14:51:48,869 INFO] Step 74, cuda OOM - batch removed
+[2024-12-02 14:51:48,882 INFO] Step 74, cuda OOM - batch removed
+[2024-12-02 14:55:34,559 INFO] Parsed 2 corpora from -data.
+[2024-12-02 14:55:34,559 INFO] Get special vocabs from Transforms: {'src': [], 'tgt': []}.
+[2024-12-02 14:55:34,560 INFO] The first 10 tokens of the vocabs are:['<unk>', '<blank>', '<s>', '</s>', '▁;', '.', '▁local', '▁i', '32.', 'get']
+[2024-12-02 14:55:34,560 INFO] The decoder start token is: <s>
+[2024-12-02 14:55:34,560 INFO] Building model...
+[2024-12-02 14:55:35,081 INFO] Switching model to half() for FusedAdam legacy
+[2024-12-02 14:55:35,081 INFO] Non quantized layer compute is fp16
+[2024-12-02 14:55:35,229 INFO] NMTModel(
+  (encoder): TransformerEncoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(496, 1024, padding_idx=1)
+        )
+        (pe): PositionalEncoding()
+      )
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (transformer): ModuleList(
+      (0-5): 6 x TransformerEncoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_values): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_query): Linear(in_features=1024, out_features=1024, bias=False)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=1024, out_features=1024, bias=False)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=1024, out_features=4096, bias=False)
+          (w_2): Linear(in_features=4096, out_features=1024, bias=False)
+          (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+      )
+    )
+    (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+  )
+  (decoder): TransformerDecoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(496, 1024, padding_idx=1)
+        )
+        (pe): PositionalEncoding()
+      )
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+    (transformer_layers): ModuleList(
+      (0-5): 6 x TransformerDecoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_values): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_query): Linear(in_features=1024, out_features=1024, bias=False)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=1024, out_features=1024, bias=False)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=1024, out_features=4096, bias=False)
+          (w_2): Linear(in_features=4096, out_features=1024, bias=False)
+          (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm_1): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+        (context_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_values): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_query): Linear(in_features=1024, out_features=1024, bias=False)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=1024, out_features=1024, bias=False)
+        )
+        (layer_norm_2): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+      )
+    )
+  )
+  (generator): Linear(in_features=1024, out_features=496, bias=True)
+)
+[2024-12-02 14:55:35,231 INFO] encoder: 76032000
+[2024-12-02 14:55:35,231 INFO] decoder: 100702704
+[2024-12-02 14:55:35,231 INFO] * number of parameters: 176734704
+[2024-12-02 14:55:35,231 INFO] Trainable parameters = {'torch.float32': 0, 'torch.float16': 176734704, 'torch.uint8': 0, 'torch.int8': 0}
+[2024-12-02 14:55:35,231 INFO] Non trainable parameters = {'torch.float32': 0, 'torch.float16': 0, 'torch.uint8': 0, 'torch.int8': 0}
+[2024-12-02 14:55:35,231 INFO]  * src vocab size = 496
+[2024-12-02 14:55:35,231 INFO]  * tgt vocab size = 496
+[2024-12-02 14:55:35,418 INFO] Starting training on GPU: [0]
+[2024-12-02 14:55:35,418 INFO] Start training loop and validate every 1000 steps...
+[2024-12-02 14:55:35,419 INFO] Scoring with: ['onmt_tokenize']
+[2024-12-02 14:56:53,198 INFO] Step 50/50000; acc: 1.7; ppl: 1981.6; xent: 7.6; lr: 0.00001; sents:   18832; bsz: 4376/ 596/38; 28134/3834 tok/s;     78 sec;
+[2024-12-02 14:57:29,920 INFO] Step 100/50000; acc: 25.0; ppl:  21.6; xent: 3.1; lr: 0.00002; sents:   18552; bsz: 4533/ 598/37; 61723/8136 tok/s;    115 sec;
+[2024-12-02 14:58:03,552 INFO] Step 150/50000; acc: 77.4; ppl:   5.6; xent: 1.7; lr: 0.00004; sents:   18616; bsz: 4380/ 597/37; 65113/8877 tok/s;    148 sec;
+[2024-12-02 14:58:37,805 INFO] Step 200/50000; acc: 90.1; ppl:   3.7; xent: 1.3; lr: 0.00005; sents:   18648; bsz: 4479/ 599/37; 65375/8739 tok/s;    182 sec;
+[2024-12-02 14:59:12,571 INFO] Step 250/50000; acc: 94.1; ppl:   3.2; xent: 1.2; lr: 0.00006; sents:   18992; bsz: 4549/ 606/38; 65421/8720 tok/s;    217 sec;
+[2024-12-02 14:59:46,416 INFO] Step 300/50000; acc: 94.1; ppl:   3.2; xent: 1.2; lr: 0.00007; sents:   18416; bsz: 4419/ 598/37; 65278/8840 tok/s;    251 sec;
+[2024-12-02 15:00:01,170 INFO] Step 321, cuda OOM - batch removed
+[2024-12-02 15:00:10,139 INFO] Step 334, cuda OOM - batch removed
+[2024-12-02 15:00:22,254 INFO] Step 350/50000; acc: 95.0; ppl:   3.1; xent: 1.1; lr: 0.00009; sents:   17816; bsz: 4534/ 568/36; 63001/7898 tok/s;    287 sec;
+[2024-12-02 15:00:40,464 INFO] Step 377, cuda OOM - batch removed
+[2024-12-02 15:00:42,741 INFO] Step 380, cuda OOM - batch removed
+[2024-12-02 15:00:43,131 INFO] Step 381, cuda OOM - batch removed
+[2024-12-02 15:00:43,470 INFO] Step 381, cuda OOM - batch removed
+[2024-12-02 15:00:44,222 INFO] Step 382, cuda OOM - batch removed
+[2024-12-02 15:00:53,122 INFO] Step 394, cuda OOM - batch removed
+[2024-12-02 15:00:53,613 INFO] Step 395, cuda OOM - batch removed
+[2024-12-02 15:00:53,833 INFO] Step 395, cuda OOM - batch removed
+[2024-12-02 15:00:54,920 INFO] Step 396, cuda OOM - batch removed
+[2024-12-02 15:00:58,660 INFO] Step 400/50000; acc: 93.7; ppl:   3.1; xent: 1.1; lr: 0.00010; sents:   19048; bsz: 4851/ 614/39; 65419/8278 tok/s;    323 sec;
+[2024-12-02 15:03:16,707 INFO] Parsed 2 corpora from -data.
+[2024-12-02 15:03:16,708 INFO] Get special vocabs from Transforms: {'src': [], 'tgt': []}.
+[2024-12-02 15:03:16,708 INFO] The first 10 tokens of the vocabs are:['<unk>', '<blank>', '<s>', '</s>', '▁;', '.', '▁local', '▁i', '32.', 'get']
+[2024-12-02 15:03:16,708 INFO] The decoder start token is: <s>
+[2024-12-02 15:03:16,708 INFO] Building model...
+[2024-12-02 15:03:17,225 INFO] Switching model to half() for FusedAdam legacy
+[2024-12-02 15:03:17,225 INFO] Non quantized layer compute is fp16
+[2024-12-02 15:03:17,339 INFO] NMTModel(
+  (encoder): TransformerEncoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(496, 1024, padding_idx=1)
+        )
+      )
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (transformer): ModuleList(
+      (0-5): 6 x TransformerEncoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_values): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_query): Linear(in_features=1024, out_features=1024, bias=False)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=1024, out_features=1024, bias=False)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=1024, out_features=4096, bias=False)
+          (w_2): Linear(in_features=4096, out_features=1024, bias=False)
+          (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+      )
+    )
+    (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+  )
+  (decoder): TransformerDecoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(496, 1024, padding_idx=1)
+        )
+      )
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+    (transformer_layers): ModuleList(
+      (0-5): 6 x TransformerDecoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_values): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_query): Linear(in_features=1024, out_features=1024, bias=False)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=1024, out_features=1024, bias=False)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=1024, out_features=4096, bias=False)
+          (w_2): Linear(in_features=4096, out_features=1024, bias=False)
+          (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm_1): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+        (context_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_values): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_query): Linear(in_features=1024, out_features=1024, bias=False)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=1024, out_features=1024, bias=False)
+        )
+        (layer_norm_2): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+      )
+    )
+  )
+  (generator): Linear(in_features=1024, out_features=496, bias=True)
+)
+[2024-12-02 15:03:17,341 INFO] encoder: 76032000
+[2024-12-02 15:03:17,341 INFO] decoder: 100702704
+[2024-12-02 15:03:17,341 INFO] * number of parameters: 176734704
+[2024-12-02 15:03:17,341 INFO] Trainable parameters = {'torch.float32': 0, 'torch.float16': 176734704, 'torch.uint8': 0, 'torch.int8': 0}
+[2024-12-02 15:03:17,341 INFO] Non trainable parameters = {'torch.float32': 0, 'torch.float16': 0, 'torch.uint8': 0, 'torch.int8': 0}
+[2024-12-02 15:03:17,341 INFO]  * src vocab size = 496
+[2024-12-02 15:03:17,341 INFO]  * tgt vocab size = 496
+[2024-12-02 15:03:17,540 INFO] Starting training on GPU: [0]
+[2024-12-02 15:03:17,540 INFO] Start training loop and validate every 1000 steps...
+[2024-12-02 15:03:17,541 INFO] Scoring with: ['onmt_tokenize']
+[2024-12-02 15:04:05,114 INFO] Step 50/50000; acc: 16.8; ppl:  72.1; xent: 4.3; lr: 0.00001; sents:    3200; bsz: 6346/1037/64; 6670/1090 tok/s;     48 sec;
+[2024-12-02 15:04:06,513 INFO] Step 63, cuda OOM - batch removed
+[2024-12-02 15:04:42,595 INFO] Parsed 2 corpora from -data.
+[2024-12-02 15:04:42,595 INFO] Get special vocabs from Transforms: {'src': [], 'tgt': []}.
+[2024-12-02 15:04:42,595 INFO] The first 10 tokens of the vocabs are:['<unk>', '<blank>', '<s>', '</s>', '▁;', '.', '▁local', '▁i', '32.', 'get']
+[2024-12-02 15:04:42,595 INFO] The decoder start token is: <s>
+[2024-12-02 15:04:42,595 INFO] Building model...
+[2024-12-02 15:04:43,094 INFO] Switching model to half() for FusedAdam legacy
+[2024-12-02 15:04:43,095 INFO] Non quantized layer compute is fp16
+[2024-12-02 15:04:43,230 INFO] NMTModel(
+  (encoder): TransformerEncoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(496, 1024, padding_idx=1)
+        )
+      )
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (transformer): ModuleList(
+      (0-5): 6 x TransformerEncoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_values): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_query): Linear(in_features=1024, out_features=1024, bias=False)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=1024, out_features=1024, bias=False)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=1024, out_features=4096, bias=False)
+          (w_2): Linear(in_features=4096, out_features=1024, bias=False)
+          (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+      )
+    )
+    (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+  )
+  (decoder): TransformerDecoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(496, 1024, padding_idx=1)
+        )
+      )
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+    (transformer_layers): ModuleList(
+      (0-5): 6 x TransformerDecoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_values): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_query): Linear(in_features=1024, out_features=1024, bias=False)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=1024, out_features=1024, bias=False)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=1024, out_features=4096, bias=False)
+          (w_2): Linear(in_features=4096, out_features=1024, bias=False)
+          (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm_1): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+        (context_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_values): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_query): Linear(in_features=1024, out_features=1024, bias=False)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=1024, out_features=1024, bias=False)
+        )
+        (layer_norm_2): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+      )
+    )
+  )
+  (generator): Linear(in_features=1024, out_features=496, bias=True)
+)
+[2024-12-02 15:04:43,231 INFO] encoder: 76032000
+[2024-12-02 15:04:43,231 INFO] decoder: 100702704
+[2024-12-02 15:04:43,231 INFO] * number of parameters: 176734704
+[2024-12-02 15:04:43,232 INFO] Trainable parameters = {'torch.float32': 0, 'torch.float16': 176734704, 'torch.uint8': 0, 'torch.int8': 0}
+[2024-12-02 15:04:43,232 INFO] Non trainable parameters = {'torch.float32': 0, 'torch.float16': 0, 'torch.uint8': 0, 'torch.int8': 0}
+[2024-12-02 15:04:43,232 INFO]  * src vocab size = 496
+[2024-12-02 15:04:43,232 INFO]  * tgt vocab size = 496
+[2024-12-02 15:04:43,422 INFO] Starting training on GPU: [0]
+[2024-12-02 15:04:43,422 INFO] Start training loop and validate every 1000 steps...
+[2024-12-02 15:04:43,422 INFO] Scoring with: ['onmt_tokenize']
+[2024-12-02 15:06:01,013 INFO] Step 50/50000; acc: 23.2; ppl:  58.8; xent: 4.1; lr: 0.00001; sents:   18624; bsz: 4421/ 613/37; 28489/3950 tok/s;     78 sec;
+[2024-12-02 15:06:34,452 INFO] Step 100/50000; acc: 75.7; ppl:   6.5; xent: 1.9; lr: 0.00002; sents:   18024; bsz: 4420/ 581/36; 66083/8691 tok/s;    111 sec;
+[2024-12-02 15:07:07,907 INFO] Step 150/50000; acc: 87.7; ppl:   4.2; xent: 1.4; lr: 0.00004; sents:   18496; bsz: 4440/ 609/37; 66357/9097 tok/s;    144 sec;
+[2024-12-02 15:07:42,645 INFO] Step 200/50000; acc: 91.2; ppl:   3.7; xent: 1.3; lr: 0.00005; sents:   19304; bsz: 4490/ 634/39; 64631/9126 tok/s;    179 sec;
+[2024-12-02 15:08:17,808 INFO] Step 250/50000; acc: 93.9; ppl:   3.2; xent: 1.2; lr: 0.00006; sents:   19312; bsz: 4509/ 611/39; 64123/8687 tok/s;    214 sec;
+[2024-12-02 15:08:53,529 INFO] Step 300/50000; acc: 94.4; ppl:   3.2; xent: 1.2; lr: 0.00007; sents:   18896; bsz: 4491/ 599/38; 62863/8383 tok/s;    250 sec;
+[2024-12-02 15:09:26,983 INFO] Step 350/50000; acc: 95.7; ppl:   3.0; xent: 1.1; lr: 0.00009; sents:   18800; bsz: 4489/ 586/38; 67099/8756 tok/s;    284 sec;
+[2024-12-02 15:09:48,989 INFO] Step 380, cuda OOM - batch removed
+[2024-12-02 15:09:49,545 INFO] Step 381, cuda OOM - batch removed
+[2024-12-02 15:09:50,326 INFO] Step 382, cuda OOM - batch removed
+[2024-12-02 15:09:51,096 INFO] Step 383, cuda OOM - batch removed
+[2024-12-02 15:10:03,176 INFO] Step 400/50000; acc: 94.9; ppl:   3.1; xent: 1.1; lr: 0.00010; sents:   19208; bsz: 4745/ 621/39; 65029/8506 tok/s;    320 sec;
+[2024-12-02 15:10:37,541 INFO] Step 450/50000; acc: 95.1; ppl:   3.0; xent: 1.1; lr: 0.00011; sents:   18304; bsz: 4406/ 590/37; 64101/8579 tok/s;    354 sec;
+[2024-12-02 15:10:41,581 INFO] Step 456, cuda OOM - batch removed
+[2024-12-02 15:10:41,593 INFO] Step 457, cuda OOM - batch removed
+[2024-12-02 15:10:42,728 INFO] Step 458, cuda OOM - batch removed
+[2024-12-02 15:10:43,537 INFO] Step 459, cuda OOM - batch removed
+[2024-12-02 15:10:59,421 INFO] Step 481, cuda OOM - batch removed
+[2024-12-02 15:10:59,423 INFO] Step 481, cuda OOM - batch removed
+[2024-12-02 15:11:00,744 INFO] Step 483, cuda OOM - batch removed
+[2024-12-02 15:11:01,564 INFO] Step 484, cuda OOM - batch removed
+[2024-12-02 15:11:02,392 INFO] Step 485, cuda OOM - batch removed
+[2024-12-02 15:11:02,724 INFO] Step 485, cuda OOM - batch removed
+[2024-12-02 15:11:04,261 INFO] Step 487, cuda OOM - batch removed
+[2024-12-02 15:11:05,094 INFO] Step 488, cuda OOM - batch removed
+[2024-12-02 15:11:13,650 INFO] Step 500/50000; acc: 94.8; ppl:   3.0; xent: 1.1; lr: 0.00012; sents:   18304; bsz: 4963/ 613/38; 67079/8280 tok/s;    390 sec;
+[2024-12-02 15:11:20,894 INFO] Step 511, cuda OOM - batch removed
+[2024-12-02 15:11:48,316 INFO] Step 550/50000; acc: 95.3; ppl:   3.0; xent: 1.1; lr: 0.00014; sents:   17688; bsz: 4502/ 568/35; 64804/8183 tok/s;    425 sec;
+[2024-12-02 15:12:20,034 INFO] Step 594, cuda OOM - batch removed
+[2024-12-02 15:12:20,355 INFO] Step 595, cuda OOM - batch removed
+[2024-12-02 15:12:21,640 INFO] Step 596, cuda OOM - batch removed
+[2024-12-02 15:12:22,206 INFO] Step 597, cuda OOM - batch removed
+[2024-12-02 15:12:22,361 INFO] Step 597, cuda OOM - batch removed
+[2024-12-02 15:12:22,555 INFO] Step 598, cuda OOM - batch removed
+[2024-12-02 15:12:23,785 INFO] Step 600, cuda OOM - batch removed
+[2024-12-02 15:12:24,385 INFO] Step 600/50000; acc: 95.5; ppl:   2.9; xent: 1.1; lr: 0.00015; sents:   19896; bsz: 5438/ 654/40; 74323/8939 tok/s;    461 sec;
+[2024-12-02 15:12:24,465 INFO] Step 601, cuda OOM - batch removed
+[2024-12-02 15:12:58,536 INFO] Step 650/50000; acc: 95.6; ppl:   2.9; xent: 1.1; lr: 0.00016; sents:   18696; bsz: 4595/ 606/37; 67146/8859 tok/s;    495 sec;
+[2024-12-02 15:13:32,748 INFO] Step 700/50000; acc: 95.9; ppl:   2.9; xent: 1.1; lr: 0.00017; sents:   19872; bsz: 4480/ 638/40; 65480/9327 tok/s;    529 sec;
+[2024-12-02 15:13:57,415 INFO] Step 736, cuda OOM - batch removed
+[2024-12-02 15:13:58,143 INFO] Step 737, cuda OOM - batch removed
+[2024-12-02 15:13:59,687 INFO] Step 739, cuda OOM - batch removed
+[2024-12-02 15:14:01,156 INFO] Step 741, cuda OOM - batch removed
+[2024-12-02 15:14:07,749 INFO] Step 750/50000; acc: 95.8; ppl:   2.9; xent: 1.1; lr: 0.00019; sents:   18200; bsz: 4565/ 588/37; 64695/8339 tok/s;    564 sec;
+[2024-12-02 15:14:18,187 INFO] Step 765, cuda OOM - batch removed
+[2024-12-02 15:14:24,342 INFO] Step 774, cuda OOM - batch removed
+[2024-12-02 15:14:24,929 INFO] Step 775, cuda OOM - batch removed
+[2024-12-02 15:14:26,363 INFO] Step 777, cuda OOM - batch removed
+[2024-12-02 15:14:27,618 INFO] Step 779, cuda OOM - batch removed
+[2024-12-02 15:14:34,416 INFO] Step 788, cuda OOM - batch removed
+[2024-12-02 15:14:36,134 INFO] Step 790, cuda OOM - batch removed
+[2024-12-02 15:14:37,737 INFO] Step 792, cuda OOM - batch removed
+[2024-12-02 15:14:37,740 INFO] Step 792, cuda OOM - batch removed
+[2024-12-02 15:14:43,411 INFO] Step 800/50000; acc: 96.1; ppl:   2.9; xent: 1.1; lr: 0.00020; sents:   17168; bsz: 5035/ 563/35; 69317/7747 tok/s;    600 sec;
+[2024-12-02 15:15:17,990 INFO] Step 850/50000; acc: 95.4; ppl:   2.9; xent: 1.1; lr: 0.00021; sents:   18840; bsz: 4439/ 608/38; 64185/8797 tok/s;    635 sec;
+[2024-12-02 15:15:27,787 INFO] Step 865, cuda OOM - batch removed
+[2024-12-02 15:15:51,988 INFO] Step 900/50000; acc: 96.4; ppl:   2.9; xent: 1.1; lr: 0.00022; sents:   17480; bsz: 4419/ 555/35; 64866/8147 tok/s;    669 sec;
+[2024-12-02 15:16:24,121 INFO] Step 946, cuda OOM - batch removed
+[2024-12-02 15:16:25,232 INFO] Step 947, cuda OOM - batch removed
+[2024-12-02 15:16:26,024 INFO] Step 948, cuda OOM - batch removed
+[2024-12-02 15:16:27,589 INFO] Step 950/50000; acc: 96.6; ppl:   2.9; xent: 1.0; lr: 0.00023; sents:   17512; bsz: 4616/ 555/35; 64435/7755 tok/s;    704 sec;
+[2024-12-02 15:16:52,009 INFO] Step 985, cuda OOM - batch removed
+[2024-12-02 15:17:02,439 INFO] Step 1000/50000; acc: 95.7; ppl:   2.9; xent: 1.1; lr: 0.00025; sents:   18608; bsz: 4562/ 605/37; 65319/8665 tok/s;    739 sec;
+[2024-12-02 15:18:36,698 INFO] Parsed 2 corpora from -data.
+[2024-12-02 15:18:36,698 INFO] Get special vocabs from Transforms: {'src': [], 'tgt': []}.
+[2024-12-02 15:18:36,698 INFO] The first 10 tokens of the vocabs are:['<unk>', '<blank>', '<s>', '</s>', '▁;', '.', '▁local', '▁i', '32.', 'get']
+[2024-12-02 15:18:36,698 INFO] The decoder start token is: <s>
+[2024-12-02 15:18:36,698 INFO] Building model...
+[2024-12-02 15:18:37,197 INFO] Switching model to half() for FusedAdam legacy
+[2024-12-02 15:18:37,197 INFO] Non quantized layer compute is fp16
+[2024-12-02 15:18:37,336 INFO] NMTModel(
+  (encoder): TransformerEncoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(496, 1024, padding_idx=1)
+        )
+      )
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (transformer): ModuleList(
+      (0-5): 6 x TransformerEncoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_values): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_query): Linear(in_features=1024, out_features=1024, bias=False)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=1024, out_features=1024, bias=False)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=1024, out_features=4096, bias=False)
+          (w_2): Linear(in_features=4096, out_features=1024, bias=False)
+          (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+      )
+    )
+    (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+  )
+  (decoder): TransformerDecoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(496, 1024, padding_idx=1)
+        )
+      )
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+    (transformer_layers): ModuleList(
+      (0-5): 6 x TransformerDecoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_values): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_query): Linear(in_features=1024, out_features=1024, bias=False)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=1024, out_features=1024, bias=False)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=1024, out_features=4096, bias=False)
+          (w_2): Linear(in_features=4096, out_features=1024, bias=False)
+          (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm_1): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+        (context_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_values): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_query): Linear(in_features=1024, out_features=1024, bias=False)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=1024, out_features=1024, bias=False)
+        )
+        (layer_norm_2): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+      )
+    )
+  )
+  (generator): Linear(in_features=1024, out_features=496, bias=True)
+)
+[2024-12-02 15:18:37,338 INFO] encoder: 76032000
+[2024-12-02 15:18:37,338 INFO] decoder: 100702704
+[2024-12-02 15:18:37,338 INFO] * number of parameters: 176734704
+[2024-12-02 15:18:37,338 INFO] Trainable parameters = {'torch.float32': 0, 'torch.float16': 176734704, 'torch.uint8': 0, 'torch.int8': 0}
+[2024-12-02 15:18:37,338 INFO] Non trainable parameters = {'torch.float32': 0, 'torch.float16': 0, 'torch.uint8': 0, 'torch.int8': 0}
+[2024-12-02 15:18:37,338 INFO]  * src vocab size = 496
+[2024-12-02 15:18:37,338 INFO]  * tgt vocab size = 496
+[2024-12-02 15:18:37,527 INFO] Starting training on GPU: [0]
+[2024-12-02 15:18:37,527 INFO] Start training loop and validate every 1000 steps...
+[2024-12-02 15:18:37,527 INFO] Scoring with: ['onmt_tokenize']
+[2024-12-02 15:19:24,434 INFO] Step 4, cuda OOM - batch removed
+[2024-12-02 15:19:24,665 INFO] Step 4, cuda OOM - batch removed
+[2024-12-02 15:19:24,668 INFO] Step 4, cuda OOM - batch removed
+[2024-12-02 15:19:24,698 INFO] Step 4, cuda OOM - batch removed
+[2024-12-02 15:19:43,183 INFO] Step 31, cuda OOM - batch removed
+[2024-12-02 15:19:43,350 INFO] Step 32, cuda OOM - batch removed
+[2024-12-02 15:19:43,436 INFO] Step 32, cuda OOM - batch removed
+[2024-12-02 15:19:43,441 INFO] Step 32, cuda OOM - batch removed
+[2024-12-02 15:19:55,922 INFO] Step 50/50000; acc: 22.3; ppl:  50.6; xent: 3.9; lr: 0.00001; sents:   18760; bsz: 5511/ 610/38; 34587/3828 tok/s;     78 sec;
+[2024-12-02 15:20:30,042 INFO] Step 100/50000; acc: 75.6; ppl:   6.6; xent: 1.9; lr: 0.00002; sents:   17968; bsz: 4455/ 573/36; 65284/8391 tok/s;    113 sec;
+[2024-12-02 15:20:30,045 INFO] Saving checkpoint save/model_step_100.pt
+[2024-12-02 15:21:04,272 INFO] Step 150/50000; acc: 90.2; ppl:   3.8; xent: 1.3; lr: 0.00004; sents:   17560; bsz: 4344/ 555/35; 63450/8108 tok/s;    147 sec;
+[2024-12-02 15:21:27,931 INFO] Step 186, cuda OOM - batch removed
+[2024-12-02 15:21:28,283 INFO] Step 186, cuda OOM - batch removed
+[2024-12-02 15:21:28,604 INFO] Step 186, cuda OOM - batch removed
+[2024-12-02 15:21:29,108 INFO] Step 187, cuda OOM - batch removed
+[2024-12-02 15:21:38,907 INFO] Step 200/50000; acc: 92.0; ppl:   3.5; xent: 1.3; lr: 0.00005; sents:   16960; bsz: 4476/ 557/34; 64100/7976 tok/s;    181 sec;
+[2024-12-02 15:21:38,909 INFO] Saving checkpoint save/model_step_200.pt
+[2024-12-02 15:22:13,502 INFO] Step 250, cuda OOM - batch removed
+[2024-12-02 15:22:14,031 INFO] Step 250/50000; acc: 94.9; ppl:   3.2; xent: 1.2; lr: 0.00006; sents:   19856; bsz: 4512/ 628/40; 64099/8917 tok/s;    217 sec;
+[2024-12-02 15:22:49,134 INFO] Step 300/50000; acc: 93.7; ppl:   3.2; xent: 1.2; lr: 0.00007; sents:   19296; bsz: 4523/ 626/39; 64420/8921 tok/s;    252 sec;
+[2024-12-02 15:22:49,136 INFO] Saving checkpoint save/model_step_300.pt
+[2024-12-02 15:22:59,601 INFO] Step 314, cuda OOM - batch removed
+[2024-12-02 15:23:24,519 INFO] Step 350/50000; acc: 94.9; ppl:   3.1; xent: 1.1; lr: 0.00009; sents:   18672; bsz: 4460/ 599/37; 62890/8448 tok/s;    287 sec;
+[2024-12-02 15:23:58,057 INFO] Step 400/50000; acc: 94.7; ppl:   3.1; xent: 1.1; lr: 0.00010; sents:   18656; bsz: 4367/ 602/37; 65106/8971 tok/s;    321 sec;
+[2024-12-02 15:23:58,060 INFO] Saving checkpoint save/model_step_400.pt
+[2024-12-02 15:24:33,129 INFO] Step 450/50000; acc: 95.1; ppl:   3.0; xent: 1.1; lr: 0.00011; sents:   19224; bsz: 4469/ 612/38; 63710/8718 tok/s;    356 sec;
+[2024-12-02 15:25:04,709 INFO] Step 497, cuda OOM - batch removed
+[2024-12-02 15:25:07,247 INFO] Step 500/50000; acc: 95.8; ppl:   3.0; xent: 1.1; lr: 0.00012; sents:   19696; bsz: 4531/ 634/39; 66270/9268 tok/s;    390 sec;
+[2024-12-02 15:25:07,250 INFO] Saving checkpoint save/model_step_500.pt
+[2024-12-02 15:25:30,311 INFO] Step 532, cuda OOM - batch removed
+[2024-12-02 15:25:44,408 INFO] Step 550/50000; acc: 95.3; ppl:   3.0; xent: 1.1; lr: 0.00014; sents:   19456; bsz: 4520/ 633/39; 60691/8503 tok/s;    427 sec;
+[2024-12-02 15:25:59,224 INFO] Step 570, cuda OOM - batch removed
+[2024-12-02 15:26:00,033 INFO] Step 571, cuda OOM - batch removed
+[2024-12-02 15:26:00,431 INFO] Step 572, cuda OOM - batch removed
+[2024-12-02 15:26:00,948 INFO] Step 572, cuda OOM - batch removed
+[2024-12-02 15:26:01,916 INFO] Step 573, cuda OOM - batch removed
+[2024-12-02 15:26:10,032 INFO] Step 585, cuda OOM - batch removed
+[2024-12-02 15:26:20,652 INFO] Step 600/50000; acc: 95.5; ppl:   3.0; xent: 1.1; lr: 0.00015; sents:   18384; bsz: 5086/ 597/37; 69323/8133 tok/s;    463 sec;
+[2024-12-02 15:26:20,655 INFO] Saving checkpoint save/model_step_600.pt
+[2024-12-02 15:26:54,679 INFO] Step 648, cuda OOM - batch removed
+[2024-12-02 15:26:56,283 INFO] Step 650/50000; acc: 95.5; ppl:   3.0; xent: 1.1; lr: 0.00016; sents:   18832; bsz: 4490/ 602/38; 62880/8434 tok/s;    499 sec;
+[2024-12-02 15:27:04,716 INFO] Step 663, cuda OOM - batch removed
+[2024-12-02 15:27:11,283 INFO] Step 673, cuda OOM - batch removed
+[2024-12-02 15:27:29,137 INFO] Step 699, cuda OOM - batch removed
+[2024-12-02 15:27:30,418 INFO] Step 700/50000; acc: 95.9; ppl:   2.9; xent: 1.1; lr: 0.00017; sents:   20208; bsz: 4562/ 643/41; 66423/9363 tok/s;    533 sec;
+[2024-12-02 15:27:30,421 INFO] Saving checkpoint save/model_step_700.pt
+[2024-12-02 15:27:51,585 INFO] Step 727, cuda OOM - batch removed
+[2024-12-02 15:28:08,210 INFO] Step 750/50000; acc: 95.4; ppl:   2.9; xent: 1.1; lr: 0.00019; sents:   17168; bsz: 4622/ 557/34; 61032/7354 tok/s;    571 sec;
+[2024-12-02 15:28:25,254 INFO] Step 775, cuda OOM - batch removed
+[2024-12-02 15:28:42,413 INFO] Step 800/50000; acc: 95.6; ppl:   2.9; xent: 1.1; lr: 0.00020; sents:   18680; bsz: 4527/ 603/37; 66053/8797 tok/s;    605 sec;
+[2024-12-02 15:28:42,416 INFO] Saving checkpoint save/model_step_800.pt
+[2024-12-02 15:28:49,584 INFO] Step 809, cuda OOM - batch removed
+[2024-12-02 15:29:17,648 INFO] Step 850/50000; acc: 95.8; ppl:   2.9; xent: 1.1; lr: 0.00021; sents:   17280; bsz: 4461/ 559/35; 63181/7917 tok/s;    640 sec;
+[2024-12-02 15:29:22,788 INFO] Step 858, cuda OOM - batch removed
+[2024-12-02 15:29:43,644 INFO] Step 887, cuda OOM - batch removed
+[2024-12-02 15:29:52,517 INFO] Step 900/50000; acc: 95.7; ppl:   2.9; xent: 1.1; lr: 0.00022; sents:   19192; bsz: 4791/ 622/39; 68428/8882 tok/s;    675 sec;
+[2024-12-02 15:29:52,520 INFO] Saving checkpoint save/model_step_900.pt
+[2024-12-02 15:30:03,669 INFO] Step 914, cuda OOM - batch removed
+[2024-12-02 15:30:28,293 INFO] Step 950/50000; acc: 95.6; ppl:   2.9; xent: 1.1; lr: 0.00023; sents:   17992; bsz: 4516/ 568/36; 62991/7927 tok/s;    711 sec;
+[2024-12-02 15:30:48,487 INFO] Step 979, cuda OOM - batch removed
+[2024-12-02 15:30:49,268 INFO] Step 980, cuda OOM - batch removed
+[2024-12-02 15:31:02,982 INFO] Step 1000/50000; acc: 95.2; ppl:   3.0; xent: 1.1; lr: 0.00025; sents:   16944; bsz: 4934/ 546/34; 70831/7844 tok/s;    745 sec;
+[2024-12-02 16:52:59,947 INFO] Parsed 2 corpora from -data.
+[2024-12-02 16:52:59,947 INFO] Get special vocabs from Transforms: {'src': [], 'tgt': []}.
+[2024-12-02 16:52:59,948 INFO] The first 10 tokens of the vocabs are:['<unk>', '<blank>', '<s>', '</s>', '▁;', '.', '▁local', '▁i', '32.', 'get']
+[2024-12-02 16:52:59,948 INFO] The decoder start token is: <s>
+[2024-12-02 16:52:59,948 INFO] Building model...
+[2024-12-02 16:53:00,451 INFO] Switching model to half() for FusedAdam legacy
+[2024-12-02 16:53:00,451 INFO] Non quantized layer compute is fp16
+[2024-12-02 16:53:00,618 INFO] NMTModel(
+  (encoder): TransformerEncoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(496, 1024, padding_idx=1)
+        )
+      )
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (transformer): ModuleList(
+      (0-5): 6 x TransformerEncoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_values): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_query): Linear(in_features=1024, out_features=1024, bias=False)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=1024, out_features=1024, bias=False)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=1024, out_features=4096, bias=False)
+          (w_2): Linear(in_features=4096, out_features=1024, bias=False)
+          (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+      )
+    )
+    (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+  )
+  (decoder): TransformerDecoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(496, 1024, padding_idx=1)
+        )
+      )
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+    (transformer_layers): ModuleList(
+      (0-5): 6 x TransformerDecoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_values): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_query): Linear(in_features=1024, out_features=1024, bias=False)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=1024, out_features=1024, bias=False)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=1024, out_features=4096, bias=False)
+          (w_2): Linear(in_features=4096, out_features=1024, bias=False)
+          (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm_1): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+        (context_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_values): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_query): Linear(in_features=1024, out_features=1024, bias=False)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=1024, out_features=1024, bias=False)
+        )
+        (layer_norm_2): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+      )
+    )
+  )
+  (generator): Linear(in_features=1024, out_features=496, bias=True)
+)
+[2024-12-02 16:53:00,620 INFO] encoder: 76032000
+[2024-12-02 16:53:00,620 INFO] decoder: 100702704
+[2024-12-02 16:53:00,620 INFO] * number of parameters: 176734704
+[2024-12-02 16:53:00,620 INFO] Trainable parameters = {'torch.float32': 0, 'torch.float16': 176734704, 'torch.uint8': 0, 'torch.int8': 0}
+[2024-12-02 16:53:00,620 INFO] Non trainable parameters = {'torch.float32': 0, 'torch.float16': 0, 'torch.uint8': 0, 'torch.int8': 0}
+[2024-12-02 16:53:00,620 INFO]  * src vocab size = 496
+[2024-12-02 16:53:00,620 INFO]  * tgt vocab size = 496
+[2024-12-02 16:53:00,811 INFO] Starting training on GPU: [0]
+[2024-12-02 16:53:00,811 INFO] Start training loop and validate every 1000 steps...
+[2024-12-02 16:53:00,811 INFO] Scoring with: ['onmt_tokenize']
+[2024-12-02 16:54:26,643 INFO] Parsed 2 corpora from -data.
+[2024-12-02 16:54:26,643 INFO] Get special vocabs from Transforms: {'src': [], 'tgt': []}.
+[2024-12-02 16:54:26,644 INFO] The first 10 tokens of the vocabs are:['<unk>', '<blank>', '<s>', '</s>', '▁;', '.', '▁local', '▁i', '32.', 'get']
+[2024-12-02 16:54:26,644 INFO] The decoder start token is: <s>
+[2024-12-02 16:54:26,644 INFO] Building model...
+[2024-12-02 16:54:27,148 INFO] Switching model to half() for FusedAdam legacy
+[2024-12-02 16:54:27,149 INFO] Non quantized layer compute is fp16
+[2024-12-02 16:54:27,274 INFO] NMTModel(
+  (encoder): TransformerEncoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(496, 1024, padding_idx=1)
+        )
+      )
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (transformer): ModuleList(
+      (0-5): 6 x TransformerEncoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_values): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_query): Linear(in_features=1024, out_features=1024, bias=False)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=1024, out_features=1024, bias=False)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=1024, out_features=4096, bias=False)
+          (w_2): Linear(in_features=4096, out_features=1024, bias=False)
+          (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+      )
+    )
+    (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+  )
+  (decoder): TransformerDecoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(496, 1024, padding_idx=1)
+        )
+      )
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+    (transformer_layers): ModuleList(
+      (0-5): 6 x TransformerDecoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_values): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_query): Linear(in_features=1024, out_features=1024, bias=False)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=1024, out_features=1024, bias=False)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=1024, out_features=4096, bias=False)
+          (w_2): Linear(in_features=4096, out_features=1024, bias=False)
+          (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm_1): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+        (context_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_values): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_query): Linear(in_features=1024, out_features=1024, bias=False)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=1024, out_features=1024, bias=False)
+        )
+        (layer_norm_2): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+      )
+    )
+  )
+  (generator): Linear(in_features=1024, out_features=496, bias=True)
+)
+[2024-12-02 16:54:27,275 INFO] encoder: 76032000
+[2024-12-02 16:54:27,275 INFO] decoder: 100702704
+[2024-12-02 16:54:27,275 INFO] * number of parameters: 176734704
+[2024-12-02 16:54:27,276 INFO] Trainable parameters = {'torch.float32': 0, 'torch.float16': 176734704, 'torch.uint8': 0, 'torch.int8': 0}
+[2024-12-02 16:54:27,276 INFO] Non trainable parameters = {'torch.float32': 0, 'torch.float16': 0, 'torch.uint8': 0, 'torch.int8': 0}
+[2024-12-02 16:54:27,276 INFO]  * src vocab size = 496
+[2024-12-02 16:54:27,276 INFO]  * tgt vocab size = 496
+[2024-12-02 16:54:27,464 INFO] Starting training on GPU: [0]
+[2024-12-02 16:54:27,464 INFO] Start training loop and validate every 1000 steps...
+[2024-12-02 16:54:27,464 INFO] Scoring with: ['onmt_tokenize']
+[2024-12-02 16:55:17,924 INFO] Step 50/50000; acc: 14.1; ppl:  85.7; xent: 4.5; lr: 0.00001; sents:     518; bsz:  123/  19/ 1; 1222/187 tok/s;     50 sec;
+[2024-12-02 16:55:23,285 INFO] Step 100/50000; acc: 56.2; ppl:  12.4; xent: 2.5; lr: 0.00002; sents:     512; bsz:  115/  18/ 1; 10711/1648 tok/s;     56 sec;
+[2024-12-02 16:55:23,287 INFO] Saving checkpoint save/model_step_100.pt
+[2024-12-02 16:55:30,303 INFO] Step 150/50000; acc: 74.7; ppl:   6.6; xent: 1.9; lr: 0.00004; sents:     511; bsz:  104/  18/ 1; 7397/1288 tok/s;     63 sec;
+[2024-12-02 16:55:35,672 INFO] Step 200/50000; acc: 79.4; ppl:   5.3; xent: 1.7; lr: 0.00005; sents:     521; bsz:  116/  19/ 1; 10826/1798 tok/s;     68 sec;
+[2024-12-02 16:55:35,674 INFO] Saving checkpoint save/model_step_200.pt
+[2024-12-02 16:55:42,986 INFO] Step 250/50000; acc: 84.3; ppl:   4.5; xent: 1.5; lr: 0.00006; sents:     516; bsz:  131/  19/ 1; 8943/1268 tok/s;     76 sec;
+[2024-12-02 16:55:48,243 INFO] Step 300/50000; acc: 88.4; ppl:   3.9; xent: 1.4; lr: 0.00007; sents:     528; bsz:  115/  19/ 1; 10923/1797 tok/s;     81 sec;
+[2024-12-02 16:55:48,245 INFO] Saving checkpoint save/model_step_300.pt
+[2024-12-02 16:55:55,336 INFO] Step 350/50000; acc: 89.8; ppl:   3.8; xent: 1.3; lr: 0.00009; sents:     516; bsz:  119/  18/ 1; 8404/1277 tok/s;     88 sec;
+[2024-12-02 16:56:00,627 INFO] Step 400/50000; acc: 91.1; ppl:   3.5; xent: 1.3; lr: 0.00010; sents:     514; bsz:  111/  17/ 1; 10454/1618 tok/s;     93 sec;
+[2024-12-02 16:56:00,629 INFO] Saving checkpoint save/model_step_400.pt
+[2024-12-02 16:56:07,819 INFO] Step 450/50000; acc: 90.8; ppl:   3.6; xent: 1.3; lr: 0.00011; sents:     525; bsz:  113/  18/ 1; 7868/1256 tok/s;    100 sec;
+[2024-12-02 16:56:13,242 INFO] Step 500/50000; acc: 88.1; ppl:   3.8; xent: 1.3; lr: 0.00012; sents:     516; bsz:  116/  18/ 1; 10652/1706 tok/s;    106 sec;
+[2024-12-02 16:56:13,244 INFO] Saving checkpoint save/model_step_500.pt
+[2024-12-02 16:56:20,455 INFO] Step 550/50000; acc: 88.5; ppl:   3.8; xent: 1.3; lr: 0.00014; sents:     543; bsz:  127/  21/ 1; 8830/1438 tok/s;    113 sec;
+[2024-12-02 16:56:25,790 INFO] Step 600/50000; acc: 90.9; ppl:   3.4; xent: 1.2; lr: 0.00015; sents:     532; bsz:  119/  19/ 1; 11127/1749 tok/s;    118 sec;
+[2024-12-02 16:56:25,792 INFO] Saving checkpoint save/model_step_600.pt
+[2024-12-02 16:56:32,935 INFO] Step 650/50000; acc: 92.4; ppl:   3.3; xent: 1.2; lr: 0.00016; sents:     504; bsz:  118/  17/ 1; 8275/1210 tok/s;    125 sec;
+[2024-12-02 16:56:38,348 INFO] Step 700/50000; acc: 91.5; ppl:   3.3; xent: 1.2; lr: 0.00017; sents:     547; bsz:  122/  19/ 1; 11224/1739 tok/s;    131 sec;
+[2024-12-02 16:56:38,350 INFO] Saving checkpoint save/model_step_700.pt
+[2024-12-02 16:56:45,304 INFO] Step 750/50000; acc: 91.0; ppl:   3.4; xent: 1.2; lr: 0.00019; sents:     542; bsz:  104/  20/ 1; 7467/1454 tok/s;    138 sec;
+[2024-12-02 16:56:50,691 INFO] Step 800/50000; acc: 92.0; ppl:   3.3; xent: 1.2; lr: 0.00020; sents:     535; bsz:  123/  18/ 1; 11380/1688 tok/s;    143 sec;
+[2024-12-02 16:56:50,693 INFO] Saving checkpoint save/model_step_800.pt
+[2024-12-02 16:56:57,703 INFO] Step 850/50000; acc: 91.6; ppl:   3.3; xent: 1.2; lr: 0.00021; sents:     530; bsz:  109/  19/ 1; 7745/1326 tok/s;    150 sec;
+[2024-12-02 16:57:03,129 INFO] Step 900/50000; acc: 91.7; ppl:   3.3; xent: 1.2; lr: 0.00022; sents:     516; bsz:  111/  18/ 1; 10270/1676 tok/s;    156 sec;
+[2024-12-02 16:57:03,131 INFO] Saving checkpoint save/model_step_900.pt
+[2024-12-02 16:57:10,101 INFO] Step 950/50000; acc: 89.8; ppl:   3.5; xent: 1.2; lr: 0.00023; sents:     514; bsz:  110/  19/ 1; 7879/1395 tok/s;    163 sec;
+[2024-12-02 16:57:15,394 INFO] Step 1000/50000; acc: 92.3; ppl:   3.2; xent: 1.2; lr: 0.00025; sents:     506; bsz:  110/  18/ 1; 10392/1655 tok/s;    168 sec;
+[2024-12-02 16:57:58,075 INFO] valid stats calculation
+                           took: 42.680177211761475 s.
+[2024-12-02 16:57:58,076 INFO] Train perplexity: 4.657
+[2024-12-02 16:57:58,076 INFO] Train accuracy: 83.4143
+[2024-12-02 16:57:58,076 INFO] Sentences processed: 10446
+[2024-12-02 16:57:58,076 INFO] Average bsz:  116/  19/ 1
+[2024-12-02 16:57:58,076 INFO] Validation perplexity: 2.99996
+[2024-12-02 16:57:58,076 INFO] Validation accuracy: 94.9251
+[2024-12-02 16:57:58,076 INFO] Model is improving ppl: inf --> 2.99996.
+[2024-12-02 16:57:58,076 INFO] Model is improving acc: -inf --> 94.9251.
+[2024-12-02 16:57:58,077 INFO] Saving checkpoint save/model_step_1000.pt
+[2024-12-02 16:58:04,777 INFO] Step 1050/50000; acc: 92.5; ppl:   3.2; xent: 1.2; lr: 0.00026; sents:     548; bsz:  123/  20/ 1; 1245/199 tok/s;    217 sec;
+[2024-12-02 16:58:10,173 INFO] Step 1100/50000; acc: 91.8; ppl:   3.3; xent: 1.2; lr: 0.00027; sents:     517; bsz:  118/  18/ 1; 10917/1686 tok/s;    223 sec;
+[2024-12-02 16:58:10,175 INFO] Saving checkpoint save/model_step_1100.pt
+[2024-12-02 16:58:16,685 INFO] Step 1150/50000; acc: 93.4; ppl:   3.1; xent: 1.1; lr: 0.00028; sents:     516; bsz:  111/  18/ 1; 8553/1349 tok/s;    229 sec;
+[2024-12-02 16:58:21,937 INFO] Step 1200/50000; acc: 92.5; ppl:   3.2; xent: 1.2; lr: 0.00030; sents:     521; bsz:  100/  18/ 1; 9561/1738 tok/s;    234 sec;
+[2024-12-02 16:58:21,939 INFO] Saving checkpoint save/model_step_1200.pt
+[2024-12-02 16:58:28,487 INFO] Step 1250/50000; acc: 93.9; ppl:   3.1; xent: 1.1; lr: 0.00031; sents:     516; bsz:  110/  18/ 1; 8414/1366 tok/s;    241 sec;
+[2024-12-02 16:58:34,010 INFO] Step 1300/50000; acc: 92.1; ppl:   3.2; xent: 1.2; lr: 0.00032; sents:     512; bsz:  130/  18/ 1; 11808/1586 tok/s;    247 sec;
+[2024-12-02 16:58:34,012 INFO] Saving checkpoint save/model_step_1300.pt
+[2024-12-02 16:58:40,633 INFO] Step 1350/50000; acc: 91.7; ppl:   3.3; xent: 1.2; lr: 0.00033; sents:     504; bsz:  120/  18/ 1; 9042/1328 tok/s;    253 sec;
+[2024-12-02 16:58:45,930 INFO] Step 1400/50000; acc: 92.9; ppl:   3.2; xent: 1.2; lr: 0.00035; sents:     500; bsz:  109/  18/ 1; 10304/1663 tok/s;    258 sec;
+[2024-12-02 16:58:45,932 INFO] Saving checkpoint save/model_step_1400.pt
+[2024-12-02 16:58:52,501 INFO] Step 1450/50000; acc: 92.5; ppl:   3.2; xent: 1.2; lr: 0.00036; sents:     521; bsz:  113/  19/ 1; 8628/1408 tok/s;    265 sec;
+[2024-12-02 16:58:57,875 INFO] Step 1500/50000; acc: 92.7; ppl:   3.2; xent: 1.2; lr: 0.00037; sents:     580; bsz:  115/  20/ 1; 10665/1840 tok/s;    270 sec;
+[2024-12-02 16:58:57,877 INFO] Saving checkpoint save/model_step_1500.pt
+[2024-12-02 16:59:04,394 INFO] Step 1550/50000; acc: 93.3; ppl:   3.1; xent: 1.1; lr: 0.00038; sents:     516; bsz:  108/  18/ 1; 8268/1347 tok/s;    277 sec;
+[2024-12-02 16:59:09,781 INFO] Step 1600/50000; acc: 92.3; ppl:   3.2; xent: 1.2; lr: 0.00040; sents:     557; bsz:  112/  19/ 1; 10374/1753 tok/s;    282 sec;
+[2024-12-02 16:59:09,783 INFO] Saving checkpoint save/model_step_1600.pt
+[2024-12-02 16:59:16,336 INFO] Step 1650/50000; acc: 92.1; ppl:   3.3; xent: 1.2; lr: 0.00041; sents:     501; bsz:  116/  17/ 1; 8882/1314 tok/s;    289 sec;
+[2024-12-02 16:59:21,714 INFO] Step 1700/50000; acc: 92.0; ppl:   3.3; xent: 1.2; lr: 0.00042; sents:     512; bsz:  108/  18/ 1; 10044/1704 tok/s;    294 sec;
+[2024-12-02 16:59:21,716 INFO] Saving checkpoint save/model_step_1700.pt
+[2024-12-02 16:59:28,145 INFO] Step 1750/50000; acc: 92.2; ppl:   3.2; xent: 1.2; lr: 0.00043; sents:     520; bsz:  104/  19/ 1; 8119/1466 tok/s;    301 sec;
+[2024-12-02 16:59:57,414 INFO] Parsed 2 corpora from -data.
+[2024-12-02 16:59:57,414 INFO] Get special vocabs from Transforms: {'src': [], 'tgt': []}.
+[2024-12-02 16:59:57,415 INFO] The first 10 tokens of the vocabs are:['<unk>', '<blank>', '<s>', '</s>', '▁;', '.', '▁local', '▁i', '32.', 'get']
+[2024-12-02 16:59:57,415 INFO] The decoder start token is: <s>
+[2024-12-02 16:59:57,415 INFO] Building model...
+[2024-12-02 16:59:57,919 INFO] Switching model to half() for FusedAdam legacy
+[2024-12-02 16:59:57,919 INFO] Non quantized layer compute is fp16
+[2024-12-02 16:59:58,085 INFO] NMTModel(
+  (encoder): TransformerEncoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(496, 1024, padding_idx=1)
+        )
+      )
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (transformer): ModuleList(
+      (0-5): 6 x TransformerEncoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_values): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_query): Linear(in_features=1024, out_features=1024, bias=False)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=1024, out_features=1024, bias=False)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=1024, out_features=4096, bias=False)
+          (w_2): Linear(in_features=4096, out_features=1024, bias=False)
+          (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+      )
+    )
+    (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+  )
+  (decoder): TransformerDecoder(
+    (embeddings): Embeddings(
+      (make_embedding): Sequential(
+        (emb_luts): Elementwise(
+          (0): Embedding(496, 1024, padding_idx=1)
+        )
+      )
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+    (transformer_layers): ModuleList(
+      (0-5): 6 x TransformerDecoderLayer(
+        (self_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_values): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_query): Linear(in_features=1024, out_features=1024, bias=False)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=1024, out_features=1024, bias=False)
+        )
+        (feed_forward): PositionwiseFeedForward(
+          (w_1): Linear(in_features=1024, out_features=4096, bias=False)
+          (w_2): Linear(in_features=4096, out_features=1024, bias=False)
+          (layer_norm): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+          (dropout_1): Dropout(p=0.1, inplace=False)
+          (dropout_2): Dropout(p=0.1, inplace=False)
+        )
+        (layer_norm_1): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+        (context_attn): MultiHeadedAttention(
+          (linear_keys): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_values): Linear(in_features=1024, out_features=1024, bias=False)
+          (linear_query): Linear(in_features=1024, out_features=1024, bias=False)
+          (softmax): Softmax(dim=-1)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (final_linear): Linear(in_features=1024, out_features=1024, bias=False)
+        )
+        (layer_norm_2): LayerNorm((1024,), eps=1e-06, elementwise_affine=True)
+      )
+    )
+  )
+  (generator): Linear(in_features=1024, out_features=496, bias=True)
+)
+[2024-12-02 16:59:58,086 INFO] encoder: 76032000
+[2024-12-02 16:59:58,086 INFO] decoder: 100702704
+[2024-12-02 16:59:58,086 INFO] * number of parameters: 176734704
+[2024-12-02 16:59:58,086 INFO] Trainable parameters = {'torch.float32': 0, 'torch.float16': 176734704, 'torch.uint8': 0, 'torch.int8': 0}
+[2024-12-02 16:59:58,086 INFO] Non trainable parameters = {'torch.float32': 0, 'torch.float16': 0, 'torch.uint8': 0, 'torch.int8': 0}
+[2024-12-02 16:59:58,086 INFO]  * src vocab size = 496
+[2024-12-02 16:59:58,086 INFO]  * tgt vocab size = 496
+[2024-12-02 16:59:58,279 INFO] Starting training on GPU: [0]
+[2024-12-02 16:59:58,279 INFO] Start training loop and validate every 1000 steps...
+[2024-12-02 16:59:58,280 INFO] Scoring with: ['onmt_tokenize']
+[2024-12-02 17:00:48,629 INFO] Step 50/50000; acc: 17.4; ppl:  72.5; xent: 4.3; lr: 0.00001; sents:     508; bsz:  108/  18/ 1; 1077/178 tok/s;     50 sec;
+[2024-12-02 17:00:53,927 INFO] Step 100/50000; acc: 58.2; ppl:  11.8; xent: 2.5; lr: 0.00002; sents:     504; bsz:  107/  18/ 1; 10106/1690 tok/s;     56 sec;
+[2024-12-02 17:00:59,339 INFO] Step 150/50000; acc: 76.1; ppl:   6.5; xent: 1.9; lr: 0.00004; sents:     512; bsz:  115/  18/ 1; 10644/1650 tok/s;     61 sec;
+[2024-12-02 17:01:05,359 INFO] Step 200/50000; acc: 82.7; ppl:   4.8; xent: 1.6; lr: 0.00005; sents:     536; bsz:  138/  18/ 1; 11501/1532 tok/s;     67 sec;
+[2024-12-02 17:01:10,680 INFO] Step 250/50000; acc: 84.7; ppl:   4.4; xent: 1.5; lr: 0.00006; sents:     526; bsz:  115/  19/ 1; 10783/1772 tok/s;     72 sec;
+[2024-12-02 17:01:15,978 INFO] Step 300/50000; acc: 86.8; ppl:   4.1; xent: 1.4; lr: 0.00007; sents:     516; bsz:  111/  18/ 1; 10471/1664 tok/s;     78 sec;
+[2024-12-02 17:01:21,297 INFO] Step 350/50000; acc: 87.7; ppl:   3.9; xent: 1.4; lr: 0.00009; sents:     509; bsz:  108/  18/ 1; 10177/1691 tok/s;     83 sec;
+[2024-12-02 17:01:26,635 INFO] Step 400/50000; acc: 87.5; ppl:   3.9; xent: 1.4; lr: 0.00010; sents:     504; bsz:  110/  18/ 1; 10268/1697 tok/s;     88 sec;
+[2024-12-02 17:01:32,025 INFO] Step 450/50000; acc: 88.4; ppl:   3.8; xent: 1.3; lr: 0.00011; sents:     510; bsz:  114/  18/ 1; 10589/1669 tok/s;     94 sec;
+[2024-12-02 17:01:37,386 INFO] Step 500/50000; acc: 88.9; ppl:   3.6; xent: 1.3; lr: 0.00012; sents:     508; bsz:  118/  18/ 1; 11020/1675 tok/s;     99 sec;
+[2024-12-02 17:01:42,659 INFO] Step 550/50000; acc: 92.7; ppl:   3.2; xent: 1.2; lr: 0.00014; sents:     532; bsz:  111/  17/ 1; 10533/1632 tok/s;    104 sec;
+[2024-12-02 17:01:48,082 INFO] Step 600/50000; acc: 90.4; ppl:   3.6; xent: 1.3; lr: 0.00015; sents:     516; bsz:  107/  18/ 1; 9835/1664 tok/s;    110 sec;
+[2024-12-02 17:01:53,480 INFO] Step 650/50000; acc: 89.6; ppl:   3.5; xent: 1.3; lr: 0.00016; sents:     525; bsz:  110/  18/ 1; 10220/1699 tok/s;    115 sec;
+[2024-12-02 17:01:58,815 INFO] Step 700/50000; acc: 89.4; ppl:   3.6; xent: 1.3; lr: 0.00017; sents:     500; bsz:  110/  18/ 1; 10319/1714 tok/s;    121 sec;
+[2024-12-02 17:02:04,169 INFO] Step 750/50000; acc: 90.1; ppl:   3.4; xent: 1.2; lr: 0.00019; sents:     545; bsz:  122/  20/ 1; 11402/1824 tok/s;    126 sec;
+[2024-12-02 17:02:09,591 INFO] Step 800/50000; acc: 92.0; ppl:   3.3; xent: 1.2; lr: 0.00020; sents:     549; bsz:  113/  19/ 1; 10382/1713 tok/s;    131 sec;
+[2024-12-02 17:02:15,031 INFO] Step 850/50000; acc: 91.6; ppl:   3.3; xent: 1.2; lr: 0.00021; sents:     516; bsz:  115/  18/ 1; 10585/1660 tok/s;    137 sec;
+[2024-12-02 17:02:20,399 INFO] Step 900/50000; acc: 92.4; ppl:   3.2; xent: 1.2; lr: 0.00022; sents:     504; bsz:  114/  18/ 1; 10605/1655 tok/s;    142 sec;
+[2024-12-02 17:02:25,891 INFO] Step 950/50000; acc: 90.4; ppl:   3.5; xent: 1.2; lr: 0.00023; sents:     519; bsz:  112/  19/ 1; 10168/1774 tok/s;    148 sec;
+[2024-12-02 17:02:31,355 INFO] Step 1000/50000; acc: 92.9; ppl:   3.2; xent: 1.2; lr: 0.00025; sents:     529; bsz:  114/  17/ 1; 10469/1582 tok/s;    153 sec;
+[2024-12-02 17:03:14,532 INFO] valid stats calculation
+                           took: 43.17625594139099 s.
+[2024-12-02 17:03:14,532 INFO] Train perplexity: 4.61326
+[2024-12-02 17:03:14,532 INFO] Train accuracy: 83.5674
+[2024-12-02 17:03:14,533 INFO] Sentences processed: 10368
+[2024-12-02 17:03:14,533 INFO] Average bsz:  114/  18/ 1
+[2024-12-02 17:03:14,533 INFO] Validation perplexity: 3.04492
+[2024-12-02 17:03:14,533 INFO] Validation accuracy: 94.754
+[2024-12-02 17:03:14,533 INFO] Model is improving ppl: inf --> 3.04492.
+[2024-12-02 17:03:14,533 INFO] Model is improving acc: -inf --> 94.754.
+[2024-12-02 17:03:14,533 INFO] Saving checkpoint save/model_step_1000.pt
+[2024-12-02 17:03:21,552 INFO] Step 1050/50000; acc: 91.2; ppl:   3.4; xent: 1.2; lr: 0.00026; sents:     508; bsz:  137/  18/ 1; 1362/182 tok/s;    203 sec;
+[2024-12-02 17:03:27,040 INFO] Step 1100/50000; acc: 92.5; ppl:   3.3; xent: 1.2; lr: 0.00027; sents:     524; bsz:  110/  18/ 1; 10067/1651 tok/s;    209 sec;
+[2024-12-02 17:03:32,495 INFO] Step 1150/50000; acc: 92.4; ppl:   3.2; xent: 1.2; lr: 0.00028; sents:     512; bsz:  111/  18/ 1; 10202/1629 tok/s;    214 sec;
+[2024-12-02 17:03:37,964 INFO] Step 1200/50000; acc: 92.9; ppl:   3.2; xent: 1.2; lr: 0.00030; sents:     540; bsz:  117/  19/ 1; 10708/1734 tok/s;    220 sec;
+[2024-12-02 17:03:44,250 INFO] Step 1250/50000; acc: 91.8; ppl:   3.3; xent: 1.2; lr: 0.00031; sents:     548; bsz:  150/  19/ 1; 11953/1521 tok/s;    226 sec;
+[2024-12-02 17:03:49,774 INFO] Step 1300/50000; acc: 91.4; ppl:   3.3; xent: 1.2; lr: 0.00032; sents:     537; bsz:  108/  19/ 1; 9805/1693 tok/s;    231 sec;
+[2024-12-02 17:03:55,234 INFO] Step 1350/50000; acc: 91.8; ppl:   3.2; xent: 1.2; lr: 0.00033; sents:     518; bsz:  117/  18/ 1; 10710/1663 tok/s;    237 sec;
+[2024-12-02 17:04:00,577 INFO] Step 1400/50000; acc: 92.7; ppl:   3.2; xent: 1.2; lr: 0.00035; sents:     517; bsz:  114/  18/ 1; 10661/1680 tok/s;    242 sec;
+[2024-12-02 17:04:05,920 INFO] Step 1450/50000; acc: 92.1; ppl:   3.3; xent: 1.2; lr: 0.00036; sents:     523; bsz:  113/  18/ 1; 10619/1698 tok/s;    248 sec;
+[2024-12-02 17:04:11,309 INFO] Step 1500/50000; acc: 92.7; ppl:   3.1; xent: 1.1; lr: 0.00037; sents:     512; bsz:  116/  17/ 1; 10783/1583 tok/s;    253 sec;
+[2024-12-02 17:04:16,721 INFO] Step 1550/50000; acc: 91.4; ppl:   3.3; xent: 1.2; lr: 0.00038; sents:     537; bsz:  114/  19/ 1; 10499/1798 tok/s;    258 sec;
+[2024-12-02 17:04:22,301 INFO] Step 1600/50000; acc: 93.1; ppl:   3.2; xent: 1.1; lr: 0.00040; sents:     520; bsz:  125/  18/ 1; 11222/1573 tok/s;    264 sec;
+[2024-12-02 17:04:27,849 INFO] Step 1650/50000; acc: 91.3; ppl:   3.4; xent: 1.2; lr: 0.00041; sents:     514; bsz:  106/  18/ 1; 9527/1599 tok/s;    270 sec;
+[2024-12-02 17:04:33,302 INFO] Step 1700/50000; acc: 90.8; ppl:   3.4; xent: 1.2; lr: 0.00042; sents:     504; bsz:  118/  18/ 1; 10864/1675 tok/s;    275 sec;
+[2024-12-02 17:04:38,727 INFO] Step 1750/50000; acc: 91.7; ppl:   3.3; xent: 1.2; lr: 0.00043; sents:     516; bsz:  114/  18/ 1; 10520/1668 tok/s;    280 sec;
+[2024-12-02 17:04:44,077 INFO] Step 1800/50000; acc: 92.5; ppl:   3.2; xent: 1.2; lr: 0.00044; sents:     509; bsz:  109/  18/ 1; 10214/1672 tok/s;    286 sec;
+[2024-12-02 17:04:49,560 INFO] Step 1850/50000; acc: 93.1; ppl:   3.2; xent: 1.2; lr: 0.00046; sents:     512; bsz:  119/  18/ 1; 10894/1616 tok/s;    291 sec;
+[2024-12-02 17:04:54,901 INFO] Step 1900/50000; acc: 91.0; ppl:   3.4; xent: 1.2; lr: 0.00047; sents:     509; bsz:  112/  18/ 1; 10449/1719 tok/s;    297 sec;
+[2024-12-02 17:05:00,463 INFO] Step 1950/50000; acc: 92.0; ppl:   3.2; xent: 1.2; lr: 0.00048; sents:     500; bsz:  126/  18/ 1; 11289/1630 tok/s;    302 sec;
+[2024-12-02 17:05:06,283 INFO] Step 2000/50000; acc: 91.2; ppl:   3.3; xent: 1.2; lr: 0.00049; sents:     520; bsz:  127/  19/ 1; 10868/1643 tok/s;    308 sec;
+[2024-12-02 17:05:48,993 INFO] valid stats calculation
+                           took: 42.70921349525452 s.
+[2024-12-02 17:05:48,995 INFO] Train perplexity: 3.87975
+[2024-12-02 17:05:48,995 INFO] Train accuracy: 87.7732
+[2024-12-02 17:05:48,995 INFO] Sentences processed: 20748
+[2024-12-02 17:05:48,995 INFO] Average bsz:  116/  18/ 1
+[2024-12-02 17:05:48,995 INFO] Validation perplexity: 3.02156
+[2024-12-02 17:05:48,995 INFO] Validation accuracy: 92.3179
+[2024-12-02 17:05:48,995 INFO] Stalled patience: 9/10
+[2024-12-02 17:05:48,997 INFO] Saving checkpoint save/model_step_2000.pt
+[2024-12-02 17:05:55,862 INFO] Step 2050/50000; acc: 92.1; ppl:   3.3; xent: 1.2; lr: 0.00051; sents:     508; bsz:  124/  19/ 1; 1254/190 tok/s;    358 sec;
+[2024-12-02 17:06:01,343 INFO] Step 2100/50000; acc: 92.0; ppl:   3.3; xent: 1.2; lr: 0.00052; sents:     508; bsz:  117/  17/ 1; 10648/1556 tok/s;    363 sec;
+[2024-12-02 17:06:06,851 INFO] Step 2150/50000; acc: 92.5; ppl:   3.2; xent: 1.2; lr: 0.00053; sents:     504; bsz:  127/  17/ 1; 11506/1572 tok/s;    369 sec;
+[2024-12-02 17:06:12,338 INFO] Step 2200/50000; acc: 92.6; ppl:   3.2; xent: 1.2; lr: 0.00054; sents:     508; bsz:  122/  18/ 1; 11078/1637 tok/s;    374 sec;
+[2024-12-02 17:06:17,914 INFO] Step 2250/50000; acc: 92.4; ppl:   3.2; xent: 1.2; lr: 0.00056; sents:     516; bsz:  116/  17/ 1; 10416/1538 tok/s;    380 sec;
+[2024-12-02 17:06:23,441 INFO] Step 2300/50000; acc: 93.3; ppl:   3.1; xent: 1.1; lr: 0.00057; sents:     500; bsz:  130/  16/ 1; 11756/1481 tok/s;    385 sec;
+[2024-12-02 17:06:28,881 INFO] Step 2350/50000; acc: 91.5; ppl:   3.3; xent: 1.2; lr: 0.00058; sents:     500; bsz:  128/  17/ 1; 11754/1562 tok/s;    391 sec;
+[2024-12-02 17:06:34,310 INFO] Step 2400/50000; acc: 90.7; ppl:   3.4; xent: 1.2; lr: 0.00059; sents:     512; bsz:  115/  18/ 1; 10613/1672 tok/s;    396 sec;
+[2024-12-02 17:06:39,697 INFO] Step 2450/50000; acc: 89.9; ppl:   3.5; xent: 1.2; lr: 0.00061; sents:     506; bsz:  106/  18/ 1; 9838/1703 tok/s;    401 sec;
+[2024-12-02 17:06:45,344 INFO] Step 2500/50000; acc: 92.0; ppl:   3.3; xent: 1.2; lr: 0.00062; sents:     536; bsz:  124/  18/ 1; 10952/1569 tok/s;    407 sec;
+[2024-12-02 17:06:50,713 INFO] Step 2550/50000; acc: 90.2; ppl:   3.5; xent: 1.2; lr: 0.00063; sents:     555; bsz:  116/  20/ 1; 10835/1827 tok/s;    412 sec;
+[2024-12-02 17:06:56,294 INFO] Step 2600/50000; acc: 89.8; ppl:   3.5; xent: 1.3; lr: 0.00064; sents:     503; bsz:  121/  18/ 1; 10846/1629 tok/s;    418 sec;
+[2024-12-02 17:07:01,702 INFO] Step 2650/50000; acc: 87.7; ppl:   3.7; xent: 1.3; lr: 0.00065; sents:     524; bsz:  114/  20/ 1; 10531/1852 tok/s;    423 sec;
+[2024-12-02 17:07:07,058 INFO] Step 2700/50000; acc: 88.1; ppl:   3.6; xent: 1.3; lr: 0.00067; sents:     520; bsz:  111/  19/ 1; 10410/1762 tok/s;    429 sec;
+[2024-12-02 17:07:12,562 INFO] Step 2750/50000; acc: 88.8; ppl:   3.5; xent: 1.3; lr: 0.00068; sents:     515; bsz:  110/  19/ 1; 10006/1735 tok/s;    434 sec;
+[2024-12-02 17:07:17,937 INFO] Step 2800/50000; acc: 89.7; ppl:   3.5; xent: 1.3; lr: 0.00069; sents:     525; bsz:  109/  19/ 1; 10138/1756 tok/s;    440 sec;
+[2024-12-02 17:07:23,342 INFO] Step 2850/50000; acc: 89.8; ppl:   3.5; xent: 1.2; lr: 0.00070; sents:     540; bsz:  108/  19/ 1; 9999/1773 tok/s;    445 sec;
+[2024-12-02 17:07:28,761 INFO] Step 2900/50000; acc: 89.9; ppl:   3.4; xent: 1.2; lr: 0.00072; sents:     569; bsz:  121/  20/ 1; 11128/1833 tok/s;    450 sec;
+[2024-12-02 17:07:34,092 INFO] Step 2950/50000; acc: 87.8; ppl:   3.7; xent: 1.3; lr: 0.00073; sents:     500; bsz:  107/  18/ 1; 10014/1715 tok/s;    456 sec;
+[2024-12-02 17:07:39,506 INFO] Step 3000/50000; acc: 89.2; ppl:   3.5; xent: 1.3; lr: 0.00074; sents:     504; bsz:  115/  18/ 1; 10577/1684 tok/s;    461 sec;
+[2024-12-02 17:08:22,484 INFO] valid stats calculation
+                           took: 42.9772834777832 s.
+[2024-12-02 17:08:22,485 INFO] Train perplexity: 3.71668
+[2024-12-02 17:08:22,485 INFO] Train accuracy: 88.6689
+[2024-12-02 17:08:22,485 INFO] Sentences processed: 31101
+[2024-12-02 17:08:22,485 INFO] Average bsz:  116/  18/ 1
+[2024-12-02 17:08:22,485 INFO] Validation perplexity: 3.06085
+[2024-12-02 17:08:22,485 INFO] Validation accuracy: 92.3245
+[2024-12-02 17:08:22,485 INFO] Decreasing patience: 9/10
+[2024-12-02 17:08:22,486 INFO] Saving checkpoint save/model_step_3000.pt
+[2024-12-02 17:08:29,089 INFO] Step 3050/50000; acc: 90.6; ppl:   3.4; xent: 1.2; lr: 0.00075; sents:     512; bsz:  124/  18/ 1; 1250/177 tok/s;    511 sec;
+[2024-12-02 17:08:34,505 INFO] Step 3100/50000; acc: 89.2; ppl:   3.5; xent: 1.3; lr: 0.00077; sents:     528; bsz:  110/  19/ 1; 10128/1726 tok/s;    516 sec;
+[2024-12-02 17:08:39,854 INFO] Step 3150/50000; acc: 89.9; ppl:   3.4; xent: 1.2; lr: 0.00078; sents:     584; bsz:  111/  19/ 1; 10414/1819 tok/s;    522 sec;
+[2024-12-02 17:08:45,314 INFO] Step 3200/50000; acc: 88.4; ppl:   3.7; xent: 1.3; lr: 0.00079; sents:     521; bsz:  120/  20/ 1; 10989/1816 tok/s;    527 sec;
+[2024-12-02 17:08:50,759 INFO] Step 3250/50000; acc: 88.2; ppl:   3.7; xent: 1.3; lr: 0.00080; sents:     516; bsz:  114/  19/ 1; 10510/1712 tok/s;    532 sec;
+[2024-12-02 17:08:56,992 INFO] Step 3300/50000; acc: 88.6; ppl:   3.6; xent: 1.3; lr: 0.00082; sents:     553; bsz:  149/  19/ 1; 11980/1539 tok/s;    539 sec;
+[2024-12-02 17:09:02,399 INFO] Step 3350/50000; acc: 88.8; ppl:   3.5; xent: 1.3; lr: 0.00083; sents:     578; bsz:  114/  19/ 1; 10532/1800 tok/s;    544 sec;
+[2024-12-02 17:09:07,801 INFO] Step 3400/50000; acc: 81.2; ppl:   4.5; xent: 1.5; lr: 0.00084; sents:     511; bsz:  112/  18/ 1; 10386/1668 tok/s;    550 sec;
+[2024-12-02 17:09:13,096 INFO] Step 3450/50000; acc: 83.5; ppl:   4.3; xent: 1.5; lr: 0.00085; sents:     508; bsz:  106/  17/ 1; 9974/1620 tok/s;    555 sec;
+[2024-12-02 17:09:18,507 INFO] Step 3500/50000; acc: 81.4; ppl:   4.5; xent: 1.5; lr: 0.00086; sents:     508; bsz:  117/  18/ 1; 10829/1656 tok/s;    560 sec;
+[2024-12-02 17:09:23,942 INFO] Step 3550/50000; acc: 83.4; ppl:   4.3; xent: 1.5; lr: 0.00088; sents:     520; bsz:  122/  18/ 1; 11179/1683 tok/s;    566 sec;
+[2024-12-02 17:09:25,661 INFO] Step 3564, cuda OOM - batch removed
+[2024-12-02 17:09:25,927 INFO] Step 3564, cuda OOM - batch removed
+[2024-12-02 17:09:25,930 INFO] Step 3564, cuda OOM - batch removed
+[2024-12-02 17:09:25,954 INFO] Step 3564, cuda OOM - batch removed
+[2024-12-02 17:09:29,878 INFO] Step 3600/50000; acc: 83.2; ppl:   4.2; xent: 1.4; lr: 0.00089; sents:     507; bsz:  248/  19/ 1; 20750/1613 tok/s;    572 sec;
+[2024-12-02 17:09:35,859 INFO] Step 3650/50000; acc: 87.0; ppl:   3.8; xent: 1.3; lr: 0.00090; sents:     520; bsz:  149/  18/ 1; 12416/1479 tok/s;    578 sec;
+[2024-12-02 17:09:41,338 INFO] Step 3700/50000; acc: 86.5; ppl:   3.8; xent: 1.3; lr: 0.00091; sents:     519; bsz:  123/  17/ 1; 11234/1591 tok/s;    583 sec;
+[2024-12-02 17:09:47,361 INFO] Step 3750/50000; acc: 86.3; ppl:   3.8; xent: 1.3; lr: 0.00093; sents:     537; bsz:  139/  18/ 1; 11564/1513 tok/s;    589 sec;
+[2024-12-02 17:09:52,955 INFO] Step 3800/50000; acc: 85.5; ppl:   4.0; xent: 1.4; lr: 0.00094; sents:     548; bsz:  129/  19/ 1; 11519/1713 tok/s;    595 sec;
+[2024-12-02 17:09:58,826 INFO] Step 3850/50000; acc: 85.8; ppl:   3.9; xent: 1.4; lr: 0.00095; sents:     516; bsz:  135/  19/ 1; 11472/1596 tok/s;    601 sec;
+[2024-12-02 17:10:04,540 INFO] Step 3900/50000; acc: 84.4; ppl:   4.1; xent: 1.4; lr: 0.00096; sents:     504; bsz:  141/  18/ 1; 12339/1564 tok/s;    606 sec;
+[2024-12-02 17:10:09,876 INFO] Step 3950/50000; acc: 85.4; ppl:   4.0; xent: 1.4; lr: 0.00098; sents:     516; bsz:  105/  18/ 1; 9865/1703 tok/s;    612 sec;
+[2024-12-02 17:10:15,415 INFO] Step 4000/50000; acc: 86.2; ppl:   3.8; xent: 1.3; lr: 0.00099; sents:     555; bsz:  122/  19/ 1; 11029/1758 tok/s;    617 sec;
+[2024-12-02 17:10:58,283 INFO] valid stats calculation
+                           took: 42.86674690246582 s.
+[2024-12-02 17:10:58,284 INFO] Train perplexity: 3.75666
+[2024-12-02 17:10:58,284 INFO] Train accuracy: 88.049
+[2024-12-02 17:10:58,284 INFO] Sentences processed: 41662
+[2024-12-02 17:10:58,284 INFO] Average bsz:  120/  18/ 1
+[2024-12-02 17:10:58,284 INFO] Validation perplexity: 3.3413
+[2024-12-02 17:10:58,284 INFO] Validation accuracy: 90.0417
+[2024-12-02 17:10:58,284 INFO] Decreasing patience: 8/10
+[2024-12-02 17:10:58,285 INFO] Saving checkpoint save/model_step_4000.pt
+[2024-12-02 17:11:04,976 INFO] Step 4050/50000; acc: 84.9; ppl:   4.0; xent: 1.4; lr: 0.00098; sents:     537; bsz:  120/  19/ 1; 1211/189 tok/s;    667 sec;
+[2024-12-02 17:11:10,330 INFO] Step 4100/50000; acc: 86.4; ppl:   3.9; xent: 1.4; lr: 0.00098; sents:     516; bsz:  113/  18/ 1; 10540/1684 tok/s;    672 sec;
+[2024-12-02 17:11:15,940 INFO] Step 4150/50000; acc: 85.0; ppl:   4.0; xent: 1.4; lr: 0.00097; sents:     512; bsz:  124/  19/ 1; 11043/1669 tok/s;    678 sec;
+[2024-12-02 17:11:21,391 INFO] Step 4200/50000; acc: 85.0; ppl:   4.0; xent: 1.4; lr: 0.00096; sents:     547; bsz:  113/  20/ 1; 10341/1830 tok/s;    683 sec;
+[2024-12-02 17:11:26,882 INFO] Step 4250/50000; acc: 86.9; ppl:   3.7; xent: 1.3; lr: 0.00096; sents:     534; bsz:  122/  19/ 1; 11067/1750 tok/s;    689 sec;
+[2024-12-02 17:11:32,239 INFO] Step 4300/50000; acc: 86.9; ppl:   3.8; xent: 1.3; lr: 0.00095; sents:     532; bsz:  118/  19/ 1; 11048/1784 tok/s;    694 sec;
+[2024-12-02 17:11:38,053 INFO] Step 4350/50000; acc: 87.6; ppl:   3.7; xent: 1.3; lr: 0.00095; sents:     525; bsz:  137/  18/ 1; 11819/1537 tok/s;    700 sec;
+[2024-12-02 17:11:43,362 INFO] Step 4400/50000; acc: 86.4; ppl:   3.7; xent: 1.3; lr: 0.00094; sents:     544; bsz:  110/  19/ 1; 10334/1794 tok/s;    705 sec;
+[2024-12-02 17:11:49,163 INFO] Step 4450/50000; acc: 88.9; ppl:   3.5; xent: 1.3; lr: 0.00094; sents:     549; bsz:  124/  18/ 1; 10692/1536 tok/s;    711 sec;
+[2024-12-02 17:11:54,666 INFO] Step 4500/50000; acc: 85.5; ppl:   3.9; xent: 1.4; lr: 0.00093; sents:     542; bsz:  112/  20/ 1; 10222/1776 tok/s;    716 sec;
+[2024-12-02 17:12:00,086 INFO] Step 4550/50000; acc: 84.1; ppl:   4.1; xent: 1.4; lr: 0.00093; sents:     506; bsz:  114/  19/ 1; 10499/1710 tok/s;    722 sec;
+[2024-12-02 17:12:05,454 INFO] Step 4600/50000; acc: 84.8; ppl:   4.0; xent: 1.4; lr: 0.00092; sents:     512; bsz:  107/  18/ 1; 9999/1650 tok/s;    727 sec;
+[2024-12-02 17:12:11,002 INFO] Step 4650/50000; acc: 85.9; ppl:   3.9; xent: 1.4; lr: 0.00092; sents:     595; bsz:  125/  20/ 1; 11298/1782 tok/s;    733 sec;
+[2024-12-02 17:12:16,332 INFO] Step 4700/50000; acc: 84.6; ppl:   4.1; xent: 1.4; lr: 0.00091; sents:     528; bsz:  112/  19/ 1; 10552/1764 tok/s;    738 sec;
+[2024-12-02 17:12:21,727 INFO] Step 4750/50000; acc: 85.5; ppl:   4.0; xent: 1.4; lr: 0.00091; sents:     516; bsz:  115/  18/ 1; 10671/1710 tok/s;    743 sec;
+[2024-12-02 17:12:27,149 INFO] Step 4800/50000; acc: 86.3; ppl:   3.8; xent: 1.3; lr: 0.00090; sents:     508; bsz:  109/  18/ 1; 10019/1622 tok/s;    749 sec;
+[2024-12-02 17:12:32,479 INFO] Step 4850/50000; acc: 86.6; ppl:   3.8; xent: 1.3; lr: 0.00090; sents:     522; bsz:  108/  18/ 1; 10087/1678 tok/s;    754 sec;
+[2024-12-02 17:12:37,959 INFO] Step 4900/50000; acc: 84.5; ppl:   4.0; xent: 1.4; lr: 0.00089; sents:     525; bsz:  122/  18/ 1; 11169/1682 tok/s;    760 sec;
+[2024-12-02 17:12:43,317 INFO] Step 4950/50000; acc: 86.1; ppl:   3.8; xent: 1.3; lr: 0.00089; sents:     508; bsz:  116/  18/ 1; 10814/1681 tok/s;    765 sec;
+[2024-12-02 17:12:48,705 INFO] Step 5000/50000; acc: 85.0; ppl:   3.9; xent: 1.4; lr: 0.00088; sents:     518; bsz:  118/  18/ 1; 10947/1647 tok/s;    770 sec;
+[2024-12-02 17:13:31,428 INFO] valid stats calculation
+                           took: 42.721717834472656 s.
+[2024-12-02 17:13:31,429 INFO] Train perplexity: 3.78325
+[2024-12-02 17:13:31,429 INFO] Train accuracy: 87.6041
+[2024-12-02 17:13:31,429 INFO] Sentences processed: 52238
+[2024-12-02 17:13:31,429 INFO] Average bsz:  119/  18/ 1
+[2024-12-02 17:13:31,429 INFO] Validation perplexity: 3.36913
+[2024-12-02 17:13:31,429 INFO] Validation accuracy: 91.2667
+[2024-12-02 17:13:31,429 INFO] Decreasing patience: 7/10
+[2024-12-02 17:13:31,430 INFO] Saving checkpoint save/model_step_5000.pt
+[2024-12-02 17:13:37,943 INFO] Step 5050/50000; acc: 84.9; ppl:   4.0; xent: 1.4; lr: 0.00088; sents:     519; bsz:  109/  18/ 1; 1106/183 tok/s;    820 sec;
+[2024-12-02 17:13:43,392 INFO] Step 5100/50000; acc: 85.2; ppl:   3.9; xent: 1.4; lr: 0.00088; sents:     524; bsz:  124/  18/ 1; 11417/1666 tok/s;    825 sec;
+[2024-12-02 17:13:48,825 INFO] Step 5150/50000; acc: 83.3; ppl:   4.1; xent: 1.4; lr: 0.00087; sents:     528; bsz:  115/  20/ 1; 10627/1826 tok/s;    831 sec;
+[2024-12-02 17:13:54,186 INFO] Step 5200/50000; acc: 85.4; ppl:   3.9; xent: 1.4; lr: 0.00087; sents:     514; bsz:  114/  18/ 1; 10651/1669 tok/s;    836 sec;
+[2024-12-02 17:13:59,481 INFO] Step 5250/50000; acc: 85.3; ppl:   3.9; xent: 1.4; lr: 0.00086; sents:     541; bsz:  111/  20/ 1; 10495/1846 tok/s;    841 sec;
+[2024-12-02 17:14:04,876 INFO] Step 5300/50000; acc: 86.5; ppl:   3.8; xent: 1.3; lr: 0.00086; sents:     559; bsz:  101/  19/ 1; 9327/1767 tok/s;    847 sec;
+[2024-12-02 17:14:10,338 INFO] Step 5350/50000; acc: 84.7; ppl:   4.0; xent: 1.4; lr: 0.00085; sents:     504; bsz:  114/  18/ 1; 10482/1609 tok/s;    852 sec;
+[2024-12-02 17:14:15,887 INFO] Step 5400/50000; acc: 86.5; ppl:   3.8; xent: 1.3; lr: 0.00085; sents:     504; bsz:  120/  17/ 1; 10816/1563 tok/s;    858 sec;
+[2024-12-02 17:14:16,632 INFO] Step 5407, cuda OOM - batch removed
+[2024-12-02 17:14:16,749 INFO] Step 5408, cuda OOM - batch removed
+[2024-12-02 17:14:16,797 INFO] Step 5408, cuda OOM - batch removed
+[2024-12-02 17:14:16,929 INFO] Step 5409, cuda OOM - batch removed
+[2024-12-02 17:14:21,294 INFO] Step 5450/50000; acc: 88.4; ppl:   3.7; xent: 1.3; lr: 0.00085; sents:     522; bsz:  257/  17/ 1; 23571/1596 tok/s;    863 sec;
+[2024-12-02 17:14:26,661 INFO] Step 5500/50000; acc: 85.7; ppl:   4.0; xent: 1.4; lr: 0.00084; sents:     512; bsz:  109/  18/ 1; 10120/1660 tok/s;    868 sec;
+[2024-12-02 17:14:32,064 INFO] Step 5550/50000; acc: 87.5; ppl:   3.7; xent: 1.3; lr: 0.00084; sents:     504; bsz:  116/  17/ 1; 10769/1560 tok/s;    874 sec;
+[2024-12-02 17:14:37,427 INFO] Step 5600/50000; acc: 85.5; ppl:   3.9; xent: 1.4; lr: 0.00084; sents:     551; bsz:  114/  20/ 1; 10601/1818 tok/s;    879 sec;
+[2024-12-02 17:14:43,171 INFO] Step 5650/50000; acc: 85.0; ppl:   4.0; xent: 1.4; lr: 0.00083; sents:     509; bsz:  133/  18/ 1; 11548/1553 tok/s;    885 sec;
+[2024-12-02 17:14:48,565 INFO] Step 5700/50000; acc: 82.7; ppl:   4.1; xent: 1.4; lr: 0.00083; sents:     519; bsz:  113/  19/ 1; 10455/1771 tok/s;    890 sec;
+[2024-12-02 17:14:54,032 INFO] Step 5750/50000; acc: 86.7; ppl:   3.8; xent: 1.3; lr: 0.00082; sents:     513; bsz:  121/  18/ 1; 11023/1632 tok/s;    896 sec;
+[2024-12-02 17:14:59,376 INFO] Step 5800/50000; acc: 83.5; ppl:   4.2; xent: 1.4; lr: 0.00082; sents:     552; bsz:  111/  20/ 1; 10394/1842 tok/s;    901 sec;
+[2024-12-02 17:15:04,716 INFO] Step 5850/50000; acc: 83.2; ppl:   4.2; xent: 1.4; lr: 0.00082; sents:     514; bsz:  110/  19/ 1; 10262/1768 tok/s;    906 sec;
+[2024-12-02 17:15:10,064 INFO] Step 5900/50000; acc: 87.6; ppl:   3.7; xent: 1.3; lr: 0.00081; sents:     520; bsz:  114/  18/ 1; 10674/1682 tok/s;    912 sec;
+[2024-12-02 17:15:15,453 INFO] Step 5950/50000; acc: 85.4; ppl:   3.9; xent: 1.4; lr: 0.00081; sents:     508; bsz:  116/  18/ 1; 10797/1668 tok/s;    917 sec;
+[2024-12-02 17:15:20,853 INFO] Step 6000/50000; acc: 85.1; ppl:   3.9; xent: 1.4; lr: 0.00081; sents:     500; bsz:  116/  18/ 1; 10714/1667 tok/s;    923 sec;
+[2024-12-02 17:16:03,551 INFO] valid stats calculation
+                           took: 42.69727659225464 s.
+[2024-12-02 17:16:03,552 INFO] Train perplexity: 3.80802
+[2024-12-02 17:16:03,552 INFO] Train accuracy: 87.2305
+[2024-12-02 17:16:03,552 INFO] Sentences processed: 62655
+[2024-12-02 17:16:03,552 INFO] Average bsz:  120/  18/ 1
+[2024-12-02 17:16:03,552 INFO] Validation perplexity: 3.39388
+[2024-12-02 17:16:03,552 INFO] Validation accuracy: 89.7719
+[2024-12-02 17:16:03,552 INFO] Decreasing patience: 6/10
+[2024-12-02 17:16:03,553 INFO] Saving checkpoint save/model_step_6000.pt
+[2024-12-02 17:16:10,233 INFO] Step 6050/50000; acc: 83.6; ppl:   4.1; xent: 1.4; lr: 0.00080; sents:     519; bsz:  122/  18/ 1; 1238/184 tok/s;    972 sec;
+[2024-12-02 17:16:15,590 INFO] Step 6100/50000; acc: 83.8; ppl:   4.1; xent: 1.4; lr: 0.00080; sents:     528; bsz:  114/  19/ 1; 10669/1731 tok/s;    977 sec;
+[2024-12-02 17:16:20,999 INFO] Step 6150/50000; acc: 87.5; ppl:   3.8; xent: 1.3; lr: 0.00080; sents:     517; bsz:  120/  17/ 1; 11074/1614 tok/s;    983 sec;
+[2024-12-02 17:16:26,344 INFO] Step 6200/50000; acc: 85.4; ppl:   3.9; xent: 1.4; lr: 0.00079; sents:     517; bsz:  117/  18/ 1; 10983/1713 tok/s;    988 sec;
+[2024-12-02 17:16:31,793 INFO] Step 6250/50000; acc: 84.0; ppl:   4.0; xent: 1.4; lr: 0.00079; sents:     524; bsz:  128/  20/ 1; 11709/1871 tok/s;    994 sec;
+[2024-12-02 17:16:37,148 INFO] Step 6300/50000; acc: 84.0; ppl:   4.1; xent: 1.4; lr: 0.00079; sents:     521; bsz:  107/  19/ 1; 10028/1781 tok/s;    999 sec;
+[2024-12-02 17:16:42,538 INFO] Step 6350/50000; acc: 85.7; ppl:   3.8; xent: 1.3; lr: 0.00078; sents:     508; bsz:  114/  18/ 1; 10594/1702 tok/s;   1004 sec;
+[2024-12-02 17:16:48,229 INFO] Step 6400/50000; acc: 85.2; ppl:   3.9; xent: 1.4; lr: 0.00078; sents:     560; bsz:  131/  20/ 1; 11539/1777 tok/s;   1010 sec;
+[2024-12-02 17:16:53,798 INFO] Step 6450/50000; acc: 88.0; ppl:   3.6; xent: 1.3; lr: 0.00078; sents:     518; bsz:  120/  17/ 1; 10773/1565 tok/s;   1016 sec;
+[2024-12-02 17:16:59,120 INFO] Step 6500/50000; acc: 88.9; ppl:   3.6; xent: 1.3; lr: 0.00078; sents:     514; bsz:  118/  18/ 1; 11074/1655 tok/s;   1021 sec;
+[2024-12-02 17:17:04,509 INFO] Step 6550/50000; acc: 86.8; ppl:   3.8; xent: 1.3; lr: 0.00077; sents:     504; bsz:  107/  18/ 1; 9962/1705 tok/s;   1026 sec;
+[2024-12-02 17:17:09,902 INFO] Step 6600/50000; acc: 86.6; ppl:   3.8; xent: 1.3; lr: 0.00077; sents:     524; bsz:  116/  19/ 1; 10714/1798 tok/s;   1032 sec;
+[2024-12-02 17:17:15,245 INFO] Step 6650/50000; acc: 86.0; ppl:   3.9; xent: 1.4; lr: 0.00077; sents:     516; bsz:  109/  18/ 1; 10222/1726 tok/s;   1037 sec;
+[2024-12-02 17:17:20,557 INFO] Step 6700/50000; acc: 84.7; ppl:   4.0; xent: 1.4; lr: 0.00076; sents:     524; bsz:  107/  21/ 1; 10067/1939 tok/s;   1042 sec;
+[2024-12-02 17:17:26,092 INFO] Step 6750/50000; acc: 86.2; ppl:   3.8; xent: 1.3; lr: 0.00076; sents:     548; bsz:  123/  20/ 1; 11082/1780 tok/s;   1048 sec;
+[2024-12-02 17:17:31,451 INFO] Step 6800/50000; acc: 86.6; ppl:   3.8; xent: 1.3; lr: 0.00076; sents:     544; bsz:  110/  20/ 1; 10219/1851 tok/s;   1053 sec;
+[2024-12-02 17:17:36,896 INFO] Step 6850/50000; acc: 86.2; ppl:   3.9; xent: 1.4; lr: 0.00076; sents:     542; bsz:  110/  19/ 1; 10128/1738 tok/s;   1059 sec;
+[2024-12-02 17:17:42,338 INFO] Step 6900/50000; acc: 85.2; ppl:   3.9; xent: 1.4; lr: 0.00075; sents:     532; bsz:  115/  19/ 1; 10579/1751 tok/s;   1064 sec;
+[2024-12-02 17:17:47,764 INFO] Step 6950/50000; acc: 86.3; ppl:   3.7; xent: 1.3; lr: 0.00075; sents:     500; bsz:  118/  17/ 1; 10830/1567 tok/s;   1069 sec;
+[2024-12-02 17:17:53,567 INFO] Step 7000/50000; acc: 86.5; ppl:   3.8; xent: 1.3; lr: 0.00075; sents:     508; bsz:  139/  18/ 1; 11946/1572 tok/s;   1075 sec;
+[2024-12-02 17:18:36,246 INFO] valid stats calculation
+                           took: 42.678510665893555 s.
+[2024-12-02 17:18:36,247 INFO] Train perplexity: 3.81603
+[2024-12-02 17:18:36,247 INFO] Train accuracy: 87.0277
+[2024-12-02 17:18:36,247 INFO] Sentences processed: 73123
+[2024-12-02 17:18:36,247 INFO] Average bsz:  119/  18/ 1
+[2024-12-02 17:18:36,248 INFO] Validation perplexity: 3.25765
+[2024-12-02 17:18:36,248 INFO] Validation accuracy: 90.5018
+[2024-12-02 17:18:36,248 INFO] Decreasing patience: 5/10
+[2024-12-02 17:18:36,248 INFO] Saving checkpoint save/model_step_7000.pt
+[2024-12-02 17:18:42,882 INFO] Step 7050/50000; acc: 85.4; ppl:   3.9; xent: 1.4; lr: 0.00074; sents:     531; bsz:  119/  20/ 1; 1202/201 tok/s;   1125 sec;
+[2024-12-02 17:18:48,333 INFO] Step 7100/50000; acc: 86.5; ppl:   3.7; xent: 1.3; lr: 0.00074; sents:     551; bsz:  128/  20/ 1; 11709/1790 tok/s;   1130 sec;
+[2024-12-02 17:18:53,895 INFO] Step 7150/50000; acc: 88.1; ppl:   3.6; xent: 1.3; lr: 0.00074; sents:     530; bsz:  118/  18/ 1; 10577/1650 tok/s;   1136 sec;
+[2024-12-02 17:18:59,393 INFO] Step 7200/50000; acc: 86.8; ppl:   3.8; xent: 1.3; lr: 0.00074; sents:     504; bsz:  126/  18/ 1; 11415/1655 tok/s;   1141 sec;
+[2024-12-02 17:19:04,804 INFO] Step 7250/50000; acc: 87.2; ppl:   3.7; xent: 1.3; lr: 0.00073; sents:     500; bsz:  111/  17/ 1; 10252/1578 tok/s;   1147 sec;
+[2024-12-02 17:19:10,392 INFO] Step 7300/50000; acc: 88.3; ppl:   3.6; xent: 1.3; lr: 0.00073; sents:     529; bsz:  132/  18/ 1; 11776/1595 tok/s;   1152 sec;
+[2024-12-02 17:19:15,729 INFO] Step 7350/50000; acc: 88.0; ppl:   3.6; xent: 1.3; lr: 0.00073; sents:     536; bsz:  112/  18/ 1; 10507/1725 tok/s;   1157 sec;
+[2024-12-02 17:19:21,354 INFO] Step 7400/50000; acc: 87.5; ppl:   3.7; xent: 1.3; lr: 0.00073; sents:     524; bsz:  126/  18/ 1; 11179/1644 tok/s;   1163 sec;
+[2024-12-02 17:19:26,869 INFO] Step 7450/50000; acc: 89.2; ppl:   3.5; xent: 1.3; lr: 0.00072; sents:     550; bsz:  117/  19/ 1; 10624/1749 tok/s;   1169 sec;
+[2024-12-02 17:19:32,246 INFO] Step 7500/50000; acc: 88.4; ppl:   3.6; xent: 1.3; lr: 0.00072; sents:     516; bsz:  115/  19/ 1; 10727/1743 tok/s;   1174 sec;
+[2024-12-02 17:19:37,573 INFO] Step 7550/50000; acc: 87.0; ppl:   3.7; xent: 1.3; lr: 0.00072; sents:     520; bsz:  112/  19/ 1; 10496/1739 tok/s;   1179 sec;
+[2024-12-02 17:19:43,081 INFO] Step 7600/50000; acc: 88.6; ppl:   3.5; xent: 1.3; lr: 0.00072; sents:     517; bsz:  120/  18/ 1; 10929/1624 tok/s;   1185 sec;
+[2024-12-02 17:19:48,408 INFO] Step 7650/50000; acc: 85.5; ppl:   3.8; xent: 1.3; lr: 0.00071; sents:     500; bsz:  110/  18/ 1; 10369/1704 tok/s;   1190 sec;
+[2024-12-02 17:19:53,894 INFO] Step 7700/50000; acc: 86.7; ppl:   3.8; xent: 1.3; lr: 0.00071; sents:     500; bsz:  119/  18/ 1; 10864/1612 tok/s;   1196 sec;
+[2024-12-02 17:19:59,352 INFO] Step 7750/50000; acc: 89.6; ppl:   3.5; xent: 1.2; lr: 0.00071; sents:     555; bsz:  119/  19/ 1; 10917/1700 tok/s;   1201 sec;
+[2024-12-02 17:20:05,097 INFO] Step 7800/50000; acc: 88.4; ppl:   3.6; xent: 1.3; lr: 0.00071; sents:     509; bsz:  132/  17/ 1; 11525/1514 tok/s;   1207 sec;
+[2024-12-02 17:20:10,458 INFO] Step 7850/50000; acc: 86.7; ppl:   3.8; xent: 1.3; lr: 0.00071; sents:     553; bsz:  114/  19/ 1; 10647/1760 tok/s;   1212 sec;
+[2024-12-02 17:20:15,785 INFO] Step 7900/50000; acc: 87.2; ppl:   3.7; xent: 1.3; lr: 0.00070; sents:     505; bsz:  114/  18/ 1; 10681/1696 tok/s;   1218 sec;
+[2024-12-02 17:20:21,105 INFO] Step 7950/50000; acc: 87.2; ppl:   3.8; xent: 1.3; lr: 0.00070; sents:     513; bsz:  110/  18/ 1; 10335/1673 tok/s;   1223 sec;
+[2024-12-02 17:20:26,542 INFO] Step 8000/50000; acc: 87.0; ppl:   3.8; xent: 1.3; lr: 0.00070; sents:     502; bsz:  125/  18/ 1; 11511/1635 tok/s;   1228 sec;
+[2024-12-02 17:21:09,351 INFO] valid stats calculation
+                           took: 42.80868649482727 s.
+[2024-12-02 17:21:09,352 INFO] Train perplexity: 3.79854
+[2024-12-02 17:21:09,352 INFO] Train accuracy: 87.0806
+[2024-12-02 17:21:09,352 INFO] Sentences processed: 83568
+[2024-12-02 17:21:09,352 INFO] Average bsz:  119/  18/ 1
+[2024-12-02 17:21:09,352 INFO] Validation perplexity: 3.15764
+[2024-12-02 17:21:09,353 INFO] Validation accuracy: 92.4995
+[2024-12-02 17:21:09,353 INFO] Decreasing patience: 4/10
+[2024-12-02 17:21:09,353 INFO] Saving checkpoint save/model_step_8000.pt
+[2024-12-02 17:21:15,911 INFO] Step 8050/50000; acc: 86.4; ppl:   3.8; xent: 1.3; lr: 0.00070; sents:     504; bsz:  109/  18/ 1; 1102/180 tok/s;   1278 sec;
+[2024-12-02 17:21:21,241 INFO] Step 8100/50000; acc: 87.6; ppl:   3.7; xent: 1.3; lr: 0.00069; sents:     508; bsz:  108/  18/ 1; 10088/1666 tok/s;   1283 sec;
+[2024-12-02 17:21:26,610 INFO] Step 8150/50000; acc: 86.6; ppl:   3.8; xent: 1.3; lr: 0.00069; sents:     516; bsz:  115/  19/ 1; 10753/1741 tok/s;   1288 sec;
+[2024-12-02 17:21:32,012 INFO] Step 8200/50000; acc: 86.5; ppl:   3.7; xent: 1.3; lr: 0.00069; sents:     529; bsz:  110/  19/ 1; 10192/1771 tok/s;   1294 sec;
+[2024-12-02 17:21:37,842 INFO] Step 8250/50000; acc: 86.9; ppl:   3.8; xent: 1.3; lr: 0.00069; sents:     522; bsz:  130/  19/ 1; 11160/1600 tok/s;   1300 sec;
+[2024-12-02 17:21:43,179 INFO] Step 8300/50000; acc: 86.8; ppl:   3.8; xent: 1.3; lr: 0.00069; sents:     500; bsz:  110/  17/ 1; 10270/1625 tok/s;   1305 sec;
+[2024-12-02 17:21:48,546 INFO] Step 8350/50000; acc: 86.4; ppl:   3.9; xent: 1.4; lr: 0.00068; sents:     520; bsz:  114/  18/ 1; 10615/1655 tok/s;   1310 sec;
+[2024-12-02 17:21:53,874 INFO] Step 8400/50000; acc: 81.7; ppl:   4.4; xent: 1.5; lr: 0.00068; sents:     500; bsz:  112/  19/ 1; 10518/1766 tok/s;   1316 sec;
+[2024-12-02 17:21:59,242 INFO] Step 8450/50000; acc: 82.4; ppl:   4.2; xent: 1.4; lr: 0.00068; sents:     508; bsz:  116/  19/ 1; 10843/1731 tok/s;   1321 sec;
+[2024-12-02 17:22:04,764 INFO] Step 8500/50000; acc: 84.8; ppl:   3.9; xent: 1.4; lr: 0.00068; sents:     568; bsz:  125/  21/ 1; 11282/1861 tok/s;   1326 sec;
+[2024-12-02 17:22:10,161 INFO] Step 8550/50000; acc: 86.9; ppl:   3.8; xent: 1.3; lr: 0.00068; sents:     527; bsz:  110/  19/ 1; 10219/1726 tok/s;   1332 sec;
+[2024-12-02 17:22:15,561 INFO] Step 8600/50000; acc: 87.0; ppl:   3.8; xent: 1.3; lr: 0.00067; sents:     507; bsz:  121/  17/ 1; 11238/1612 tok/s;   1337 sec;
+[2024-12-02 17:22:20,926 INFO] Step 8650/50000; acc: 86.8; ppl:   3.7; xent: 1.3; lr: 0.00067; sents:     539; bsz:  114/  18/ 1; 10611/1673 tok/s;   1343 sec;
+[2024-12-02 17:22:24,269 INFO] Step 8678, cuda OOM - batch removed
+[2024-12-02 17:22:24,612 INFO] Step 8680, cuda OOM - batch removed
+[2024-12-02 17:22:25,161 INFO] Step 8680, cuda OOM - batch removed
+[2024-12-02 17:22:25,526 INFO] Step 8682, cuda OOM - batch removed
+[2024-12-02 17:22:27,578 INFO] Step 8700/50000; acc: 86.5; ppl:   3.8; xent: 1.3; lr: 0.00067; sents:     535; bsz:  224/  19/ 1; 16701/1394 tok/s;   1349 sec;
+[2024-12-02 17:22:33,025 INFO] Step 8750/50000; acc: 85.8; ppl:   3.9; xent: 1.4; lr: 0.00067; sents:     521; bsz:  127/  19/ 1; 11644/1706 tok/s;   1355 sec;
+[2024-12-02 17:22:38,470 INFO] Step 8800/50000; acc: 84.8; ppl:   4.0; xent: 1.4; lr: 0.00067; sents:     520; bsz:  115/  19/ 1; 10582/1706 tok/s;   1360 sec;
+[2024-12-02 17:22:44,820 INFO] Step 8850/50000; acc: 84.3; ppl:   4.0; xent: 1.4; lr: 0.00066; sents:     504; bsz:  154/  18/ 1; 12153/1405 tok/s;   1367 sec;
+[2024-12-02 17:22:50,161 INFO] Step 8900/50000; acc: 87.5; ppl:   3.7; xent: 1.3; lr: 0.00066; sents:     552; bsz:  115/  19/ 1; 10733/1748 tok/s;   1372 sec;
+[2024-12-02 17:22:55,614 INFO] Step 8950/50000; acc: 85.2; ppl:   3.9; xent: 1.4; lr: 0.00066; sents:     500; bsz:  126/  18/ 1; 11579/1626 tok/s;   1377 sec;
+[2024-12-02 17:23:01,248 INFO] Step 9000/50000; acc: 83.9; ppl:   4.1; xent: 1.4; lr: 0.00066; sents:     506; bsz:  123/  19/ 1; 10925/1643 tok/s;   1383 sec;
+[2024-12-02 17:23:44,138 INFO] valid stats calculation
+                           took: 42.88952660560608 s.
+[2024-12-02 17:23:44,139 INFO] Train perplexity: 3.80857
+[2024-12-02 17:23:44,139 INFO] Train accuracy: 86.9302
+[2024-12-02 17:23:44,140 INFO] Sentences processed: 93954
+[2024-12-02 17:23:44,140 INFO] Average bsz:  120/  18/ 1
+[2024-12-02 17:23:44,140 INFO] Validation perplexity: 3.23608
+[2024-12-02 17:23:44,140 INFO] Validation accuracy: 92.8859
+[2024-12-02 17:23:44,140 INFO] Decreasing patience: 3/10
+[2024-12-02 17:23:44,140 INFO] Saving checkpoint save/model_step_9000.pt
+[2024-12-02 17:23:50,683 INFO] Step 9050/50000; acc: 88.2; ppl:   3.7; xent: 1.3; lr: 0.00066; sents:     522; bsz:  114/  18/ 1; 1150/178 tok/s;   1432 sec;
+[2024-12-02 17:23:56,465 INFO] Step 9100/50000; acc: 86.4; ppl:   3.7; xent: 1.3; lr: 0.00066; sents:     500; bsz:  136/  18/ 1; 11782/1515 tok/s;   1438 sec;
+[2024-12-02 17:24:01,903 INFO] Step 9150/50000; acc: 85.4; ppl:   3.9; xent: 1.4; lr: 0.00065; sents:     508; bsz:  117/  19/ 1; 10769/1722 tok/s;   1444 sec;
+[2024-12-02 17:24:07,377 INFO] Step 9200/50000; acc: 87.7; ppl:   3.7; xent: 1.3; lr: 0.00065; sents:     528; bsz:  118/  18/ 1; 10811/1653 tok/s;   1449 sec;
+[2024-12-02 17:24:12,734 INFO] Step 9250/50000; acc: 85.9; ppl:   3.8; xent: 1.3; lr: 0.00065; sents:     520; bsz:  118/  18/ 1; 11056/1717 tok/s;   1454 sec;
+[2024-12-02 17:24:18,202 INFO] Step 9299, cuda OOM - batch removed
+[2024-12-02 17:24:18,334 INFO] Step 9300/50000; acc: 86.0; ppl:   3.8; xent: 1.3; lr: 0.00065; sents:     499; bsz:  120/  18/ 1; 10648/1597 tok/s;   1460 sec;
+[2024-12-02 17:24:18,542 INFO] Step 9301, cuda OOM - batch removed
+[2024-12-02 17:24:18,720 INFO] Step 9301, cuda OOM - batch removed
+[2024-12-02 17:24:24,602 INFO] Step 9350/50000; acc: 86.5; ppl:   3.7; xent: 1.3; lr: 0.00065; sents:     534; bsz:  154/  19/ 1; 12223/1487 tok/s;   1466 sec;
+[2024-12-02 17:24:30,043 INFO] Step 9400/50000; acc: 86.3; ppl:   3.7; xent: 1.3; lr: 0.00064; sents:     504; bsz:  114/  18/ 1; 10460/1656 tok/s;   1472 sec;
+[2024-12-02 17:24:35,372 INFO] Step 9450/50000; acc: 87.8; ppl:   3.6; xent: 1.3; lr: 0.00064; sents:     540; bsz:  109/  19/ 1; 10207/1747 tok/s;   1477 sec;
+[2024-12-02 17:24:40,708 INFO] Step 9500/50000; acc: 87.1; ppl:   3.7; xent: 1.3; lr: 0.00064; sents:     528; bsz:  118/  18/ 1; 11012/1721 tok/s;   1482 sec;
+[2024-12-02 17:24:46,032 INFO] Step 9550/50000; acc: 86.4; ppl:   3.8; xent: 1.3; lr: 0.00064; sents:     500; bsz:  112/  18/ 1; 10530/1733 tok/s;   1488 sec;
+[2024-12-02 17:24:48,171 INFO] Step 9568, cuda OOM - batch removed
+[2024-12-02 17:24:51,683 INFO] Step 9600/50000; acc: 88.3; ppl:   3.5; xent: 1.3; lr: 0.00064; sents:     503; bsz:  121/  18/ 1; 10706/1557 tok/s;   1493 sec;
+[2024-12-02 17:24:57,205 INFO] Step 9650/50000; acc: 85.1; ppl:   3.9; xent: 1.4; lr: 0.00064; sents:     515; bsz:  124/  19/ 1; 11235/1728 tok/s;   1499 sec;
+[2024-12-02 17:25:02,569 INFO] Step 9700/50000; acc: 87.7; ppl:   3.6; xent: 1.3; lr: 0.00063; sents:     516; bsz:  112/  17/ 1; 10467/1605 tok/s;   1504 sec;
+[2024-12-02 17:25:07,970 INFO] Step 9750/50000; acc: 88.0; ppl:   3.6; xent: 1.3; lr: 0.00063; sents:     509; bsz:  123/  17/ 1; 11384/1551 tok/s;   1510 sec;
+[2024-12-02 17:25:13,371 INFO] Step 9800/50000; acc: 87.0; ppl:   3.7; xent: 1.3; lr: 0.00063; sents:     545; bsz:  119/  19/ 1; 11019/1723 tok/s;   1515 sec;
+[2024-12-02 17:25:18,774 INFO] Step 9850/50000; acc: 88.2; ppl:   3.6; xent: 1.3; lr: 0.00063; sents:     522; bsz:  113/  18/ 1; 10472/1668 tok/s;   1520 sec;
+[2024-12-02 17:25:24,251 INFO] Step 9900/50000; acc: 87.9; ppl:   3.7; xent: 1.3; lr: 0.00063; sents:     503; bsz:  115/  18/ 1; 10474/1605 tok/s;   1526 sec;
+[2024-12-02 17:25:29,665 INFO] Step 9950/50000; acc: 84.5; ppl:   4.0; xent: 1.4; lr: 0.00063; sents:     508; bsz:  110/  20/ 1; 10155/1805 tok/s;   1531 sec;
+[2024-12-02 17:25:35,186 INFO] Step 10000/50000; acc: 87.9; ppl:   3.7; xent: 1.3; lr: 0.00062; sents:     504; bsz:  120/  18/ 1; 10838/1636 tok/s;   1537 sec;
+[2024-12-02 17:26:18,032 INFO] valid stats calculation
+                           took: 42.84525442123413 s.
+[2024-12-02 17:26:18,033 INFO] Train perplexity: 3.80001
+[2024-12-02 17:26:18,033 INFO] Train accuracy: 86.9265
+[2024-12-02 17:26:18,033 INFO] Sentences processed: 104262
+[2024-12-02 17:26:18,033 INFO] Average bsz:  120/  18/ 1
+[2024-12-02 17:26:18,033 INFO] Validation perplexity: 3.19138
+[2024-12-02 17:26:18,033 INFO] Validation accuracy: 91.2094
+[2024-12-02 17:26:18,033 INFO] Decreasing patience: 2/10
+[2024-12-02 17:26:18,034 INFO] Saving checkpoint save/model_step_10000.pt
+[2024-12-02 17:26:24,602 INFO] Step 10050/50000; acc: 88.9; ppl:   3.6; xent: 1.3; lr: 0.00062; sents:     520; bsz:  110/  18/ 1; 1110/179 tok/s;   1586 sec;
+[2024-12-02 17:26:30,049 INFO] Step 10100/50000; acc: 86.0; ppl:   3.8; xent: 1.3; lr: 0.00062; sents:     561; bsz:  118/  20/ 1; 10815/1820 tok/s;   1592 sec;
+[2024-12-02 17:26:35,418 INFO] Step 10150/50000; acc: 85.8; ppl:   3.9; xent: 1.4; lr: 0.00062; sents:     508; bsz:  106/  18/ 1; 9827/1699 tok/s;   1597 sec;
+[2024-12-02 17:26:40,905 INFO] Step 10200/50000; acc: 85.5; ppl:   3.9; xent: 1.4; lr: 0.00062; sents:     558; bsz:  115/  19/ 1; 10481/1767 tok/s;   1603 sec;
+[2024-12-02 17:26:46,471 INFO] Step 10250/50000; acc: 87.3; ppl:   3.8; xent: 1.3; lr: 0.00062; sents:     524; bsz:  119/  18/ 1; 10650/1622 tok/s;   1608 sec;
+[2024-12-02 17:26:51,859 INFO] Step 10300/50000; acc: 85.2; ppl:   4.1; xent: 1.4; lr: 0.00062; sents:     543; bsz:  110/  18/ 1; 10241/1711 tok/s;   1614 sec;
+[2024-12-02 17:26:57,273 INFO] Step 10350/50000; acc: 86.6; ppl:   3.9; xent: 1.4; lr: 0.00061; sents:     535; bsz:  116/  18/ 1; 10745/1695 tok/s;   1619 sec;
+[2024-12-02 17:27:02,659 INFO] Step 10400/50000; acc: 84.4; ppl:   4.0; xent: 1.4; lr: 0.00061; sents:     500; bsz:  115/  19/ 1; 10668/1725 tok/s;   1624 sec;
+[2024-12-02 17:27:08,109 INFO] Step 10450/50000; acc: 87.0; ppl:   3.7; xent: 1.3; lr: 0.00061; sents:     538; bsz:  120/  19/ 1; 11010/1726 tok/s;   1630 sec;
+[2024-12-02 17:27:13,581 INFO] Step 10500/50000; acc: 87.0; ppl:   3.7; xent: 1.3; lr: 0.00061; sents:     500; bsz:  120/  18/ 1; 11011/1661 tok/s;   1635 sec;
+[2024-12-02 17:27:18,956 INFO] Step 10550/50000; acc: 85.9; ppl:   3.8; xent: 1.3; lr: 0.00061; sents:     500; bsz:  112/  18/ 1; 10432/1719 tok/s;   1641 sec;
+[2024-12-02 17:27:24,305 INFO] Step 10600/50000; acc: 86.4; ppl:   3.8; xent: 1.3; lr: 0.00061; sents:     505; bsz:  107/  18/ 1; 9979/1716 tok/s;   1646 sec;
+[2024-12-02 17:27:29,757 INFO] Step 10650/50000; acc: 89.2; ppl:   3.5; xent: 1.3; lr: 0.00061; sents:     524; bsz:  120/  18/ 1; 11012/1613 tok/s;   1651 sec;
+[2024-12-02 17:27:35,261 INFO] Step 10700/50000; acc: 88.4; ppl:   3.6; xent: 1.3; lr: 0.00060; sents:     532; bsz:  113/  18/ 1; 10229/1634 tok/s;   1657 sec;
+[2024-12-02 17:27:39,840 INFO] Step 10742, cuda OOM - batch removed
+[2024-12-02 17:27:40,215 INFO] Step 10744, cuda OOM - batch removed
+[2024-12-02 17:27:40,390 INFO] Step 10744, cuda OOM - batch removed
+[2024-12-02 17:27:40,805 INFO] Step 10746, cuda OOM - batch removed
+[2024-12-02 17:27:41,246 INFO] Step 10750/50000; acc: 87.8; ppl:   3.7; xent: 1.3; lr: 0.00060; sents:     545; bsz:  169/  19/ 1; 14014/1590 tok/s;   1663 sec;
+[2024-12-02 17:27:46,146 INFO] Step 10795, cuda OOM - batch removed
+[2024-12-02 17:27:46,391 INFO] Step 10797, cuda OOM - batch removed
+[2024-12-02 17:27:46,426 INFO] Step 10797, cuda OOM - batch removed
+[2024-12-02 17:27:46,687 INFO] Step 10799, cuda OOM - batch removed
+[2024-12-02 17:27:46,794 INFO] Step 10800/50000; acc: 89.6; ppl:   3.5; xent: 1.2; lr: 0.00060; sents:     535; bsz:  223/  19/ 1; 19914/1695 tok/s;   1669 sec;
+[2024-12-02 17:27:52,326 INFO] Step 10850/50000; acc: 86.2; ppl:   3.8; xent: 1.3; lr: 0.00060; sents:     531; bsz:  118/  20/ 1; 10667/1834 tok/s;   1674 sec;
+[2024-12-02 17:27:57,904 INFO] Step 10900/50000; acc: 87.2; ppl:   3.7; xent: 1.3; lr: 0.00060; sents:     552; bsz:  121/  20/ 1; 10810/1823 tok/s;   1680 sec;
+[2024-12-02 17:28:03,270 INFO] Step 10950/50000; acc: 89.6; ppl:   3.5; xent: 1.2; lr: 0.00060; sents:     500; bsz:  110/  18/ 1; 10253/1640 tok/s;   1685 sec;
+[2024-12-02 17:28:08,927 INFO] Step 11000/50000; acc: 88.7; ppl:   3.6; xent: 1.3; lr: 0.00060; sents:     516; bsz:  130/  18/ 1; 11521/1630 tok/s;   1691 sec;
+[2024-12-02 17:28:51,670 INFO] valid stats calculation
+                           took: 42.74220108985901 s.
+[2024-12-02 17:28:51,671 INFO] Train perplexity: 3.7943
+[2024-12-02 17:28:51,671 INFO] Train accuracy: 86.9421
+[2024-12-02 17:28:51,671 INFO] Sentences processed: 114789
+[2024-12-02 17:28:51,671 INFO] Average bsz:  120/  18/ 1
+[2024-12-02 17:28:51,671 INFO] Validation perplexity: 3.12208
+[2024-12-02 17:28:51,671 INFO] Validation accuracy: 93.5079
+[2024-12-02 17:28:51,671 INFO] Decreasing patience: 1/10
+[2024-12-02 17:28:51,672 INFO] Saving checkpoint save/model_step_11000.pt
+[2024-12-02 17:28:58,515 INFO] Step 11050/50000; acc: 87.9; ppl:   3.7; xent: 1.3; lr: 0.00059; sents:     506; bsz:  126/  18/ 1; 1275/186 tok/s;   1740 sec;
+[2024-12-02 17:29:03,935 INFO] Step 11100/50000; acc: 88.1; ppl:   3.6; xent: 1.3; lr: 0.00059; sents:     534; bsz:  112/  19/ 1; 10331/1718 tok/s;   1746 sec;
+[2024-12-02 17:29:09,419 INFO] Step 11150/50000; acc: 88.2; ppl:   3.6; xent: 1.3; lr: 0.00059; sents:     524; bsz:  111/  19/ 1; 10144/1694 tok/s;   1751 sec;
+[2024-12-02 17:29:14,886 INFO] Step 11200/50000; acc: 89.3; ppl:   3.6; xent: 1.3; lr: 0.00059; sents:     555; bsz:  124/  19/ 1; 11305/1718 tok/s;   1757 sec;
+[2024-12-02 17:29:20,227 INFO] Step 11250/50000; acc: 86.9; ppl:   3.9; xent: 1.4; lr: 0.00059; sents:     516; bsz:  108/  19/ 1; 10071/1743 tok/s;   1762 sec;
+[2024-12-02 17:29:25,734 INFO] Step 11300/50000; acc: 88.3; ppl:   3.6; xent: 1.3; lr: 0.00059; sents:     556; bsz:  125/  20/ 1; 11376/1786 tok/s;   1767 sec;
+[2024-12-02 17:29:31,278 INFO] Step 11350/50000; acc: 88.4; ppl:   3.6; xent: 1.3; lr: 0.00059; sents:     548; bsz:  121/  19/ 1; 10898/1744 tok/s;   1773 sec;
+[2024-12-02 17:29:37,061 INFO] Step 11400/50000; acc: 87.3; ppl:   3.7; xent: 1.3; lr: 0.00059; sents:     531; bsz:  133/  19/ 1; 11501/1677 tok/s;   1779 sec;
+[2024-12-02 17:29:42,445 INFO] Step 11450/50000; acc: 84.9; ppl:   4.0; xent: 1.4; lr: 0.00058; sents:     539; bsz:  114/  21/ 1; 10578/1932 tok/s;   1784 sec;
+[2024-12-02 17:29:48,305 INFO] Step 11500/50000; acc: 88.5; ppl:   3.6; xent: 1.3; lr: 0.00058; sents:     505; bsz:  125/  17/ 1; 10661/1484 tok/s;   1790 sec;
+[2024-12-02 17:29:53,777 INFO] Step 11550/50000; acc: 88.5; ppl:   3.5; xent: 1.3; lr: 0.00058; sents:     520; bsz:  117/  18/ 1; 10699/1647 tok/s;   1795 sec;
+[2024-12-02 17:29:59,287 INFO] Step 11600/50000; acc: 87.8; ppl:   3.7; xent: 1.3; lr: 0.00058; sents:     521; bsz:  125/  18/ 1; 11373/1672 tok/s;   1801 sec;
+[2024-12-02 17:30:04,835 INFO] Step 11650/50000; acc: 87.2; ppl:   3.7; xent: 1.3; lr: 0.00058; sents:     516; bsz:  118/  19/ 1; 10639/1668 tok/s;   1807 sec;
+[2024-12-02 17:30:10,232 INFO] Step 11700/50000; acc: 88.1; ppl:   3.6; xent: 1.3; lr: 0.00058; sents:     516; bsz:  120/  19/ 1; 11093/1715 tok/s;   1812 sec;
+[2024-12-02 17:30:15,667 INFO] Step 11750/50000; acc: 87.3; ppl:   3.7; xent: 1.3; lr: 0.00058; sents:     504; bsz:  113/  18/ 1; 10373/1677 tok/s;   1817 sec;
+[2024-12-02 17:30:21,086 INFO] Step 11800/50000; acc: 88.2; ppl:   3.6; xent: 1.3; lr: 0.00058; sents:     500; bsz:  112/  17/ 1; 10328/1586 tok/s;   1823 sec;
+[2024-12-02 17:30:26,518 INFO] Step 11850/50000; acc: 88.4; ppl:   3.6; xent: 1.3; lr: 0.00057; sents:     508; bsz:  120/  17/ 1; 11026/1603 tok/s;   1828 sec;
+[2024-12-02 17:30:31,868 INFO] Step 11900/50000; acc: 86.4; ppl:   3.9; xent: 1.4; lr: 0.00057; sents:     519; bsz:  114/  19/ 1; 10622/1757 tok/s;   1834 sec;
+[2024-12-02 17:30:37,218 INFO] Step 11950/50000; acc: 83.8; ppl:   4.2; xent: 1.4; lr: 0.00057; sents:     512; bsz:  114/  18/ 1; 10632/1709 tok/s;   1839 sec;
+[2024-12-02 17:30:42,545 INFO] Step 12000/50000; acc: 85.7; ppl:   3.9; xent: 1.4; lr: 0.00057; sents:     525; bsz:  109/  19/ 1; 10201/1791 tok/s;   1844 sec;
+[2024-12-02 17:31:25,362 INFO] valid stats calculation
+                           took: 42.8171923160553 s.
+[2024-12-02 17:31:25,363 INFO] Train perplexity: 3.78786
+[2024-12-02 17:31:25,363 INFO] Train accuracy: 86.9839
+[2024-12-02 17:31:25,363 INFO] Sentences processed: 125244
+[2024-12-02 17:31:25,364 INFO] Average bsz:  120/  18/ 1
+[2024-12-02 17:31:25,364 INFO] Validation perplexity: 3.266
+[2024-12-02 17:31:25,364 INFO] Validation accuracy: 91.4549
+[2024-12-02 17:31:25,364 INFO] Decreasing patience: 0/10
+[2024-12-02 17:31:25,364 INFO] Training finished after not improving. Early Stop!
+[2024-12-02 17:31:25,364 INFO] Best model found at step 1000
+[2024-12-02 17:31:25,364 INFO] earlystopper has_stopped!
+[2024-12-02 17:31:26,668 INFO] Saving checkpoint save/model_step_12000.pt
