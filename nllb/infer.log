@@ -1,0 +1,4 @@
+[2024-12-06 14:29:57,333 INFO] Loading checkpoint from /home/project/wasm-type-prediction/nllb/save/nllb-200-wasm_step_11000.pt
+[2024-12-06 14:30:01,678 INFO] Loading data into the model
+[2024-12-06 15:48:12,384 INFO] Loading checkpoint from /home/project/wasm-type-prediction/nllb/save/nllb-200-wasm_step_11000.pt
+[2024-12-06 15:48:16,756 INFO] Loading data into the model
