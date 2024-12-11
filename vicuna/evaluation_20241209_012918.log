@@ -1,0 +1,668 @@
+2024-12-09 01:29:18,650 - INFO - Starting evaluation process...
+2024-12-09 01:29:18,651 - INFO - Model path: /home/project/wasm-type-prediction/vicuna/type-prediction-model/checkpoint-5000
+2024-12-09 01:29:18,651 - INFO - Batch size: 4
+2024-12-09 01:29:18,651 - INFO - Output log file: evaluation_20241209_012918.log
+2024-12-09 01:29:18,654 - INFO - Using device: cuda
+2024-12-09 01:29:18,654 - INFO - Loading model and tokenizer...
+2024-12-09 01:29:19,238 - INFO - Loading test data...
+2024-12-09 01:29:19,254 - INFO - Loaded 43173 test examples
+2024-12-09 01:29:19,255 - INFO - Starting evaluation...
+2024-12-09 01:29:19,447 - INFO - 
+Sample prediction 0:
+2024-12-09 01:29:19,447 - INFO - True type: pointer const primitive char
+2024-12-09 01:29:19,447 - INFO - Predicted types: ['primitive int32_t', 'enum primitive uint32_', 'pointer struct', 'pointer primitive char', 'primitive uint32_t']
+2024-12-09 01:29:19,447 - INFO - Current Top-1 Accuracy: 0.00%
+2024-12-09 01:29:21,225 - INFO - Progress: 0.23% (100/43173)
+2024-12-09 01:29:23,018 - INFO - Progress: 0.46% (200/43173)
+2024-12-09 01:29:24,778 - INFO - Progress: 0.69% (300/43173)
+2024-12-09 01:29:26,593 - INFO - Progress: 0.93% (400/43173)
+2024-12-09 01:29:28,382 - INFO - Progress: 1.16% (500/43173)
+2024-12-09 01:29:30,206 - INFO - Progress: 1.39% (600/43173)
+2024-12-09 01:29:32,086 - INFO - Progress: 1.62% (700/43173)
+2024-12-09 01:29:33,910 - INFO - Progress: 1.85% (800/43173)
+2024-12-09 01:29:35,730 - INFO - Progress: 2.08% (900/43173)
+2024-12-09 01:29:37,522 - INFO - Progress: 2.32% (1000/43173)
+2024-12-09 01:29:37,541 - INFO - 
+Sample prediction 1000:
+2024-12-09 01:29:37,541 - INFO - True type: primitive float64_t
+2024-12-09 01:29:37,541 - INFO - Predicted types: ['primitive float64_t', 'name "off_t', 'float64_t', 'name "size_t', 'pointer primitive float64_']
+2024-12-09 01:29:37,541 - INFO - Current Top-1 Accuracy: 55.14%
+2024-12-09 01:29:39,294 - INFO - Progress: 2.55% (1100/43173)
+2024-12-09 01:29:41,177 - INFO - Progress: 2.78% (1200/43173)
+2024-12-09 01:29:42,894 - INFO - Progress: 3.01% (1300/43173)
+2024-12-09 01:29:44,875 - INFO - Progress: 3.24% (1400/43173)
+2024-12-09 01:29:46,779 - INFO - Progress: 3.47% (1500/43173)
+2024-12-09 01:29:48,636 - INFO - Progress: 3.71% (1600/43173)
+2024-12-09 01:29:50,475 - INFO - Progress: 3.94% (1700/43173)
+2024-12-09 01:29:52,521 - INFO - Progress: 4.17% (1800/43173)
+2024-12-09 01:29:54,330 - INFO - Progress: 4.40% (1900/43173)
+2024-12-09 01:29:56,077 - INFO - Progress: 4.63% (2000/43173)
+2024-12-09 01:29:56,094 - INFO - 
+Sample prediction 2000:
+2024-12-09 01:29:56,094 - INFO - True type: enum primitive uint32_t
+2024-12-09 01:29:56,094 - INFO - Predicted types: ['primitive int32_t', 'pointer struct', 'enum primitive uint32_', 'pointer primitive char', 'primitive bool']
+2024-12-09 01:29:56,094 - INFO - Current Top-1 Accuracy: 55.47%
+2024-12-09 01:29:57,934 - INFO - Progress: 4.86% (2100/43173)
+2024-12-09 01:29:59,704 - INFO - Progress: 5.10% (2200/43173)
+2024-12-09 01:30:01,540 - INFO - Progress: 5.33% (2300/43173)
+2024-12-09 01:30:03,510 - INFO - Progress: 5.56% (2400/43173)
+2024-12-09 01:30:05,216 - INFO - Progress: 5.79% (2500/43173)
+2024-12-09 01:30:07,093 - INFO - Progress: 6.02% (2600/43173)
+2024-12-09 01:30:08,946 - INFO - Progress: 6.25% (2700/43173)
+2024-12-09 01:30:10,827 - INFO - Progress: 6.49% (2800/43173)
+2024-12-09 01:30:12,680 - INFO - Progress: 6.72% (2900/43173)
+2024-12-09 01:30:14,724 - INFO - Progress: 6.95% (3000/43173)
+2024-12-09 01:30:14,741 - INFO - 
+Sample prediction 3000:
+2024-12-09 01:30:14,741 - INFO - True type: primitive int32_t
+2024-12-09 01:30:14,741 - INFO - Predicted types: ['primitive int32_t', 'pointer struct', 'pointer primitive char', 'enum primitive uint32_', 'pointer name "String"']
+2024-12-09 01:30:14,741 - INFO - Current Top-1 Accuracy: 54.08%
+2024-12-09 01:30:16,553 - INFO - Progress: 7.18% (3100/43173)
+2024-12-09 01:30:18,283 - INFO - Progress: 7.41% (3200/43173)
+2024-12-09 01:30:20,030 - INFO - Progress: 7.64% (3300/43173)
+2024-12-09 01:30:21,754 - INFO - Progress: 7.88% (3400/43173)
+2024-12-09 01:30:23,584 - INFO - Progress: 8.11% (3500/43173)
+2024-12-09 01:30:25,398 - INFO - Progress: 8.34% (3600/43173)
+2024-12-09 01:30:27,224 - INFO - Progress: 8.57% (3700/43173)
+2024-12-09 01:30:29,025 - INFO - Progress: 8.80% (3800/43173)
+2024-12-09 01:30:30,836 - INFO - Progress: 9.03% (3900/43173)
+2024-12-09 01:30:32,629 - INFO - Progress: 9.27% (4000/43173)
+2024-12-09 01:30:32,646 - INFO - 
+Sample prediction 4000:
+2024-12-09 01:30:32,646 - INFO - True type: primitive int32_t
+2024-12-09 01:30:32,646 - INFO - Predicted types: ['primitive int32_t', 'pointer struct', 'pointer unknown', 'pointer primitive char', 'primitive uint32_t']
+2024-12-09 01:30:32,646 - INFO - Current Top-1 Accuracy: 54.04%
+2024-12-09 01:30:34,484 - INFO - Progress: 9.50% (4100/43173)
+2024-12-09 01:30:36,228 - INFO - Progress: 9.73% (4200/43173)
+2024-12-09 01:30:38,084 - INFO - Progress: 9.96% (4300/43173)
+2024-12-09 01:30:39,919 - INFO - Progress: 10.19% (4400/43173)
+2024-12-09 01:30:41,765 - INFO - Progress: 10.42% (4500/43173)
+2024-12-09 01:30:43,611 - INFO - Progress: 10.65% (4600/43173)
+2024-12-09 01:30:45,397 - INFO - Progress: 10.89% (4700/43173)
+2024-12-09 01:30:47,215 - INFO - Progress: 11.12% (4800/43173)
+2024-12-09 01:30:49,142 - INFO - Progress: 11.35% (4900/43173)
+2024-12-09 01:30:50,846 - INFO - Progress: 11.58% (5000/43173)
+2024-12-09 01:30:50,863 - INFO - 
+Sample prediction 5000:
+2024-12-09 01:30:50,863 - INFO - True type: pointer name "String" class
+2024-12-09 01:30:50,863 - INFO - Predicted types: ['pointer class', 'pointer const class', 'pointer name "basic_', 'pointer struct', 'pointer const name "ct']
+2024-12-09 01:30:50,863 - INFO - Current Top-1 Accuracy: 53.25%
+2024-12-09 01:30:52,676 - INFO - Progress: 11.81% (5100/43173)
+2024-12-09 01:30:54,451 - INFO - Progress: 12.04% (5200/43173)
+2024-12-09 01:30:56,244 - INFO - Progress: 12.28% (5300/43173)
+2024-12-09 01:30:58,052 - INFO - Progress: 12.51% (5400/43173)
+2024-12-09 01:30:59,969 - INFO - Progress: 12.74% (5500/43173)
+2024-12-09 01:31:01,870 - INFO - Progress: 12.97% (5600/43173)
+2024-12-09 01:31:03,626 - INFO - Progress: 13.20% (5700/43173)
+2024-12-09 01:31:05,458 - INFO - Progress: 13.43% (5800/43173)
+2024-12-09 01:31:07,191 - INFO - Progress: 13.67% (5900/43173)
+2024-12-09 01:31:09,052 - INFO - Progress: 13.90% (6000/43173)
+2024-12-09 01:31:09,068 - INFO - 
+Sample prediction 6000:
+2024-12-09 01:31:09,068 - INFO - True type: pointer primitive char
+2024-12-09 01:31:09,068 - INFO - Predicted types: ['pointer class', 'pointer struct', 'pointer pointer class', 'pointer const struct', 'pointer name "allocator']
+2024-12-09 01:31:09,068 - INFO - Current Top-1 Accuracy: 53.19%
+2024-12-09 01:31:10,797 - INFO - Progress: 14.13% (6100/43173)
+2024-12-09 01:31:12,571 - INFO - Progress: 14.36% (6200/43173)
+2024-12-09 01:31:14,394 - INFO - Progress: 14.59% (6300/43173)
+2024-12-09 01:31:16,193 - INFO - Progress: 14.82% (6400/43173)
+2024-12-09 01:31:18,041 - INFO - Progress: 15.06% (6500/43173)
+2024-12-09 01:31:19,775 - INFO - Progress: 15.29% (6600/43173)
+2024-12-09 01:31:21,730 - INFO - Progress: 15.52% (6700/43173)
+2024-12-09 01:31:23,510 - INFO - Progress: 15.75% (6800/43173)
+2024-12-09 01:31:25,372 - INFO - Progress: 15.98% (6900/43173)
+2024-12-09 01:31:27,230 - INFO - Progress: 16.21% (7000/43173)
+2024-12-09 01:31:27,251 - INFO - 
+Sample prediction 7000:
+2024-12-09 01:31:27,252 - INFO - True type: pointer primitive char
+2024-12-09 01:31:27,252 - INFO - Predicted types: ['primitive int32_t', 'pointer struct', 'pointer unknown', 'pointer primitive char', 'pointer class']
+2024-12-09 01:31:27,252 - INFO - Current Top-1 Accuracy: 53.11%
+2024-12-09 01:31:29,101 - INFO - Progress: 16.45% (7100/43173)
+2024-12-09 01:31:30,853 - INFO - Progress: 16.68% (7200/43173)
+2024-12-09 01:31:32,626 - INFO - Progress: 16.91% (7300/43173)
+2024-12-09 01:31:34,540 - INFO - Progress: 17.14% (7400/43173)
+2024-12-09 01:31:36,453 - INFO - Progress: 17.37% (7500/43173)
+2024-12-09 01:31:38,221 - INFO - Progress: 17.60% (7600/43173)
+2024-12-09 01:31:40,094 - INFO - Progress: 17.84% (7700/43173)
+2024-12-09 01:31:41,916 - INFO - Progress: 18.07% (7800/43173)
+2024-12-09 01:31:43,840 - INFO - Progress: 18.30% (7900/43173)
+2024-12-09 01:31:45,634 - INFO - Progress: 18.53% (8000/43173)
+2024-12-09 01:31:45,652 - INFO - 
+Sample prediction 8000:
+2024-12-09 01:31:45,652 - INFO - True type: primitive uint32_t
+2024-12-09 01:31:45,652 - INFO - Predicted types: ['primitive int32_t', 'primitive bool', 'primitive uint32_t', 'enum primitive uint32_', 'primitive uint8_t']
+2024-12-09 01:31:45,652 - INFO - Current Top-1 Accuracy: 52.83%
+2024-12-09 01:31:47,388 - INFO - Progress: 18.76% (8100/43173)
+2024-12-09 01:31:49,189 - INFO - Progress: 18.99% (8200/43173)
+2024-12-09 01:31:51,022 - INFO - Progress: 19.22% (8300/43173)
+2024-12-09 01:31:52,750 - INFO - Progress: 19.46% (8400/43173)
+2024-12-09 01:31:54,567 - INFO - Progress: 19.69% (8500/43173)
+2024-12-09 01:31:56,376 - INFO - Progress: 19.92% (8600/43173)
+2024-12-09 01:31:58,150 - INFO - Progress: 20.15% (8700/43173)
+2024-12-09 01:31:59,985 - INFO - Progress: 20.38% (8800/43173)
+2024-12-09 01:32:01,882 - INFO - Progress: 20.61% (8900/43173)
+2024-12-09 01:32:03,760 - INFO - Progress: 20.85% (9000/43173)
+2024-12-09 01:32:03,778 - INFO - 
+Sample prediction 9000:
+2024-12-09 01:32:03,778 - INFO - True type: primitive int32_t
+2024-12-09 01:32:03,778 - INFO - Predicted types: ['primitive int32_t', 'pointer struct', 'enum primitive uint32_', 'pointer primitive char', 'name "size_t']
+2024-12-09 01:32:03,778 - INFO - Current Top-1 Accuracy: 52.57%
+2024-12-09 01:32:05,691 - INFO - Progress: 21.08% (9100/43173)
+2024-12-09 01:32:07,588 - INFO - Progress: 21.31% (9200/43173)
+2024-12-09 01:32:09,360 - INFO - Progress: 21.54% (9300/43173)
+2024-12-09 01:32:11,256 - INFO - Progress: 21.77% (9400/43173)
+2024-12-09 01:32:13,101 - INFO - Progress: 22.00% (9500/43173)
+2024-12-09 01:32:15,049 - INFO - Progress: 22.24% (9600/43173)
+2024-12-09 01:32:16,882 - INFO - Progress: 22.47% (9700/43173)
+2024-12-09 01:32:18,708 - INFO - Progress: 22.70% (9800/43173)
+2024-12-09 01:32:20,620 - INFO - Progress: 22.93% (9900/43173)
+2024-12-09 01:32:22,569 - INFO - Progress: 23.16% (10000/43173)
+2024-12-09 01:32:22,586 - INFO - 
+Sample prediction 10000:
+2024-12-09 01:32:22,586 - INFO - True type: primitive int32_t
+2024-12-09 01:32:22,586 - INFO - Predicted types: ['primitive int32_t', 'pointer struct', 'enum primitive uint32_', 'primitive uint32_t', 'name "size_t']
+2024-12-09 01:32:22,586 - INFO - Current Top-1 Accuracy: 52.42%
+2024-12-09 01:32:24,466 - INFO - Progress: 23.39% (10100/43173)
+2024-12-09 01:32:26,325 - INFO - Progress: 23.63% (10200/43173)
+2024-12-09 01:32:28,167 - INFO - Progress: 23.86% (10300/43173)
+2024-12-09 01:32:29,923 - INFO - Progress: 24.09% (10400/43173)
+2024-12-09 01:32:31,621 - INFO - Progress: 24.32% (10500/43173)
+2024-12-09 01:32:33,436 - INFO - Progress: 24.55% (10600/43173)
+2024-12-09 01:32:35,228 - INFO - Progress: 24.78% (10700/43173)
+2024-12-09 01:32:37,005 - INFO - Progress: 25.02% (10800/43173)
+2024-12-09 01:32:38,747 - INFO - Progress: 25.25% (10900/43173)
+2024-12-09 01:32:40,480 - INFO - Progress: 25.48% (11000/43173)
+2024-12-09 01:32:40,497 - INFO - 
+Sample prediction 11000:
+2024-12-09 01:32:40,497 - INFO - True type: pointer unknown
+2024-12-09 01:32:40,497 - INFO - Predicted types: ['pointer struct', 'primitive int32_t', 'pointer primitive char', 'enum primitive uint32_', 'pointer name "basic_']
+2024-12-09 01:32:40,497 - INFO - Current Top-1 Accuracy: 52.57%
+2024-12-09 01:32:42,324 - INFO - Progress: 25.71% (11100/43173)
+2024-12-09 01:32:44,053 - INFO - Progress: 25.94% (11200/43173)
+2024-12-09 01:32:45,900 - INFO - Progress: 26.17% (11300/43173)
+2024-12-09 01:32:47,838 - INFO - Progress: 26.41% (11400/43173)
+2024-12-09 01:32:49,708 - INFO - Progress: 26.64% (11500/43173)
+2024-12-09 01:32:51,474 - INFO - Progress: 26.87% (11600/43173)
+2024-12-09 01:32:53,289 - INFO - Progress: 27.10% (11700/43173)
+2024-12-09 01:32:55,011 - INFO - Progress: 27.33% (11800/43173)
+2024-12-09 01:32:56,843 - INFO - Progress: 27.56% (11900/43173)
+2024-12-09 01:32:58,626 - INFO - Progress: 27.80% (12000/43173)
+2024-12-09 01:32:58,648 - INFO - 
+Sample prediction 12000:
+2024-12-09 01:32:58,648 - INFO - True type: primitive int64_t
+2024-12-09 01:32:58,648 - INFO - Predicted types: ['primitive uint64_t', 'primitive int64_t', 'name "off_t', 'primitive bool', 'name "off64_']
+2024-12-09 01:32:58,648 - INFO - Current Top-1 Accuracy: 52.54%
+2024-12-09 01:33:00,574 - INFO - Progress: 28.03% (12100/43173)
+2024-12-09 01:33:02,483 - INFO - Progress: 28.26% (12200/43173)
+2024-12-09 01:33:04,332 - INFO - Progress: 28.49% (12300/43173)
+2024-12-09 01:33:06,153 - INFO - Progress: 28.72% (12400/43173)
+2024-12-09 01:33:07,918 - INFO - Progress: 28.95% (12500/43173)
+2024-12-09 01:33:09,803 - INFO - Progress: 29.18% (12600/43173)
+2024-12-09 01:33:11,652 - INFO - Progress: 29.42% (12700/43173)
+2024-12-09 01:33:13,427 - INFO - Progress: 29.65% (12800/43173)
+2024-12-09 01:33:15,202 - INFO - Progress: 29.88% (12900/43173)
+2024-12-09 01:33:17,117 - INFO - Progress: 30.11% (13000/43173)
+2024-12-09 01:33:17,135 - INFO - 
+Sample prediction 13000:
+2024-12-09 01:33:17,135 - INFO - True type: primitive int32_t
+2024-12-09 01:33:17,135 - INFO - Predicted types: ['primitive int32_t', 'enum primitive uint32_', 'primitive uint32_t', 'primitive bool', 'pointer struct']
+2024-12-09 01:33:17,135 - INFO - Current Top-1 Accuracy: 52.46%
+2024-12-09 01:33:18,968 - INFO - Progress: 30.34% (13100/43173)
+2024-12-09 01:33:20,799 - INFO - Progress: 30.57% (13200/43173)
+2024-12-09 01:33:22,515 - INFO - Progress: 30.81% (13300/43173)
+2024-12-09 01:33:24,422 - INFO - Progress: 31.04% (13400/43173)
+2024-12-09 01:33:26,211 - INFO - Progress: 31.27% (13500/43173)
+2024-12-09 01:33:28,065 - INFO - Progress: 31.50% (13600/43173)
+2024-12-09 01:33:29,918 - INFO - Progress: 31.73% (13700/43173)
+2024-12-09 01:33:31,760 - INFO - Progress: 31.96% (13800/43173)
+2024-12-09 01:33:33,648 - INFO - Progress: 32.20% (13900/43173)
+2024-12-09 01:33:35,617 - INFO - Progress: 32.43% (14000/43173)
+2024-12-09 01:33:35,629 - INFO - 
+Sample prediction 14000:
+2024-12-09 01:33:35,629 - INFO - True type: primitive float32_t
+2024-12-09 01:33:35,629 - INFO - Predicted types: ['primitive float32_t', 'pointer primitive float32_', 'pointer struct', 'pointer const primitive float32', 'name "size_t']
+2024-12-09 01:33:35,629 - INFO - Current Top-1 Accuracy: 52.61%
+2024-12-09 01:33:37,449 - INFO - Progress: 32.66% (14100/43173)
+2024-12-09 01:33:39,290 - INFO - Progress: 32.89% (14200/43173)
+2024-12-09 01:33:41,150 - INFO - Progress: 33.12% (14300/43173)
+2024-12-09 01:33:42,990 - INFO - Progress: 33.35% (14400/43173)
+2024-12-09 01:33:44,785 - INFO - Progress: 33.59% (14500/43173)
+2024-12-09 01:33:46,557 - INFO - Progress: 33.82% (14600/43173)
+2024-12-09 01:33:48,380 - INFO - Progress: 34.05% (14700/43173)
+2024-12-09 01:33:50,207 - INFO - Progress: 34.28% (14800/43173)
+2024-12-09 01:33:52,064 - INFO - Progress: 34.51% (14900/43173)
+2024-12-09 01:33:53,824 - INFO - Progress: 34.74% (15000/43173)
+2024-12-09 01:33:53,841 - INFO - 
+Sample prediction 15000:
+2024-12-09 01:33:53,841 - INFO - True type: primitive int32_t
+2024-12-09 01:33:53,841 - INFO - Predicted types: ['primitive bool', 'primitive int32_t', 'enum primitive uint32_', 'name "boolean"', 'name "size_t']
+2024-12-09 01:33:53,841 - INFO - Current Top-1 Accuracy: 52.51%
+2024-12-09 01:33:55,692 - INFO - Progress: 34.98% (15100/43173)
+2024-12-09 01:33:57,598 - INFO - Progress: 35.21% (15200/43173)
+2024-12-09 01:33:59,505 - INFO - Progress: 35.44% (15300/43173)
+2024-12-09 01:34:01,440 - INFO - Progress: 35.67% (15400/43173)
+2024-12-09 01:34:03,130 - INFO - Progress: 35.90% (15500/43173)
+2024-12-09 01:34:04,926 - INFO - Progress: 36.13% (15600/43173)
+2024-12-09 01:34:06,873 - INFO - Progress: 36.37% (15700/43173)
+2024-12-09 01:34:08,670 - INFO - Progress: 36.60% (15800/43173)
+2024-12-09 01:34:10,703 - INFO - Progress: 36.83% (15900/43173)
+2024-12-09 01:34:12,523 - INFO - Progress: 37.06% (16000/43173)
+2024-12-09 01:34:12,540 - INFO - 
+Sample prediction 16000:
+2024-12-09 01:34:12,540 - INFO - True type: primitive int64_t
+2024-12-09 01:34:12,540 - INFO - Predicted types: ['primitive uint64_t', 'primitive int64_t', 'name "off64_', 'name "off_t', 'primitive bool']
+2024-12-09 01:34:12,540 - INFO - Current Top-1 Accuracy: 52.41%
+2024-12-09 01:34:14,254 - INFO - Progress: 37.29% (16100/43173)
+2024-12-09 01:34:16,170 - INFO - Progress: 37.52% (16200/43173)
+2024-12-09 01:34:18,090 - INFO - Progress: 37.76% (16300/43173)
+2024-12-09 01:34:19,887 - INFO - Progress: 37.99% (16400/43173)
+2024-12-09 01:34:21,632 - INFO - Progress: 38.22% (16500/43173)
+2024-12-09 01:34:23,465 - INFO - Progress: 38.45% (16600/43173)
+2024-12-09 01:34:25,302 - INFO - Progress: 38.68% (16700/43173)
+2024-12-09 01:34:27,191 - INFO - Progress: 38.91% (16800/43173)
+2024-12-09 01:34:29,010 - INFO - Progress: 39.14% (16900/43173)
+2024-12-09 01:34:30,836 - INFO - Progress: 39.38% (17000/43173)
+2024-12-09 01:34:30,853 - INFO - 
+Sample prediction 17000:
+2024-12-09 01:34:30,853 - INFO - True type: primitive int32_t
+2024-12-09 01:34:30,853 - INFO - Predicted types: ['primitive int32_t', 'enum primitive uint32_', 'primitive uint32_t', 'pointer struct', 'pointer const primitive char']
+2024-12-09 01:34:30,853 - INFO - Current Top-1 Accuracy: 52.32%
+2024-12-09 01:34:32,712 - INFO - Progress: 39.61% (17100/43173)
+2024-12-09 01:34:34,617 - INFO - Progress: 39.84% (17200/43173)
+2024-12-09 01:34:36,422 - INFO - Progress: 40.07% (17300/43173)
+2024-12-09 01:34:38,211 - INFO - Progress: 40.30% (17400/43173)
+2024-12-09 01:34:40,055 - INFO - Progress: 40.53% (17500/43173)
+2024-12-09 01:34:41,860 - INFO - Progress: 40.77% (17600/43173)
+2024-12-09 01:34:43,752 - INFO - Progress: 41.00% (17700/43173)
+2024-12-09 01:34:45,483 - INFO - Progress: 41.23% (17800/43173)
+2024-12-09 01:34:47,385 - INFO - Progress: 41.46% (17900/43173)
+2024-12-09 01:34:49,333 - INFO - Progress: 41.69% (18000/43173)
+2024-12-09 01:34:49,347 - INFO - 
+Sample prediction 18000:
+2024-12-09 01:34:49,347 - INFO - True type: primitive int64_t
+2024-12-09 01:34:49,347 - INFO - Predicted types: ['primitive uint64_t', 'primitive int64_t', 'name "off_t', 'name "off64_', 'enum primitive uint64_']
+2024-12-09 01:34:49,347 - INFO - Current Top-1 Accuracy: 52.31%
+2024-12-09 01:34:51,088 - INFO - Progress: 41.92% (18100/43173)
+2024-12-09 01:34:52,972 - INFO - Progress: 42.16% (18200/43173)
+2024-12-09 01:34:54,849 - INFO - Progress: 42.39% (18300/43173)
+2024-12-09 01:34:56,673 - INFO - Progress: 42.62% (18400/43173)
+2024-12-09 01:34:58,667 - INFO - Progress: 42.85% (18500/43173)
+2024-12-09 01:35:00,535 - INFO - Progress: 43.08% (18600/43173)
+2024-12-09 01:35:02,429 - INFO - Progress: 43.31% (18700/43173)
+2024-12-09 01:35:04,336 - INFO - Progress: 43.55% (18800/43173)
+2024-12-09 01:35:06,283 - INFO - Progress: 43.78% (18900/43173)
+2024-12-09 01:35:08,087 - INFO - Progress: 44.01% (19000/43173)
+2024-12-09 01:35:08,104 - INFO - 
+Sample prediction 19000:
+2024-12-09 01:35:08,104 - INFO - True type: primitive int32_t
+2024-12-09 01:35:08,104 - INFO - Predicted types: ['primitive int32_t', 'pointer primitive char', 'pointer struct', 'pointer const primitive char', 'name "size_t']
+2024-12-09 01:35:08,104 - INFO - Current Top-1 Accuracy: 52.30%
+2024-12-09 01:35:09,928 - INFO - Progress: 44.24% (19100/43173)
+2024-12-09 01:35:11,748 - INFO - Progress: 44.47% (19200/43173)
+2024-12-09 01:35:13,613 - INFO - Progress: 44.70% (19300/43173)
+2024-12-09 01:35:15,520 - INFO - Progress: 44.94% (19400/43173)
+2024-12-09 01:35:17,264 - INFO - Progress: 45.17% (19500/43173)
+2024-12-09 01:35:19,152 - INFO - Progress: 45.40% (19600/43173)
+2024-12-09 01:35:21,019 - INFO - Progress: 45.63% (19700/43173)
+2024-12-09 01:35:22,883 - INFO - Progress: 45.86% (19800/43173)
+2024-12-09 01:35:24,672 - INFO - Progress: 46.09% (19900/43173)
+2024-12-09 01:35:26,452 - INFO - Progress: 46.33% (20000/43173)
+2024-12-09 01:35:26,469 - INFO - 
+Sample prediction 20000:
+2024-12-09 01:35:26,469 - INFO - True type: pointer primitive char16_t
+2024-12-09 01:35:26,469 - INFO - Predicted types: ['primitive int32_t', 'pointer struct', 'pointer primitive char', 'pointer primitive uint8_', 'pointer name "basic_']
+2024-12-09 01:35:26,469 - INFO - Current Top-1 Accuracy: 52.29%
+2024-12-09 01:35:28,261 - INFO - Progress: 46.56% (20100/43173)
+2024-12-09 01:35:30,039 - INFO - Progress: 46.79% (20200/43173)
+2024-12-09 01:35:31,858 - INFO - Progress: 47.02% (20300/43173)
+2024-12-09 01:35:33,832 - INFO - Progress: 47.25% (20400/43173)
+2024-12-09 01:35:35,741 - INFO - Progress: 47.48% (20500/43173)
+2024-12-09 01:35:37,625 - INFO - Progress: 47.72% (20600/43173)
+2024-12-09 01:35:39,372 - INFO - Progress: 47.95% (20700/43173)
+2024-12-09 01:35:41,135 - INFO - Progress: 48.18% (20800/43173)
+2024-12-09 01:35:43,008 - INFO - Progress: 48.41% (20900/43173)
+2024-12-09 01:35:44,769 - INFO - Progress: 48.64% (21000/43173)
+2024-12-09 01:35:44,785 - INFO - 
+Sample prediction 21000:
+2024-12-09 01:35:44,785 - INFO - True type: pointer unknown
+2024-12-09 01:35:44,786 - INFO - Predicted types: ['primitive int32_t', 'pointer class', 'primitive uint32_t', 'pointer struct', 'pointer const struct']
+2024-12-09 01:35:44,786 - INFO - Current Top-1 Accuracy: 52.39%
+2024-12-09 01:35:46,694 - INFO - Progress: 48.87% (21100/43173)
+2024-12-09 01:35:48,523 - INFO - Progress: 49.10% (21200/43173)
+2024-12-09 01:35:50,401 - INFO - Progress: 49.34% (21300/43173)
+2024-12-09 01:35:52,299 - INFO - Progress: 49.57% (21400/43173)
+2024-12-09 01:35:54,283 - INFO - Progress: 49.80% (21500/43173)
+2024-12-09 01:35:56,030 - INFO - Progress: 50.03% (21600/43173)
+2024-12-09 01:35:57,885 - INFO - Progress: 50.26% (21700/43173)
+2024-12-09 01:35:59,704 - INFO - Progress: 50.49% (21800/43173)
+2024-12-09 01:36:01,501 - INFO - Progress: 50.73% (21900/43173)
+2024-12-09 01:36:03,519 - INFO - Progress: 50.96% (22000/43173)
+2024-12-09 01:36:03,536 - INFO - 
+Sample prediction 22000:
+2024-12-09 01:36:03,536 - INFO - True type: primitive int64_t
+2024-12-09 01:36:03,536 - INFO - Predicted types: ['primitive uint64_t', 'primitive int64_t', 'name "off64_', 'primitive bool', 'name "off_t']
+2024-12-09 01:36:03,536 - INFO - Current Top-1 Accuracy: 52.42%
+2024-12-09 01:36:05,323 - INFO - Progress: 51.19% (22100/43173)
+2024-12-09 01:36:07,143 - INFO - Progress: 51.42% (22200/43173)
+2024-12-09 01:36:08,914 - INFO - Progress: 51.65% (22300/43173)
+2024-12-09 01:36:10,727 - INFO - Progress: 51.88% (22400/43173)
+2024-12-09 01:36:12,487 - INFO - Progress: 52.12% (22500/43173)
+2024-12-09 01:36:14,363 - INFO - Progress: 52.35% (22600/43173)
+2024-12-09 01:36:16,231 - INFO - Progress: 52.58% (22700/43173)
+2024-12-09 01:36:18,120 - INFO - Progress: 52.81% (22800/43173)
+2024-12-09 01:36:20,004 - INFO - Progress: 53.04% (22900/43173)
+2024-12-09 01:36:21,829 - INFO - Progress: 53.27% (23000/43173)
+2024-12-09 01:36:21,847 - INFO - 
+Sample prediction 23000:
+2024-12-09 01:36:21,847 - INFO - True type: primitive int32_t
+2024-12-09 01:36:21,847 - INFO - Predicted types: ['primitive int32_t', 'enum primitive uint32_', 'pointer struct', 'primitive uint32_t', 'name "size_t']
+2024-12-09 01:36:21,847 - INFO - Current Top-1 Accuracy: 52.33%
+2024-12-09 01:36:23,678 - INFO - Progress: 53.51% (23100/43173)
+2024-12-09 01:36:25,618 - INFO - Progress: 53.74% (23200/43173)
+2024-12-09 01:36:27,424 - INFO - Progress: 53.97% (23300/43173)
+2024-12-09 01:36:29,330 - INFO - Progress: 54.20% (23400/43173)
+2024-12-09 01:36:31,052 - INFO - Progress: 54.43% (23500/43173)
+2024-12-09 01:36:32,899 - INFO - Progress: 54.66% (23600/43173)
+2024-12-09 01:36:34,728 - INFO - Progress: 54.90% (23700/43173)
+2024-12-09 01:36:36,520 - INFO - Progress: 55.13% (23800/43173)
+2024-12-09 01:36:38,412 - INFO - Progress: 55.36% (23900/43173)
+2024-12-09 01:36:40,202 - INFO - Progress: 55.59% (24000/43173)
+2024-12-09 01:36:40,214 - INFO - 
+Sample prediction 24000:
+2024-12-09 01:36:40,214 - INFO - True type: pointer const union
+2024-12-09 01:36:40,215 - INFO - Predicted types: ['primitive int32_t', 'pointer struct', 'primitive uint32_t', 'pointer const primitive char', 'name "size_t']
+2024-12-09 01:36:40,215 - INFO - Current Top-1 Accuracy: 52.26%
+2024-12-09 01:36:42,177 - INFO - Progress: 55.82% (24100/43173)
+2024-12-09 01:36:44,026 - INFO - Progress: 56.05% (24200/43173)
+2024-12-09 01:36:45,886 - INFO - Progress: 56.29% (24300/43173)
+2024-12-09 01:36:47,895 - INFO - Progress: 56.52% (24400/43173)
+2024-12-09 01:36:49,763 - INFO - Progress: 56.75% (24500/43173)
+2024-12-09 01:36:51,546 - INFO - Progress: 56.98% (24600/43173)
+2024-12-09 01:36:53,347 - INFO - Progress: 57.21% (24700/43173)
+2024-12-09 01:36:55,229 - INFO - Progress: 57.44% (24800/43173)
+2024-12-09 01:36:57,045 - INFO - Progress: 57.67% (24900/43173)
+2024-12-09 01:36:58,859 - INFO - Progress: 57.91% (25000/43173)
+2024-12-09 01:36:58,877 - INFO - 
+Sample prediction 25000:
+2024-12-09 01:36:58,877 - INFO - True type: pointer const union
+2024-12-09 01:36:58,877 - INFO - Predicted types: ['pointer struct', 'primitive int32_t', 'pointer unknown', 'pointer class', 'name "size_t']
+2024-12-09 01:36:58,877 - INFO - Current Top-1 Accuracy: 52.23%
+2024-12-09 01:37:00,661 - INFO - Progress: 58.14% (25100/43173)
+2024-12-09 01:37:02,494 - INFO - Progress: 58.37% (25200/43173)
+2024-12-09 01:37:04,374 - INFO - Progress: 58.60% (25300/43173)
+2024-12-09 01:37:06,300 - INFO - Progress: 58.83% (25400/43173)
+2024-12-09 01:37:08,103 - INFO - Progress: 59.06% (25500/43173)
+2024-12-09 01:37:09,893 - INFO - Progress: 59.30% (25600/43173)
+2024-12-09 01:37:11,771 - INFO - Progress: 59.53% (25700/43173)
+2024-12-09 01:37:13,757 - INFO - Progress: 59.76% (25800/43173)
+2024-12-09 01:37:15,655 - INFO - Progress: 59.99% (25900/43173)
+2024-12-09 01:37:17,421 - INFO - Progress: 60.22% (26000/43173)
+2024-12-09 01:37:17,452 - INFO - 
+Sample prediction 26000:
+2024-12-09 01:37:17,452 - INFO - True type: primitive int32_t
+2024-12-09 01:37:17,452 - INFO - Predicted types: ['primitive int32_t', 'pointer struct', 'pointer primitive char', 'enum primitive uint32_', 'primitive uint32_t']
+2024-12-09 01:37:17,452 - INFO - Current Top-1 Accuracy: 52.23%
+2024-12-09 01:37:19,312 - INFO - Progress: 60.45% (26100/43173)
+2024-12-09 01:37:21,103 - INFO - Progress: 60.69% (26200/43173)
+2024-12-09 01:37:22,940 - INFO - Progress: 60.92% (26300/43173)
+2024-12-09 01:37:24,733 - INFO - Progress: 61.15% (26400/43173)
+2024-12-09 01:37:26,528 - INFO - Progress: 61.38% (26500/43173)
+2024-12-09 01:37:28,270 - INFO - Progress: 61.61% (26600/43173)
+2024-12-09 01:37:30,114 - INFO - Progress: 61.84% (26700/43173)
+2024-12-09 01:37:31,891 - INFO - Progress: 62.08% (26800/43173)
+2024-12-09 01:37:33,916 - INFO - Progress: 62.31% (26900/43173)
+2024-12-09 01:37:35,801 - INFO - Progress: 62.54% (27000/43173)
+2024-12-09 01:37:35,819 - INFO - 
+Sample prediction 27000:
+2024-12-09 01:37:35,819 - INFO - True type: primitive float64_t
+2024-12-09 01:37:35,819 - INFO - Predicted types: ['primitive float64_t', 'name "off_t', 'float64_t', 'pointer primitive float64_', 'name "size_t']
+2024-12-09 01:37:35,819 - INFO - Current Top-1 Accuracy: 52.19%
+2024-12-09 01:37:37,549 - INFO - Progress: 62.77% (27100/43173)
+2024-12-09 01:37:39,331 - INFO - Progress: 63.00% (27200/43173)
+2024-12-09 01:37:41,100 - INFO - Progress: 63.23% (27300/43173)
+2024-12-09 01:37:42,990 - INFO - Progress: 63.47% (27400/43173)
+2024-12-09 01:37:44,785 - INFO - Progress: 63.70% (27500/43173)
+2024-12-09 01:37:46,608 - INFO - Progress: 63.93% (27600/43173)
+2024-12-09 01:37:48,395 - INFO - Progress: 64.16% (27700/43173)
+2024-12-09 01:37:50,233 - INFO - Progress: 64.39% (27800/43173)
+2024-12-09 01:37:52,075 - INFO - Progress: 64.62% (27900/43173)
+2024-12-09 01:37:54,024 - INFO - Progress: 64.86% (28000/43173)
+2024-12-09 01:37:54,046 - INFO - 
+Sample prediction 28000:
+2024-12-09 01:37:54,046 - INFO - True type: primitive int32_t
+2024-12-09 01:37:54,046 - INFO - Predicted types: ['primitive int32_t', 'primitive uint32_t', 'name "ssize_', 'name "size_t', 'name "YY_BU']
+2024-12-09 01:37:54,046 - INFO - Current Top-1 Accuracy: 52.22%
+2024-12-09 01:37:56,022 - INFO - Progress: 65.09% (28100/43173)
+2024-12-09 01:37:57,901 - INFO - Progress: 65.32% (28200/43173)
+2024-12-09 01:37:59,828 - INFO - Progress: 65.55% (28300/43173)
+2024-12-09 01:38:01,689 - INFO - Progress: 65.78% (28400/43173)
+2024-12-09 01:38:03,513 - INFO - Progress: 66.01% (28500/43173)
+2024-12-09 01:38:05,355 - INFO - Progress: 66.25% (28600/43173)
+2024-12-09 01:38:07,207 - INFO - Progress: 66.48% (28700/43173)
+2024-12-09 01:38:09,019 - INFO - Progress: 66.71% (28800/43173)
+2024-12-09 01:38:10,749 - INFO - Progress: 66.94% (28900/43173)
+2024-12-09 01:38:12,611 - INFO - Progress: 67.17% (29000/43173)
+2024-12-09 01:38:12,629 - INFO - 
+Sample prediction 29000:
+2024-12-09 01:38:12,629 - INFO - True type: primitive int32_t
+2024-12-09 01:38:12,629 - INFO - Predicted types: ['primitive int32_t', 'primitive bool', 'enum primitive uint32_', 'primitive uint32_t', 'name "size_t']
+2024-12-09 01:38:12,629 - INFO - Current Top-1 Accuracy: 52.21%
+2024-12-09 01:38:14,555 - INFO - Progress: 67.40% (29100/43173)
+2024-12-09 01:38:16,306 - INFO - Progress: 67.63% (29200/43173)
+2024-12-09 01:38:18,122 - INFO - Progress: 67.87% (29300/43173)
+2024-12-09 01:38:19,835 - INFO - Progress: 68.10% (29400/43173)
+2024-12-09 01:38:21,630 - INFO - Progress: 68.33% (29500/43173)
+2024-12-09 01:38:23,452 - INFO - Progress: 68.56% (29600/43173)
+2024-12-09 01:38:25,283 - INFO - Progress: 68.79% (29700/43173)
+2024-12-09 01:38:27,107 - INFO - Progress: 69.02% (29800/43173)
+2024-12-09 01:38:28,970 - INFO - Progress: 69.26% (29900/43173)
+2024-12-09 01:38:30,764 - INFO - Progress: 69.49% (30000/43173)
+2024-12-09 01:38:30,781 - INFO - 
+Sample prediction 30000:
+2024-12-09 01:38:30,781 - INFO - True type: primitive int32_t
+2024-12-09 01:38:30,781 - INFO - Predicted types: ['primitive int32_t', 'primitive bool', 'pointer struct', 'enum primitive uint32_', 'name "size_t']
+2024-12-09 01:38:30,781 - INFO - Current Top-1 Accuracy: 52.16%
+2024-12-09 01:38:32,601 - INFO - Progress: 69.72% (30100/43173)
+2024-12-09 01:38:34,462 - INFO - Progress: 69.95% (30200/43173)
+2024-12-09 01:38:36,206 - INFO - Progress: 70.18% (30300/43173)
+2024-12-09 01:38:37,936 - INFO - Progress: 70.41% (30400/43173)
+2024-12-09 01:38:39,788 - INFO - Progress: 70.65% (30500/43173)
+2024-12-09 01:38:41,684 - INFO - Progress: 70.88% (30600/43173)
+2024-12-09 01:38:43,595 - INFO - Progress: 71.11% (30700/43173)
+2024-12-09 01:38:45,510 - INFO - Progress: 71.34% (30800/43173)
+2024-12-09 01:38:47,331 - INFO - Progress: 71.57% (30900/43173)
+2024-12-09 01:38:49,203 - INFO - Progress: 71.80% (31000/43173)
+2024-12-09 01:38:49,231 - INFO - 
+Sample prediction 31000:
+2024-12-09 01:38:49,231 - INFO - True type: primitive bool
+2024-12-09 01:38:49,231 - INFO - Predicted types: ['primitive int32_t', 'primitive bool', 'primitive uint32_t', 'enum primitive uint32_', 'primitive uint8_t']
+2024-12-09 01:38:49,231 - INFO - Current Top-1 Accuracy: 52.16%
+2024-12-09 01:38:51,104 - INFO - Progress: 72.04% (31100/43173)
+2024-12-09 01:38:52,906 - INFO - Progress: 72.27% (31200/43173)
+2024-12-09 01:38:54,677 - INFO - Progress: 72.50% (31300/43173)
+2024-12-09 01:38:56,467 - INFO - Progress: 72.73% (31400/43173)
+2024-12-09 01:38:58,239 - INFO - Progress: 72.96% (31500/43173)
+2024-12-09 01:39:00,157 - INFO - Progress: 73.19% (31600/43173)
+2024-12-09 01:39:01,889 - INFO - Progress: 73.43% (31700/43173)
+2024-12-09 01:39:03,665 - INFO - Progress: 73.66% (31800/43173)
+2024-12-09 01:39:05,576 - INFO - Progress: 73.89% (31900/43173)
+2024-12-09 01:39:07,487 - INFO - Progress: 74.12% (32000/43173)
+2024-12-09 01:39:07,510 - INFO - 
+Sample prediction 32000:
+2024-12-09 01:39:07,510 - INFO - True type: enum primitive uint32_t
+2024-12-09 01:39:07,510 - INFO - Predicted types: ['primitive int32_t', 'enum primitive uint32_', 'primitive bool', 'primitive uint32_t', 'pointer struct']
+2024-12-09 01:39:07,510 - INFO - Current Top-1 Accuracy: 52.10%
+2024-12-09 01:39:09,349 - INFO - Progress: 74.35% (32100/43173)
+2024-12-09 01:39:11,156 - INFO - Progress: 74.58% (32200/43173)
+2024-12-09 01:39:12,914 - INFO - Progress: 74.82% (32300/43173)
+2024-12-09 01:39:14,725 - INFO - Progress: 75.05% (32400/43173)
+2024-12-09 01:39:16,467 - INFO - Progress: 75.28% (32500/43173)
+2024-12-09 01:39:18,423 - INFO - Progress: 75.51% (32600/43173)
+2024-12-09 01:39:20,324 - INFO - Progress: 75.74% (32700/43173)
+2024-12-09 01:39:22,079 - INFO - Progress: 75.97% (32800/43173)
+2024-12-09 01:39:23,873 - INFO - Progress: 76.21% (32900/43173)
+2024-12-09 01:39:25,632 - INFO - Progress: 76.44% (33000/43173)
+2024-12-09 01:39:25,650 - INFO - 
+Sample prediction 33000:
+2024-12-09 01:39:25,650 - INFO - True type: primitive float32_t
+2024-12-09 01:39:25,651 - INFO - Predicted types: ['primitive float32_t', 'enum primitive float32_', 'name "size_t', 'pointer primitive float32_', 'class']
+2024-12-09 01:39:25,651 - INFO - Current Top-1 Accuracy: 52.03%
+2024-12-09 01:39:27,496 - INFO - Progress: 76.67% (33100/43173)
+2024-12-09 01:39:29,436 - INFO - Progress: 76.90% (33200/43173)
+2024-12-09 01:39:31,301 - INFO - Progress: 77.13% (33300/43173)
+2024-12-09 01:39:33,127 - INFO - Progress: 77.36% (33400/43173)
+2024-12-09 01:39:34,888 - INFO - Progress: 77.59% (33500/43173)
+2024-12-09 01:39:36,663 - INFO - Progress: 77.83% (33600/43173)
+2024-12-09 01:39:38,434 - INFO - Progress: 78.06% (33700/43173)
+2024-12-09 01:39:40,256 - INFO - Progress: 78.29% (33800/43173)
+2024-12-09 01:39:42,111 - INFO - Progress: 78.52% (33900/43173)
+2024-12-09 01:39:43,893 - INFO - Progress: 78.75% (34000/43173)
+2024-12-09 01:39:43,909 - INFO - 
+Sample prediction 34000:
+2024-12-09 01:39:43,910 - INFO - True type: pointer class
+2024-12-09 01:39:43,910 - INFO - Predicted types: ['pointer class', 'pointer struct', 'pointer pointer class', 'pointer const struct', 'pointer name "allocator']
+2024-12-09 01:39:43,910 - INFO - Current Top-1 Accuracy: 52.03%
+2024-12-09 01:39:45,895 - INFO - Progress: 78.98% (34100/43173)
+2024-12-09 01:39:47,712 - INFO - Progress: 79.22% (34200/43173)
+2024-12-09 01:39:49,520 - INFO - Progress: 79.45% (34300/43173)
+2024-12-09 01:39:51,314 - INFO - Progress: 79.68% (34400/43173)
+2024-12-09 01:39:53,119 - INFO - Progress: 79.91% (34500/43173)
+2024-12-09 01:39:54,900 - INFO - Progress: 80.14% (34600/43173)
+2024-12-09 01:39:56,706 - INFO - Progress: 80.37% (34700/43173)
+2024-12-09 01:39:58,632 - INFO - Progress: 80.61% (34800/43173)
+2024-12-09 01:40:00,452 - INFO - Progress: 80.84% (34900/43173)
+2024-12-09 01:40:02,374 - INFO - Progress: 81.07% (35000/43173)
+2024-12-09 01:40:02,391 - INFO - 
+Sample prediction 35000:
+2024-12-09 01:40:02,391 - INFO - True type: primitive int32_t
+2024-12-09 01:40:02,392 - INFO - Predicted types: ['primitive uint8_t', 'primitive int32_t', 'primitive uint32_t', 'name "byte" primitive', 'primitive bool']
+2024-12-09 01:40:02,392 - INFO - Current Top-1 Accuracy: 51.97%
+2024-12-09 01:40:04,145 - INFO - Progress: 81.30% (35100/43173)
+2024-12-09 01:40:05,884 - INFO - Progress: 81.53% (35200/43173)
+2024-12-09 01:40:07,715 - INFO - Progress: 81.76% (35300/43173)
+2024-12-09 01:40:09,590 - INFO - Progress: 82.00% (35400/43173)
+2024-12-09 01:40:11,407 - INFO - Progress: 82.23% (35500/43173)
+2024-12-09 01:40:13,274 - INFO - Progress: 82.46% (35600/43173)
+2024-12-09 01:40:15,030 - INFO - Progress: 82.69% (35700/43173)
+2024-12-09 01:40:16,877 - INFO - Progress: 82.92% (35800/43173)
+2024-12-09 01:40:18,731 - INFO - Progress: 83.15% (35900/43173)
+2024-12-09 01:40:20,405 - INFO - Progress: 83.39% (36000/43173)
+2024-12-09 01:40:20,421 - INFO - 
+Sample prediction 36000:
+2024-12-09 01:40:20,421 - INFO - True type: primitive int32_t
+2024-12-09 01:40:20,421 - INFO - Predicted types: ['primitive int32_t', 'enum primitive uint32_', 'pointer struct', 'pointer primitive char', 'primitive uint32_t']
+2024-12-09 01:40:20,421 - INFO - Current Top-1 Accuracy: 51.92%
+2024-12-09 01:40:22,263 - INFO - Progress: 83.62% (36100/43173)
+2024-12-09 01:40:23,986 - INFO - Progress: 83.85% (36200/43173)
+2024-12-09 01:40:25,855 - INFO - Progress: 84.08% (36300/43173)
+2024-12-09 01:40:27,637 - INFO - Progress: 84.31% (36400/43173)
+2024-12-09 01:40:29,543 - INFO - Progress: 84.54% (36500/43173)
+2024-12-09 01:40:31,417 - INFO - Progress: 84.78% (36600/43173)
+2024-12-09 01:40:33,288 - INFO - Progress: 85.01% (36700/43173)
+2024-12-09 01:40:35,076 - INFO - Progress: 85.24% (36800/43173)
+2024-12-09 01:40:36,965 - INFO - Progress: 85.47% (36900/43173)
+2024-12-09 01:40:38,868 - INFO - Progress: 85.70% (37000/43173)
+2024-12-09 01:40:38,886 - INFO - 
+Sample prediction 37000:
+2024-12-09 01:40:38,886 - INFO - True type: primitive int64_t
+2024-12-09 01:40:38,886 - INFO - Predicted types: ['primitive uint64_t', 'primitive int64_t', 'name "off64_', 'primitive bool', 'name "off_t']
+2024-12-09 01:40:38,886 - INFO - Current Top-1 Accuracy: 51.91%
+2024-12-09 01:40:40,744 - INFO - Progress: 85.93% (37100/43173)
+2024-12-09 01:40:42,459 - INFO - Progress: 86.16% (37200/43173)
+2024-12-09 01:40:44,231 - INFO - Progress: 86.40% (37300/43173)
+2024-12-09 01:40:46,084 - INFO - Progress: 86.63% (37400/43173)
+2024-12-09 01:40:48,048 - INFO - Progress: 86.86% (37500/43173)
+2024-12-09 01:40:49,815 - INFO - Progress: 87.09% (37600/43173)
+2024-12-09 01:40:51,671 - INFO - Progress: 87.32% (37700/43173)
+2024-12-09 01:40:53,639 - INFO - Progress: 87.55% (37800/43173)
+2024-12-09 01:40:55,471 - INFO - Progress: 87.79% (37900/43173)
+2024-12-09 01:40:57,337 - INFO - Progress: 88.02% (38000/43173)
+2024-12-09 01:40:57,354 - INFO - 
+Sample prediction 38000:
+2024-12-09 01:40:57,354 - INFO - True type: primitive int32_t
+2024-12-09 01:40:57,354 - INFO - Predicted types: ['primitive int32_t', 'pointer struct', 'primitive uint32_t', 'pointer primitive char', 'pointer unknown']
+2024-12-09 01:40:57,354 - INFO - Current Top-1 Accuracy: 51.96%
+2024-12-09 01:40:59,233 - INFO - Progress: 88.25% (38100/43173)
+2024-12-09 01:41:00,991 - INFO - Progress: 88.48% (38200/43173)
+2024-12-09 01:41:02,761 - INFO - Progress: 88.71% (38300/43173)
+2024-12-09 01:41:04,583 - INFO - Progress: 88.94% (38400/43173)
+2024-12-09 01:41:06,454 - INFO - Progress: 89.18% (38500/43173)
+2024-12-09 01:41:08,339 - INFO - Progress: 89.41% (38600/43173)
+2024-12-09 01:41:10,031 - INFO - Progress: 89.64% (38700/43173)
+2024-12-09 01:41:12,005 - INFO - Progress: 89.87% (38800/43173)
+2024-12-09 01:41:13,786 - INFO - Progress: 90.10% (38900/43173)
+2024-12-09 01:41:15,710 - INFO - Progress: 90.33% (39000/43173)
+2024-12-09 01:41:15,727 - INFO - 
+Sample prediction 39000:
+2024-12-09 01:41:15,727 - INFO - True type: pointer primitive char
+2024-12-09 01:41:15,727 - INFO - Predicted types: ['pointer primitive char', 'primitive int32_t', 'pointer primitive uint8_', 'pointer struct', 'pointer const primitive char']
+2024-12-09 01:41:15,727 - INFO - Current Top-1 Accuracy: 51.95%
+2024-12-09 01:41:17,459 - INFO - Progress: 90.57% (39100/43173)
+2024-12-09 01:41:19,399 - INFO - Progress: 90.80% (39200/43173)
+2024-12-09 01:41:21,181 - INFO - Progress: 91.03% (39300/43173)
+2024-12-09 01:41:23,122 - INFO - Progress: 91.26% (39400/43173)
+2024-12-09 01:41:24,941 - INFO - Progress: 91.49% (39500/43173)
+2024-12-09 01:41:26,846 - INFO - Progress: 91.72% (39600/43173)
+2024-12-09 01:41:28,680 - INFO - Progress: 91.96% (39700/43173)
+2024-12-09 01:41:30,461 - INFO - Progress: 92.19% (39800/43173)
+2024-12-09 01:41:32,320 - INFO - Progress: 92.42% (39900/43173)
+2024-12-09 01:41:34,141 - INFO - Progress: 92.65% (40000/43173)
+2024-12-09 01:41:34,158 - INFO - 
+Sample prediction 40000:
+2024-12-09 01:41:34,158 - INFO - True type: primitive int64_t
+2024-12-09 01:41:34,158 - INFO - Predicted types: ['primitive uint64_t', 'primitive int64_t', 'name "off64_', 'primitive bool', 'primitive float64_t']
+2024-12-09 01:41:34,158 - INFO - Current Top-1 Accuracy: 51.96%
+2024-12-09 01:41:35,880 - INFO - Progress: 92.88% (40100/43173)
+2024-12-09 01:41:37,770 - INFO - Progress: 93.11% (40200/43173)
+2024-12-09 01:41:39,625 - INFO - Progress: 93.35% (40300/43173)
+2024-12-09 01:41:41,403 - INFO - Progress: 93.58% (40400/43173)
+2024-12-09 01:41:43,352 - INFO - Progress: 93.81% (40500/43173)
+2024-12-09 01:41:45,162 - INFO - Progress: 94.04% (40600/43173)
+2024-12-09 01:41:47,040 - INFO - Progress: 94.27% (40700/43173)
+2024-12-09 01:41:48,948 - INFO - Progress: 94.50% (40800/43173)
+2024-12-09 01:41:50,862 - INFO - Progress: 94.74% (40900/43173)
+2024-12-09 01:41:52,665 - INFO - Progress: 94.97% (41000/43173)
+2024-12-09 01:41:52,735 - INFO - 
+Sample prediction 41000:
+2024-12-09 01:41:52,735 - INFO - True type: primitive int32_t
+2024-12-09 01:41:52,735 - INFO - Predicted types: ['Predict type for WebAssembly code:', 'Predict type for WebAssembly code:', 'Predict type for WebAssembly code:', 'Predict type for WebAssembly code:', 'Predict type for WebAssembly code:']
+2024-12-09 01:41:52,735 - INFO - Current Top-1 Accuracy: 51.98%
+2024-12-09 01:41:54,530 - INFO - Progress: 95.20% (41100/43173)
+2024-12-09 01:41:56,315 - INFO - Progress: 95.43% (41200/43173)
+2024-12-09 01:41:58,150 - INFO - Progress: 95.66% (41300/43173)
+2024-12-09 01:41:59,907 - INFO - Progress: 95.89% (41400/43173)
+2024-12-09 01:42:01,763 - INFO - Progress: 96.12% (41500/43173)
+2024-12-09 01:42:03,583 - INFO - Progress: 96.36% (41600/43173)
+2024-12-09 01:42:05,404 - INFO - Progress: 96.59% (41700/43173)
+2024-12-09 01:42:07,201 - INFO - Progress: 96.82% (41800/43173)
+2024-12-09 01:42:09,039 - INFO - Progress: 97.05% (41900/43173)
+2024-12-09 01:42:10,820 - INFO - Progress: 97.28% (42000/43173)
+2024-12-09 01:42:10,837 - INFO - 
+Sample prediction 42000:
+2024-12-09 01:42:10,838 - INFO - True type: primitive int64_t
+2024-12-09 01:42:10,838 - INFO - Predicted types: ['primitive uint64_t', 'primitive int64_t', 'name "off64_', 'name "off_t', 'primitive bool']
+2024-12-09 01:42:10,838 - INFO - Current Top-1 Accuracy: 51.97%
+2024-12-09 01:42:12,687 - INFO - Progress: 97.51% (42100/43173)
+2024-12-09 01:42:14,522 - INFO - Progress: 97.75% (42200/43173)
+2024-12-09 01:42:16,375 - INFO - Progress: 97.98% (42300/43173)
+2024-12-09 01:42:18,258 - INFO - Progress: 98.21% (42400/43173)
+2024-12-09 01:42:20,033 - INFO - Progress: 98.44% (42500/43173)
+2024-12-09 01:42:21,837 - INFO - Progress: 98.67% (42600/43173)
+2024-12-09 01:42:23,820 - INFO - Progress: 98.90% (42700/43173)
+2024-12-09 01:42:25,666 - INFO - Progress: 99.14% (42800/43173)
+2024-12-09 01:42:27,521 - INFO - Progress: 99.37% (42900/43173)
+2024-12-09 01:42:29,364 - INFO - Progress: 99.60% (43000/43173)
+2024-12-09 01:42:29,381 - INFO - 
+Sample prediction 43000:
+2024-12-09 01:42:29,381 - INFO - True type: primitive int32_t
+2024-12-09 01:42:29,381 - INFO - Predicted types: ['primitive int32_t', 'enum primitive uint32_', 'primitive uint32_t', 'primitive bool', 'pointer struct']
+2024-12-09 01:42:29,381 - INFO - Current Top-1 Accuracy: 52.03%
+2024-12-09 01:42:31,124 - INFO - Progress: 99.83% (43100/43173)
+2024-12-09 01:42:32,443 - INFO - 
+Evaluation Results:
+2024-12-09 01:42:32,443 - INFO - Total examples processed: 43173
+2024-12-09 01:42:32,443 - INFO - Top-1 Accuracy: 52.00%
+2024-12-09 01:42:32,443 - INFO - Top-5 Accuracy: 76.66%
+2024-12-09 01:42:32,443 - INFO - Number of errors: 0
+2024-12-09 01:42:32,443 - INFO - Sequences requiring truncation: 162
+2024-12-09 01:42:32,443 - INFO - Detailed results saved to: evaluation_results/detailed_results_20241209_012919.txt
